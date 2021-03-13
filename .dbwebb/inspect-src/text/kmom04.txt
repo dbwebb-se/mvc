@@ -1,0 +1,13 @@
+Låt se hur kmom04 föll ut.
+
+Jag tittar främst på din module och hur du integrerat den i me/redovisa och hur du städat upp i me/redovisa.
+
+Jag kikar på dina taggar och commits så att det ser ordnat ut.
+
+Jag läser igenom redovisningstexten och vill gärna se en väl formulerad sådan.
+
+Avslutningsvis kollar jag in din väderapplikation och ditt REST API och ser att det fungerar som tidigare.
+
+Kämpa på, gott jobbat så här långt.
+
+$TEACHER_SIGNATURE

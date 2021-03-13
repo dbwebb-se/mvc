@@ -1,0 +1,18 @@
+Välkommen till kursen ramverk1!
+
+Jag kollade snabbt igenom din inlämning så att alla saker ligger på rätt plats och att filerna validerar.
+
+Jag kollade igenom din redovisningstext (via studentservern) så att allt såg bra ut.
+
+Jag kikade på din GitHub och såg att sakerna fanns på plats och jag tittade en extra gång på dina commits och taggar.
+
+Jag kollade in din för IP-valideringen och såg att den motsvarar kraven och att jag kunde se både webb-delen och REST-delen.
+
+Jag körde också igenom din 'make test' för att kika på din kodtäckning och hur många testfall du har.
+
+Kör på.
+
+$TEACHER_SIGNATURE
+
+PS. Glöm inte att fråga i GitHub issues för mer utförliga svar på funderingar eller för feedback på kod och lösningar.
+https://github.com/dbwebb-se/ramverk1/issues

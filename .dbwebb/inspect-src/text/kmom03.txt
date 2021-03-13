@@ -1,0 +1,13 @@
+Vi kör på med kmom03...
+
+Jag tar din kod och kollar make test (använder din allra senaste tag), kikar med ett öga på kodtäckning och vilka klasser du har, dina taggar och commits samt ditt repo på GitHub.
+
+Jag vill gärna se minst 3 taggar och ett trettiotal commits samt enhetstester som fungerar och passerar. Ordning och reda vore fint.
+
+Jag läser igenom redovisningstexten och vill gärna se en välformulerad och strukturerad sådan.
+
+Avslutningsvis kollar jag in din väderapplikation och ditt REST API.
+
+Kämpa på.
+
+$TEACHER_SIGNATURE

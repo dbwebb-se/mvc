@@ -1,0 +1,18 @@
+Då tar vi kmom02.
+
+Jag läser igenom din redovisningstext så att den håller måttet.
+
+Jag kollar in taggar och committs på ditt repo.
+
+Jag körde igenom din 'make test' för att kika på kodtäckning och antal testfall.
+
+Sedan testar jag geotaggningen av webbtjänster för att se att den motsvarar kraven för både webb-delen och REST-delen.
+
+Gott kämpat, kör på.
+
+$TEACHER_SIGNATURE
+
+PS. Jag tar tillfället i akt att åter påminna om möjligheten att ställa frågor i GitHub issues, eller bara kika på de bekymmer som dina medstudenter har haft.
+https://github.com/dbwebb-se/ramverk1/issues
+
+Det går också att klicka på "Watch" så får du alltid mail när något uppdateras.

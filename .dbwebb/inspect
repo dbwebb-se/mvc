@@ -1,0 +1,97 @@
+#
+# Inspect, tools to inspect a kmom.
+#
+# Usage: dbwebb inspect kmom01
+#
+# Sequence executed:
+# mvc(), mvckmom01(), mvclast()
+#
+
+
+
+#
+# Test mvc general, always executed first
+#
+mvc()
+{
+    inspectIntro
+}
+
+
+
+#
+# Test general, always executed last in sequence
+#
+mvclast()
+{
+    :
+}
+
+
+
+#
+# Test mvc kmom01
+#
+mvckmom01()
+{
+    :
+}
+
+
+
+#
+# Test mvc kmom02
+#
+mvckmom02()
+{
+    :
+}
+
+
+
+#
+# Test mvc kmom03
+#
+mvckmom03()
+{
+    :
+}
+
+
+
+#
+# Test mvc kmom04
+#
+mvckmom04()
+{
+    :
+}
+
+
+#
+# Test mvc kmom05
+#
+mvckmom05()
+{
+    :
+}
+
+
+
+#
+# Test mvc kmom06
+#
+mvckmom06()
+{
+    :
+}
+
+
+
+#
+# Test mvc kmom10
+#
+mvckmom10()
+{
+    :
+}
