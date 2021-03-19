@@ -331,9 +331,15 @@ webstorage?)
 
 Eller enbart skriva rapport?
 
+ALT. Kodkvalitet.
+Föreläsning 3xkodkvalitet?
+Scrutinizer
+Rapport kodkvalitet?
+Verktyg för att visualiser kodstatistik (php)
 
 ## Kmom0X Projekt
 
 Adventurespel
 Blog ala Wordpress
+Instagram
 inklusive rapport

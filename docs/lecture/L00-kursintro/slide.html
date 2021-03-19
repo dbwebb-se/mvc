@@ -1,0 +1,356 @@
+<!doctype html>
+<html class="theme-5">
+<meta charset="utf-8" />
+<link href="../html-slideshow.bundle.min.css" rel="stylesheet" />
+<link href="../style.css" rel="stylesheet" />
+<script src="https://dbwebb.se/cdn/js/html-slideshow_v1.1.0.bundle.min.js"></script>
+
+<title>Kursen mvc</title>
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Kursen mvc
+## Introduktion till kursen
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Agenda
+
+* Kursformalia
+* Innehåll
+* Labbmiljö
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Hitta kursmaterialet
+
+* Gå in på Canvas och klicka på länkarna
+* Gå till https://dbwebb.se/mvc
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Översikt av kursen
+
+* https://dbwebb.se/mvc
+
+Läs igenom den så att du har koll. Det är din innehållsförteckning till kursen.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html" class="titlepage center">
+# Kursformalia
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursnamn och kod
+
+* DV1605 Webbprogrammering och databaser, 10hp
+* DV1606 Databasteknologier för webben, 7,5hp
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Förkunskaper
+
+> Genomgångna kurser motsvarande 15hp programmering och/eller webbteknologier.
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Innehåll
+
+* Databasteknik
+* Relationsmodellen
+* Databasmodellering (ER)
+* SQL
+* Lagrade procedurer, funktioner, index
+* Applikationsprogrammering med JavaScript och webbramverk
+* Verktyg och tekniker
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kurslitteratur
+
+* Databasteknik – Radron-McCarthy och Risch
+* Speaking JavaScript: An In-Depth Guide for Programmers – Axel Rauschmayer
+* Exploring ES6 – Axel Rauschmayer
+
+<p class="footnote">Läsanvisningar finns i varje kmom.</p>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Planering
+
+* Rekommenderad studieplan
+    * dbwebb.se/databas/studieplan
+* Lektionsplan
+    * dbwebb.se/databas/lektionsplan
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Läromaterial
+
+* Canvas
+* dbwebb.se
+* Kursrepo GitHub
+* Discord
+* Zoom
+* YouTube
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Vem går kursen?
+
+* SE (Software Engineering 180hp)
+* WEB (Webbprogrammering 180hp, 120hp distans)
+* KP (Kurspaket Webbprogrammering och databaser)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Intressenter
+
+* Studenter och lärarteamet
+* Programansvarig Webb och SE
+* Ansvarig kurspaketet
+* Institutionen för Datavetenskap
+* Utbildningsföreningen BITS
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ladok
+
+| Moment | Poäng | Betyg |
+|--------|-------|-------|
+| kmom01-02 | 2.5/3hp | UG |
+| kmom03-04 | 2.5/3hp | UG |
+| kmom05-10 | 2.5/4hp | FA |
+
+<p class="footnote">Kursens slutbetyg är enligt FA.</p>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Examination
+
+* Varje kmom lämnas in för kontroll
+    * Kmom03 - kmom06 omfattar implementation av en E-shop (grupp)
+* Individuell examination med programmeringstenta
+* (optionellt) Enskilt projekt med presentation (video)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursutvärdering och kursutveckling
+
+* BTH kursvärdering
+* Samla feedback på GitHub issue
+* Feedback i redovisningstexter
+* Avslutande kommentar om kursen
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Fusk och plagiering
+
+* Hjälp varandra men kopiera inte varandras kod
+* Titta gärna på kompisens lösning men skriv alltid din egen kod
+
+<p class="footnote">Allt misstänkt fusk anmäls.</p>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Övrigt
+
+* Denna kursen ligger som absolut förkunskapskrav till projektkurserna som kommer i år 2 (campus/SE).
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html" class="titlepage center">
+# Kursens innehåll
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Kursmoment
+
+* 01: Databas
+* 02: SQL
+* 03: ER-modellering
+* 04: Transaktioner
+* 05: Procedur och trigger
+* 06: Prestanda
+* 07/10: Projekt och examination
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Innehåll
+
+* Databaser med MySQL/MariaDB
+* SQL och programmera i databas
+* Modellering av databas
+* Klientprogram (terminal, workbench)
+* Applikationsspråk JavaScript i Node.js
+* Terminalklient i JavaScript mot databas.
+* Webbgränssnitt med Express och Node.js
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Ambitionen
+
+* Klassisk databasteknik med relationsbaserad databas
+* Aningen mindre klassisk teori
+* Betydligt mer applikationsintegration
+* Programmera inuti databasen
+* Hantera miljön kring databasen (användare, kopplingar)
+* Pilla med miljöerna och träna, om och om igen
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Senaste uppdateringar
+
+* Aningen tung kurs i vissa kmom
+    * Eventuellt justera omfattningen i några av kursmomenten
+* Eventuellt småfila och justera
+* I övrigt inga större uppdateringar planerade
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Farhågor
+
+* En hel del som skall göras i respektive kmom, lätt att hamna efter
+* Tålamod, ordning och reda, saker bygger på varandra - gör om och gör rätt
+* Ny på JavaScript, Node.js, asynkron programmering
+* Många tekniker, olika sätt jobba mot databasen (win, mac, linux, olika klienter och versioner)
+* Skillnader i Windows versus Linux (stora/små bokstäver)
+* Felsökning
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html" class="titlepage center">
+# Labbmiljö
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Labbmiljön
+
+* Kursrepot med exempelprogram
+* Terminal med Unix
+* MySQL Server
+* MySQL terminalklient (cmd, cygwin, wsl, macos, linux)
+* MySQL Workbench
+* JavaScript med Node.js, npm
+* Npm modul för koppling till mysql
+* Npm modul Express (webbramverk)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Labbmiljön strul
+
+* Ibland är det enklare att göra om och göra rätt
+* Som ett lämpligt alternativ till att felsöka och klura ut varför saker inte fungerar
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Felsökning
+
+* Läs felmeddelandet
+* Återskapa felet
+* Avgränsa till en fil/kodrad/kodkonstruktion
+* Prova kodkonstruktionen i "isolation"
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Handledning, hjälp
+
+* Tisdagarnas genomgång
+* Programmeringstorsdag
+* Discord
+* GitHub issues (forum)
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Avslutningsvis
+
+* Välkommen till en värld av databaser!
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+<!-- empty slide by intention -->
+</script>
