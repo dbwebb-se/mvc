@@ -231,7 +231,6 @@ View i MVC
 Uppgift:
 Tärning
 Grafisk tärning
-Histogram
 Tärningshand med stats
 Sida som kan kasta godtyckligt antal tärning, om och om igen, spara resultatet, visa histogram och statistik.
 
@@ -256,6 +255,8 @@ Coherence and Coupling
 
 Uppgift:
 Rita pseudocode och flowchart
+Histogram (med grafik via js...)
+Visa sannolikheten att man når ett visst värde. (egen klass)
 Spela 21 med två tärningar mot datorn. Lägg till betting.
 Spela Yatsy mot datorn
 

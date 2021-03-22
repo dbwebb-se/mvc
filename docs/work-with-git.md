@@ -3,6 +3,10 @@ Work with Git
 
 Here is a basic work flow when you work with Git and a master on GitHub or GitLab.
 
+You have installed Git and you have a existing repo available to play around with.
+
+You are working in a bash terminal.
+
 
 
 Quick reference
@@ -12,7 +16,7 @@ Lets start with an overview of some basic commands.
 
 | Command | What
 |---------|------
-| `git status` | Do a healthcheck and see how you local changes reflect to the current repo and its master.
+| `git status` | Do a health check and see how you local changes reflect to the current repo and its master.
 | `git add <filename>` | Add a specific file to the repo.
 | `git add .` | Add all files in the current directory.
 | `git commit -a -m "Message"` | Commit all `-a` changes to the repo and attach a commit message `-m "Message"`.
@@ -20,6 +24,8 @@ Lets start with an overview of some basic commands.
 | `git pull` | Update your local repo with and files changed on the master. Useful then updating the repo from several places.
 | `git tag -a v1.0.0 -m "Message"` | Add a tag to your repo and attach a tag message.
 | `git push --tags` | Push the tags to your master.
+| `git remote show origin` | Show details about your remote (GitLab/GitHub).
+
 
 The commands are further explained below.
 
@@ -34,13 +40,7 @@ GitHub and GitLab are two examples on websites that hosts git repos and provide 
 
 
 
-Precondition
---------------------------
-
-You have installed Git and you have a existing repo available to play around with.
-
-
-
+<!--
 Git Bash
 --------------------------
 
@@ -64,6 +64,7 @@ Here are som commands that are useful in a Unix terminal.
 | `more file.txt` | Show the content of the file and paginate its output.
 
 Try to open up Git Bash (or Terminal in MacOS or any Linux terminal) and play around with the commands above to see how they works.
+-->
 
 
 

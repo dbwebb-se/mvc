@@ -1,0 +1,15 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Mos\\": "src/"
+            "Dbwebb\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9",
+        "phpstan/phpstan": "^0.12"
+    }
+}
