@@ -6,7 +6,8 @@
 
 declare(strict_types=1);
 
-
+use Mos\Router\Router;
+use function Mos\Functions\getRoutePath;
 
 /**
  * Bootstrapping
@@ -30,6 +31,6 @@ require INSTALL_PATH . "/vendor/autoload.php";
  * Extract the path and route it to its handler.
  */
 $method = $_SERVER["REQUEST_METHOD"];
-$path   = Mos\getRoutePath();
+$path   = getRoutePath();
 
-Mos\Router\Router::dispatch($method, $path);
+Router::dispatch($method, $path);

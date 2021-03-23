@@ -6,7 +6,9 @@
 
 declare(strict_types=1);
 
-$url = Mos\url("/session/destroy");
+use function Mos\Functions\url;
+
+$url = url("/session/destroy");
 
 echo <<<EOD
 <h1>Session details</h1>

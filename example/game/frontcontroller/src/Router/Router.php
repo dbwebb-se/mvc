@@ -4,6 +4,14 @@ declare(strict_types=1);
 
 namespace Mos\Router;
 
+use function Mos\Functions\{
+    destroySession,
+    redirectTo,
+    renderView,
+    sendResponse,
+    url
+};
+
 /**
  * Class Router.
  */
@@ -17,32 +25,32 @@ class Router
                 "header" => "Index page",
                 "message" => "Hello, this is the index page, rendered as a layout.",
             ];
-            $body = \Mos\renderView("layout/page.php", $data);
-            \Mos\sendResponse($body);
+            $body = renderView("layout/page.php", $data);
+            sendResponse($body);
             return;
         } else if ($method === "GET" && $path === "/session") {
             // /session
-            $body = \Mos\renderView("layout/session.php");
-            \Mos\sendResponse($body);
+            $body = renderView("layout/session.php");
+            sendResponse($body);
             return;
         } else if ($method === "GET" && $path === "/session/destroy") {
             // /session/destroy
-            \Mos\destroySession();
-            \Mos\redirectTo(\Mos\url("/session"));
+            destroySession();
+            redirectTo(url("/session"));
             return;
         } else if ($method === "GET" && $path === "/debug") {
             // /debug
-            $body = \Mos\renderView("layout/debug.php");
-            \Mos\sendResponse($body);
+            $body = renderView("layout/debug.php");
+            sendResponse($body);
             return;
         } else if ($method === "GET" && $path === "/some/where") {
-            // /  slash, being the index page
+            // /some/where
             $data = [
                 "header" => "Rainbow page",
                 "message" => "Hey, edit this to do it youreself!",
             ];
-            $body = \Mos\renderView("layout/page.php", $data);
-            \Mos\sendResponse($body);
+            $body = renderView("layout/page.php", $data);
+            sendResponse($body);
             return;
         }
 
@@ -51,7 +59,7 @@ class Router
             "header" => "404",
             "message" => "The page you are requesting is not here. You may also checkout the HTTP response code, it should be 404.",
         ];
-        $body = \Mos\renderView("layout/page.php", $data);
-        \Mos\sendResponse($body, 404);
+        $body = renderView("layout/page.php", $data);
+        sendResponse($body, 404);
     }
 }

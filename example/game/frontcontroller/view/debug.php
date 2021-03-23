@@ -6,9 +6,15 @@
 
 declare(strict_types=1);
 
+use function Mos\Functions\{
+    getBaseUrl,
+    getCurrentUrl,
+    getRoutePath
+};
+
 echo "<h1>Debug details</h1>";
 
-var_dump(Mos\getBaseUrl());
-var_dump(Mos\getCurrentUrl());
-var_dump(Mos\getRoutePath());
+var_dump(getBaseUrl());
+var_dump(getCurrentUrl());
+var_dump(getRoutePath());
 var_dump($_SERVER);
