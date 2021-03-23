@@ -11,11 +11,11 @@
 
 <header>
     <nav>
-        <a href="<?= \Mos\url("/") ?>">Home</a> |
-        <a href="<?= \Mos\url("/session") ?>">Session</a> |
-        <a href="<?= \Mos\url("/debug") ?>">Debug</a> |
-        <a href="<?= \Mos\url("/some/where") ?>">some/where</a> |
-        <a href="<?= \Mos\url("/no/such/path") ?>">Show 404 example</a>
+        <a href="<?= Mos\url("/") ?>">Home</a> |
+        <a href="<?= Mos\url("/session") ?>">Session</a> |
+        <a href="<?= Mos\url("/debug") ?>">Debug</a> |
+        <a href="<?= Mos\url("/some/where") ?>">some/where</a> |
+        <a href="<?= Mos\url("/no/such/path") ?>">Show 404 example</a>
     </nav>
 </header>
 <main>

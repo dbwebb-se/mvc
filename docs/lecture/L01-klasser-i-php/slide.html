@@ -5,11 +5,11 @@
 <link href="../style.css" rel="stylesheet" />
 <script src="https://dbwebb.se/cdn/js/html-slideshow_v1.1.0.bundle.min.js"></script>
 
-<title>Kursen mvc</title>
+<title>Classes and Objects (PHP)</title>
 
 <script data-role="slide" type="text/html" data-markdown class="titlepage center">
-# Klasser i PHP
-## An example
+# Classes and Objects (PHP)
+## The basics
 ### Mikael Roos
 </script>
 
@@ -18,32 +18,460 @@
 <script data-role="slide" type="text/html" data-markdown>
 # Agenda
 
-* MVC
-* Vy
-* Klass
-* Hård typning
-* Namespace
+* Classes and objects
+* Properties and Methods
+* Class constant
 * Autoloader
-* Frontcontroller
-* htaccess
+* Constructor and Destructor
+* Visibility
+* Sessions
+* Namespace
+* Composer autoloader
 
-</script>
-
-
-
-<script data-role="slide" type="text/html" data-markdown class="titlepage center">
-# An example
-## Guess my number
 </script>
 
 
 
 <script data-role="slide" type="text/html" data-markdown>
-# Guess my number
+# A class
 
-* Pseudocode
-* Flowchart
-* Implement it
+* Define the structure by using `class`
+* A class is a template for objects created from it
+* An object intantiates a class
+* A class wraps methods and properties
+    * Methods - what can be done with the object of the class
+    * Properties - the "state" of the object
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# A class
+
+```
+class Person1
+{
+    public string $name;
+    public int $age;
+
+    public function details(): string {
+        return "My name is {$this->name}"
+            . " and I am {$this->age} years old.";
+    }
+}
+```
+
+<p class="footnote">A class is a template for all the objects instantiating it.</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# A class
+
+* The properties are individual for each object
+* Properites could also be called "member variables"
+* The methods are shared by all objects of a class
+* The construct `$this->propertyName` points to the current object
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# An object
+
+```
+// Instantiate an object
+$object = new Person1();
+
+// Set the properties of the object
+$object->age = 42;
+$object->name = "MegaMic";
+
+// Call the method of the object
+echo $object->details();
+
+// Debug and show the objects content
+var_dump($object);
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html" class="center">
+# Output
+<figure>
+    <img src="img/oophp20-person1.png" style="width: 60%">
+    <figcaption>The output from executing the code.</figcaption>
+</figure>
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Class and object
+
+> Object orientation focus on the object. What properties (values) does it have and what can be done with it (methods).
+
+* Its like a wrapper on a collection of functions and variables.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Properties
+
+* A variable of any type
+* Has a visibility of `public`, `protected` or `private`.
+
+```
+class Person1
+{
+    public string $name;
+    public int $age;
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Properties access
+
+* Public properties can be accessed by the user of the object
+* Private and protected are only for internal use
+
+```
+$object->age = 42;
+```
+
+* Within the class, use `$this->` to access property or method.
+
+```
+public function details(): string {
+    return "My name is {$this->name}"
+        . " and I am {$this->age} years old.";
+}
+```
+
+</script>
+
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Class constants
+
+```
+class MyClass
+{
+    const CONSTANT = 'constant value';
+
+    function showConstant() {
+        echo  self::CONSTANT . "\n";
+    }
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Class constants...
+
+```
+class MyClass
+{
+    const CONSTANT = 'constant value';
+
+    function showConstant() {
+        echo  self::CONSTANT . "\n";
+    }
+}
+
+echo MyClass::CONSTANT . "\n";
+
+$class = new MyClass();
+echo $class::CONSTANT."\n";
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Autoloader
+
+```
+spl_autoload_register(function ($class_name) {
+    include $class_name . '.php';
+});
+
+$obj  = new MyClass1();
+$obj2 = new MyClass2();
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Constructor
+
+```
+class Point {
+    protected int $x;
+    protected int $y;
+
+    public function __construct(int $x, int $y = 0): void {
+        $this->x = $x;
+        $this->y = $y;
+    }
+}
+
+$p1 = new Point(4, 5);
+$p2 = new Point(4);
+$p3 = new Point(y: 5, x: 4); // (as of PHP 8.0)
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Destructor
+
+```
+class MyDestructableClass
+{
+    function __construct() {
+        print "In constructor\n";
+    }
+
+    function __destruct() {
+        print "Destroying " . __CLASS__ . "\n";
+    }
+}
+
+$obj = new MyDestructableClass();
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Property visibility
+
+```
+class MyClass
+{
+    public $public = 'Public';
+    protected $protected = 'Protected';
+    private $private = 'Private';
+
+    function printHello()
+    {
+        echo $this->public;
+        echo $this->protected;
+        echo $this->private;
+    }
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Property visibility...
+
+```
+$obj = new MyClass();
+
+echo $obj->public;      // Works
+echo $obj->protected;   // Fatal Error
+echo $obj->private;     // Fatal Error
+
+$obj->printHello();     // Shows Public, Protected and Private
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Method visibility
+
+```
+class MyClass
+{
+    public function MyPublic() { }
+
+    protected function MyProtected() { }
+
+    private function MyPrivate() { }
+
+    public function Foo()
+    {
+        $this->MyPublic();
+        $this->MyProtected();
+        $this->MyPrivate();
+    }
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Method visibility...
+
+```
+$myclass = new MyClass;
+
+$myclass->MyPublic();       // Works
+$myclass->MyProtected();    // Fatal Error
+$myclass->MyPrivate();      // Fatal Error
+
+$myclass->Foo();            // Public, Protected and Private work
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Object and Session
+
+* Any variable can be stored in the session, including an object
+
+```
+$_SESSION["dice"] = new Dice();
+
+$_SESSION["dice"]->roll();
+```
+
+<p class="footnote">The type and state of the object are serialised and stored in the session storage.</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Namespace
+
+* To separate code into "namespaces"
+* To avoid symbols being redeclared
+* Define a namespace using `namespace`, at the top of the file
+
+```
+namespace Mos;
+
+function hello(): string
+{
+    return "hello";
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Namespace...
+
+```
+namespace Mos;
+
+function hello(): string
+{
+    return "hello";
+}
+
+echo hello();
+```
+
+```
+namespace SomethingElse;
+
+function hello(): string
+{
+    return "hello";
+}
+
+echo Mos\hello();
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Namespace class
+
+```
+namespace Mos\Router;
+
+class Router
+{ }
+```
+
+```
+namespace SomethingElse;
+
+$router = new Mos\Router\Router();
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Namespace and use
+
+```
+namespace Vendor\Package;
+
+use Vendor\Package\{ClassA as A, ClassB, ClassC as C};
+use Vendor\Package\SomeNamespace\ClassD as D;
+
+use function Vendor\Package\{functionA, functionB, functionC};
+
+use const Vendor\Package\{ConstantA, ConstantB, ConstantC};
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Autoloader composer
+
+* The autoloader must support namespaces
+* Composer can generate an autoloader from `composer.json`
+
+```
+{
+    "autoload": {
+        "psr-4": {
+            "Mos\\": "src/"
+            "Dbwebb\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    }
+}
+```
 
 </script>
 
