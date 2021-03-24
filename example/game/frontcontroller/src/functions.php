@@ -49,6 +49,36 @@ function renderView(
 
 
 /**
+ * Use Twig to render a view and return its rendered content.
+ *
+ * @param string $template to use when rendering the view.
+ * @param array  $data     send to as variables to the view.
+ *
+ * @return string with the route path requested.
+ */
+function renderTwigView(
+    string $template,
+    array $data = []
+): string {
+    static $loader = null;
+    static $twig = null;
+
+    if (is_null($twig)) {
+        $loader = new \Twig\Loader\FilesystemLoader(
+            INSTALL_PATH . "/view/twig"
+        );
+        // $twig = new \Twig\Environment($loader, [
+        //     "cache" => INSTALL_PATH . "/cache/twig",
+        // ]);
+        $twig = new \Twig\Environment($loader);
+    }
+
+    return $twig->render($template, $data);
+}
+
+
+
+/**
  * Send a response to the client.
  *
  * @param int    $status   HTTP status code to send to client.

@@ -14,6 +14,9 @@ all:
 clean:
 	@# Yet nothing to do in this target
 
+clean-cache:
+	rm -rf cache/*/*
+
 clean-all:
 	rm -rf .bin build vendor
 
