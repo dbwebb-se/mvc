@@ -35,6 +35,24 @@
 <script data-role="slide" type="text/html" data-markdown>
 # A class
 
+```
+class Message
+{
+    public string $message = "Hellow World";
+
+    public function sayIt(): string {
+        return $this->message;
+    }
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# A class
+
 * Define the structure by using `class`
 * A class is a template for objects created from it
 * An object intantiates a class
@@ -74,7 +92,7 @@ class Person1
 * The properties are individual for each object
 * Properites could also be called "member variables"
 * The methods are shared by all objects of a class
-* The construct `$this->propertyName` points to the current object
+* In the class methods `$this->propertyName` points to the current object
 
 </script>
 
@@ -217,6 +235,8 @@ spl_autoload_register(function ($class_name) {
 $obj  = new MyClass1();
 $obj2 = new MyClass2();
 ```
+
+<p class="footnote">Repalces the need of include/require for classes.</p>
 
 </script>
 
@@ -408,7 +428,7 @@ function hello(): string
     return "hello";
 }
 
-echo Mos\hello();
+echo \Mos\hello();
 ```
 
 </script>
