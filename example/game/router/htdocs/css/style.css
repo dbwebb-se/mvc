@@ -1,0 +1,17 @@
+body {
+    overflow-y: scroll;
+    width: 800px;
+    margin: 8px auto;
+    padding-left: 1em;
+    border-left: 1px solid #ccc;
+}
+
+main {
+    min-height: 20em;
+}
+
+footer {
+    border-top: 1px solid #ccc;
+    min-height: 4em;
+    text-align: center;
+}
