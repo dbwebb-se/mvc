@@ -218,7 +218,6 @@ Enkel frontcontroller med htaccess
 Vyer (View engine)
 
 Använd formulär, sessioner
-Komposition, Arv
 
 Makefile med validatorer
 Nytt Git repo.
@@ -249,6 +248,7 @@ Med en GameController
 
 Lecture:
 L10 - Algorithms, representation and development
+PHP Komposition, Arv
 Controller i MVC
 Separation of concerns
 Coherence and Coupling
@@ -291,6 +291,8 @@ Reflektera över enhetstestning och kodens kvalitet
 Kursintro
 Börja med ramverk och deras struktur
 Prata MVC
+
+Layered architecture kontra MVC.
 
 Labbmiljö:
 Git
@@ -344,3 +346,9 @@ Adventurespel
 Blog ala Wordpress
 Instagram
 inklusive rapport
+
+
+
+# pattern course
+
+* Add a layer of Services to the MVC/Framework patterns

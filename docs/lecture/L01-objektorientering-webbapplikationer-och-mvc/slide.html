@@ -8,8 +8,8 @@
 <title>Kursen mvc</title>
 
 <script data-role="slide" type="text/html" data-markdown class="titlepage center">
-# Objektorientering, webbapplikationer och mvc
-## An example
+# Objektorientering, webbapplikationer och MVC
+## Välkommen
 ### Mikael Roos
 </script>
 
@@ -18,31 +18,227 @@
 <script data-role="slide" type="text/html" data-markdown>
 # Agenda
 
-* MVC
-* Vy
-* Klasser/funktioner
-* Frontcontroller
-* Katalogstruktur
-* htaccess
-* Skapa ny route med ny vy och sidlayout
+* Om kursen
+* Classes and objects
+* Model, View, Controller (MVC)
+* Web framework
 
 </script>
 
 
 
 <script data-role="slide" type="text/html" data-markdown class="titlepage center">
-# An example
-## Guess my number
+# Om kursen
 </script>
 
 
 
-<script data-role="slide" type="text/html" data-markdown>
-# Guess my number
+<script data-role="slide" data-markdown type="text/html">
+# Kursmoment
 
-* Pseudocode
-* Flowchart
-* Implement it
+* 01: Objektorientering
+* 02: Controller
+* 03: Enhetstestning
+* 04: Ramverk
+* 05: Autentisering
+* 06: Automatiserad test
+* 07/10: Projekt och examination
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Planering
+
+* https://dbwebb.se/mvc#planering
+
+<p class="footnote">Ta en snabb koll på kursens planering.</p>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Hjälp
+
+* Discord
+* [Github Issues](https://github.com/dbwebb-se/mvc/issues)
+* Be om kodexempel
+
+<p class="footnote">Snabba frågor och eventuellt svar, eller längre utredande frågeställningar och tydliga svar.</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Classes and objects
+## In its simplest form
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Classes and objects
+
+* A class is a template for objects
+* An object is instantiated from a class
+* Object has methods (functions)
+    * What can be done with the object
+    * What can the object do
+    * Update its state
+* Object has state
+    * The value of its properties
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Encapsulation
+
+* Bundle data with methods operating on that data
+* Restricting access to some parts
+* Information hiding
+* Class hides its internal implementation
+    * How things are stored and executed are a private matter
+* A class provides a public API
+    * How to use it from outside
+
+<p class="footnote">https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Model View Controller (MVC)
+## An architectural design pattern
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# An architectural pattern
+
+* Design pattern
+
+> "A general, reusable solution to a commonly occurring problem within a given context in software design."
+
+* Architectural (design) pattern
+
+> "A general, reusable solution to a commonly occurring problem in software architecture within a given context."
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# MVC
+
+* Model - objects for the application
+* Controller - connect the model with the GUI/framework
+* View - present the results to the GUI/user
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Model
+
+* Application classes/objects
+* Not dependent on, or isolated from, the framework
+* Just another class/object
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Controller
+
+* A class (or callable)
+* Do stuff with the model layer,
+    * prepare $data,
+    * render views,
+    * return response
+* The glue between the framework and the application
+    * No (limited) application code
+* Thin and skinny controllers
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# View
+
+* Bits and pieces to create a response
+    * HTML, $data and template language
+    * (or JSON or another type of response)
+* Template engine
+* Template files
+    * PHP
+    * Twig
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# MVC pattern
+
+<figure>
+<img src="img/mvc.png" width="80%">
+<figcaption>A representation fo the MVC architectural pattern.</figcaption>
+</figure>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Benefits
+
+* Terminology and names to parts of the application
+* Division of labour related to competence
+* Provide a clear structure for the application
+    * Aid in reusability
+    * Provide good and clean code
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Web Framework
+## A modular and standardized approach
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# Web framework and MVC
+
+<figure>
+<img src="img/framework.png" width="100%">
+<figcaption>The framework integrates with MVC pattern.</figcaption>
+</figure>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Summary
+
+* Building web applications usually done in web frameworks
+* MVC is one of the most common architectures in web frameworks
+    * Alternate patterns exists
+* Understanding of classes, objects and object orientation is essential
+* Good application structure is a good start for good and clean code
 
 </script>
 
