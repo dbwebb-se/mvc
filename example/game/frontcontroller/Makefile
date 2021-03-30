@@ -39,7 +39,7 @@ install-php-tools:
 	curl -Lso $(PHPCPD) https://phar.phpunit.de/phpcpd.phar && chmod 755 $(PHPCPD)
 
 	# phpmd
-	curl -Lso $(PHPMD) https://github.com/phpmd/phpmd/releases/download/2.8.1/phpmd.phar && chmod 755 $(PHPMD)
+	curl -Lso $(PHPMD) https://github.com/phpmd/phpmd/releases/download/2.9.1/phpmd.phar && chmod 755 $(PHPMD)
 
 check-version:
 	uname -a
