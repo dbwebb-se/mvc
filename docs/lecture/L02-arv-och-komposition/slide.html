@@ -346,6 +346,8 @@ Average = 4.8
 
 > "A hand has dices" (aggregation, dices can exists without the hand)
 
+<p class="footnote">https://en.wikipedia.org/wiki/Object_composition.</p>
+
 </script>
 
 
@@ -355,7 +357,7 @@ Average = 4.8
 
 <figure>
 <img src="img/oophp20-uml-composition-aggregate.png" width="60%">
-<figcaption>Representing composition "filled diamond" versus aggregation "open diamond" in UML.</figcaption>
+<figcaption>Representing composition (ownership) "filled diamond" versus aggregation (independent) "open diamond" in UML.</figcaption>
 </figure>
 
 </script>
@@ -516,7 +518,7 @@ echo $hand->getHand();
 ```
 Your hand rolled 3 dices:
 Values: 6 3 6
-As string representation: 6 : ⚂: 6 (cheating) :
+As string representation: 6 : ⚂ : 6 (cheating) :
 Sum = 15
 Average = 5
 ```
@@ -548,7 +550,7 @@ Average = 5
 
 * Passing the dice to the diceHand, rather than allowing diceHand to build/find the dice itself
 
-<p class="footnote">https://en.wikipedia.org/wiki/Dependency_injection<br>https://en.wikipedia.org/wiki/Inversion_of_control</p>
+<p class="footnote">https://en.wikipedia.org/wiki/Dependency_injection<br>https://en.wikipedia.org/wiki/Separation_of_concerns<br>https://en.wikipedia.org/wiki/Inversion_of_control</p>
 
 </script>
 
@@ -579,7 +581,7 @@ Average = 5
 * A histogram to be implemented in the dices and in the dicehand
 * Start with a HistogramInterface to show the contract
 * Implement using a HistogramTrait
-* Use in the classes where needed
+* Use trait in the classes where needed
 
 </script>
 
@@ -595,7 +597,7 @@ interface HistogramInterface
 }
 ```
 
-<p class="footnote">A class shows off that it will implement the HistogramInterface.</p>
+<p class="footnote">The interface shows the smallest amount of public methods needed.</p>
 
 </script>
 
@@ -622,7 +624,7 @@ trait HistogramTrait
 }
 ```
 
-<p class="footnote">The trait provides one reusable implementation of the HistogramInterface.</p>
+<p class="footnote">The trait provides one reusable implementation of the HistogramInterface. There may be many more ways to implement the interface.</p>
 
 </script>
 
@@ -646,7 +648,7 @@ class Dice implements DiceInterface, HistogramInterface
 }
 ```
 
-<p class="footnote">The trait provides one reusable implementation of the HistogramInterface.</p>
+<p class="footnote">The class implements the interface and uses the trait to fulfill the contract.</p>
 
 </script>
 
@@ -743,10 +745,10 @@ echo $hand->printHistogram();
 # Trait summary
 
 * Reusable code usable in any class
-* Common use both interface and trait
+* Common to use both interface and trait
 * Can trait be a better way than inheritance?
 * It solves the need of multiple inheritance for code reuse
-* Our HistograTrait is reusable in many different classes that handle a integer value
+* Our HistogramTrait is reusable in many different classes that handle a integer value
 
 </script>
 
@@ -772,27 +774,23 @@ echo $hand->printHistogram();
 * Single responsibility - do only one thing
 * Cohesion - gather things that belong together
 * Coupling - limit dependency to other classes
-
-* Cohesion - gather things that belong together
-* Coupling - limit dependency to other classes
-
-<p class="footnote">https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)<br>https://en.wikipedia.org/wiki/Single-responsibility_principle<br>https://en.wikipedia.org/wiki/Cohesion_(computer_science)<br>https://en.wikipedia.org/wiki/Coupling_(computer_programming)</p>
-
-
-* A subclass should be able to replace the parent class in all places
-
-<p class="footnote">https://en.wikipedia.org/wiki/Liskov_substitution_principle</p>
-
+* A subclass should be able to replace the parent class in all places (Liskov)
 * Prefer composition over inheritance
 * Depend on abstractions, not on concretions (Dependency inversion principle)
 * Dependencys should be injected (Dependecy injection)
 
-<p class="footnote">https://en.wikipedia.org/wiki/Composition_over_inheritance</p>
+</script>
 
-<p class="footnote"><br>https://en.wikipedia.org/wiki/Dependency_inversion_principle</p>
 
-<p class="footnote">https://en.wikipedia.org/wiki/Dependency_injection<br>https://en.wikipedia.org/wiki/Inversion_of_control</p>
 
+<script data-role="slide" type="text/html" data-markdown>
+# Summary...
+
+* Intention is to create "good and clean code"
+* Read more on these OO principles
+    * or wait until the "pattern" course
+
+<p class="footnote">https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)<br>https://en.wikipedia.org/wiki/Single-responsibility_principle<br>https://en.wikipedia.org/wiki/Cohesion_(computer_science)<br>https://en.wikipedia.org/wiki/Coupling_(computer_programming)<br>https://en.wikipedia.org/wiki/Liskov_substitution_principle<br>https://en.wikipedia.org/wiki/Composition_over_inheritance<br>https://en.wikipedia.org/wiki/Dependency_inversion_principle<br>https://en.wikipedia.org/wiki/Dependency_injection<br>https://en.wikipedia.org/wiki/Separation_of_concerns<br>https://en.wikipedia.org/wiki/Inversion_of_control</p>
 
 </script>
 
