@@ -1,0 +1,323 @@
+<!doctype html>
+<html class="theme-5">
+<meta charset="utf-8" />
+<link href="../html-slideshow.bundle.min.css" rel="stylesheet" />
+<link href="../style.css" rel="stylesheet" />
+<script src="https://dbwebb.se/cdn/js/html-slideshow_v1.1.0.bundle.min.js"></script>
+
+<title>Kursen mvc</title>
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# MVC and Controller
+## What is a controller?
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Agenda
+
+* MVC and Controller
+* Router
+* Request, Response
+* PHP FIG
+* Controller per framework
+    * Symfony
+    * Laravel
+    * Yii
+    * Phalcon
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# MVC
+
+* Model - objects for the application
+    * Fat models
+* Controller - connect the model with the GUI/framework
+    * Thin controllers
+* View - present the results to the GUI/user
+    * Dumb views
+    * The view should not talk to models or controllers
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# MVC pattern
+
+<figure>
+<img src="img/mvc.png" width="80%">
+<figcaption>A representation fo the MVC architectural pattern.</figcaption>
+</figure>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# Web framework and MVC
+
+<figure>
+<img src="img/framework.png" width="100%">
+<figcaption>The framework integrates with MVC pattern.</figcaption>
+</figure>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Controller
+
+* A class (or callable) with methods
+* Do stuff with the model layer,
+    * prepare $data,
+    * render views,
+    * return response
+* The glue between the framework and the application
+    * No (limited) application code
+* Thin and skinny controllers
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Game as controller?
+
+* Classes like Dice, DiceHand, DiceGraphic are all Model classes
+* Is the class Game a controller?
+* Is the class Game a model?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Controller basics
+
+* The incoming path
+    * `controller/action`
+    * `controller/action/arg1/arg2/arg3`
+* Translates to a "controller action" or a method in a controller class
+* The router matches and dispatches to the handler
+* Controller create and return a Response
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Controller as callable
+
+```
+$router->addRoute(
+    "GET",
+    "session",
+    ["\Mos\Controller\Session", "index"]
+);
+```
+
+```
+namespace Mos\Controller;
+
+class Session
+{
+    public function index(): ResponseInterface {}
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Return Response
+
+```
+// class Session
+
+public function index(): ResponseInterface
+{
+    $psr17Factory = new Psr17Factory();
+
+    $body = renderView("layout/session.php");
+
+    return $psr17Factory
+        ->createResponse(200)
+        ->withBody($psr17Factory->createStream($body));
+}
+```
+
+<p class="footnote">A lot of code? Frameworks usually reduces and hides implementation from the coder to make it easier.</p>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# PHP-FIG and PSR
+
+* PSR-7 HTTP Message Interface
+    * An HTTP message is either a request from a client to a server or a response from a server to a client
+
+* PSR-15 HTTP Handlers
+    * A request handler is an individual component that processes a request and produces a response, as defined by PSR-7
+
+* PSR-17 HTTP Factories
+    * An HTTP factory is a method by which a new HTTP object, as defined by PSR-7, is created
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# PHP-FIG pros and cons
+
+* Do we need a standardisation of module interfaces?
+* What does the framework owners think of this?
+* https://www.reddit.com/search/?q=PHP-FIG
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# The frontcontroller
+
+<figure>
+<img src="img/framework.png" width="100%">
+<figcaption>The frontcontroller manages the Request, Router and the Response.</figcaption>
+</figure>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Frontcontroller
+
+* Get information from the Request
+* Router initializes itself with the routes
+* Router maps Request path to callables
+* Dispatch to handler
+* Handler returns Response
+* Send Response
+
+<p class="footnote">The frontcontroller sends the response, not the Controller itself. Important distinction that makes the code more testable.</p>
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Frontcontroller pseudocode
+
+```
+Request init
+Router init from configuration
+Router dispatch Request::method, Request::path
+
+IF Request matches handler THEN
+    CALL the handler which returns a Response
+ELSE
+    Create a 404 Response
+ENDIF
+
+Send the Resonse
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Controller pseudocode
+
+```
+Create a PSR Factory
+
+Talk with Models, build up $data
+
+Render views, using $data, save in $body
+
+Use PSR Factory to create a Response object using $body
+    or create a Response for redirect
+
+Return the Response object
+```
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Controller by framework
+
+* Symfony controller
+* Laravel controller
+* Yii controller
+* Phalcon controller
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Controller by framework...
+
+* How is the router configured?
+    * Configuration files
+    * Annotations
+* How to map the path with arguments to the controller method?
+* How does it work with the Request/Response objects?
+* Is there a baseclass for all Controllers?
+* What is injected into the controller?
+* How is the controller "started" with respect to the constructor or a initializing method?
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Code sample
+
+* Upgrade the codebase to use an external router and external modules for request and response
+* Upgrade website and create controllers for the code/game
+
+</script>
+
+
+
+<script data-role="slide" data-markdown type="text/html">
+# Summary
+
+* MVC and Controller
+* Router
+* Request, Response
+* PHP FIG
+* Controller per framework
+    * Symfony
+    * Laravel
+    * Yii
+    * Phalcon
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# The end
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+</script>
+
+</html>
