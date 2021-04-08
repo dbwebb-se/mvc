@@ -29,3 +29,8 @@ $router->addGroup("/session", function (RouteCollector $router) {
 $router->addGroup("/some", function (RouteCollector $router) {
     $router->addRoute("GET", "/where", ["\Mos\Controller\Sample", "where"]);
 });
+
+$router->addGroup("/form", function (RouteCollector $router) {
+    $router->addRoute("GET", "/view", ["\Mos\Controller\Form", "view"]);
+    $router->addRoute("POST", "/process", ["\Mos\Controller\Form", "process"]);
+});
