@@ -11,13 +11,13 @@ dbwebb init-me
 # Kmom01
 #
 
-#
-# redovisa
-#
-#rsync -a example/redovisa me
-#cd me/redovisa && composer install --no-dev
-#cd me/redovisa && chmod 777 cache/*
-#dbwebb validate redovisa
+rsync -a example/game/frontcontroller/ me/game/
+cd me/game && composer install --no-dev
+cd me/game && git init
+cd me/game && git add .
+cd me/game && git commit -a -m "First commit"
+cd me/game && git tag -a v1.0.0 -m "First tag"
+cd me/game && make test
 
 
 
@@ -26,6 +26,11 @@ dbwebb init-me
 # Kmom02
 #
 
+rsync -a example/game/router/ me/game/
+cd me/game && git add .
+cd me/game && git commit -a -m "Second commit"
+cd me/game && git tag -a v2.0.0 -m "First tag"
+cd me/game && make test
 
 
 
