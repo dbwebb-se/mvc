@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-. ".dbwebb/inspect-src/kmom.d/functions.bash"
+. ".dbwebb/test/functions.bash"
 
-cd me/redovisa || exit
+cd me/game || exit
 
 lowtag="2.0.0"
 hightag="3.0.0"
