@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 . ".dbwebb/test/functions.bash"
 
-cd me/game || exit
+cd me/game || exit 1
+[[ ! -d .git ]] && echo "Missing .git directory." && exit 1
 
 lowtag="1.0.0"
 hightag="2.0.0"

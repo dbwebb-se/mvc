@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 . ".dbwebb/inspect-src/kmom.d/functions.bash"
 
-cd me/game || exit
+cd me/game || exit 1
+[[ ! -d .git ]] && echo "Missing .git directory." && exit 1
 
 num=$( git rev-list --all --count )
 echo "[$ACRONYM] commits=$num"
