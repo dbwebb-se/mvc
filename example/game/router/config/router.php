@@ -10,8 +10,6 @@ declare(strict_types=1);
 
 use FastRoute\RouteCollector;
 
-//global $router;
-
 $router->addRoute("GET", "/test", function () {
     // A quick and dirty way to test the router or the request.
     return "Testing response";
