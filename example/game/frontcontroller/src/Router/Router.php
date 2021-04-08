@@ -56,6 +56,20 @@ class Router
             $body = renderView("layout/page.php", $data);
             sendResponse($body);
             return;
+        } else if ($method === "GET" && $path === "/form/view") {
+            $data = [
+                "header" => "Form",
+                "message" => "Press submit to send the message to the result page.",
+                "action" => url("/form/process"),
+                "output" => $_SESSION["output"] ?? null,
+            ];
+            $body = renderView("layout/form.php", $data);
+            sendResponse($body);
+            return;
+        } else if ($method === "POST" && $path === "/form/process") {
+            $_SESSION["output"] = $_POST["content"] ?? null;
+            redirectTo(url("/form/view"));
+            return;
         }
 
         $data = [
