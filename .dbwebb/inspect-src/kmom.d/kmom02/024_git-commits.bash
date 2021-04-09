@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 . ".dbwebb/inspect-src/kmom.d/functions.bash"
 
-cd me/redovisa || exit
+cd gui-repo || exit 1
+[[ ! -d .git ]] && echo "Missing .git directory." && exit 1
 
 num=$( git rev-list --all --count )
 echo "[$ACRONYM] commits=$num"
@@ -9,6 +10,6 @@ echo "[$ACRONYM] commits=$num"
 log=$( git log --pretty=format:"%h - %an, %ar : %s" | head -5 )
 echo addNewLine "$log"
 
-req=20
-(( $num > $req ))
-doLog $? "Number of commits = $num (>$req)"
+req=10
+(( $num >= $req ))
+doLog $? "Number of commits = $num (>=$req)"
