@@ -17,30 +17,37 @@
 #printf ">>> -------------- Pre (all kmoms) ----------------------\n"
 
 # Open log
-echo "[$ACRONYM]" > "$LOG_DOCKER"
-
-# Open me/redovisa
-url="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REDOVISA_HTTP_POSTFIX/htdocs"
-openUrl "$url"
-
-# Code coverage
-openUrl "file://$DIR/me/redovisa/build/coverage/index.html"
-
-# Open github
-url=$( cd me/redovisa && git config --get remote.origin.url )
-openGitUrl "$url"
+echo "[$ACRONYM/$COURSE/$KMOM]" > "$LOG_DOCKER"
 
 # Do different things depending on kmom
 case $KMOM in
-    kmom04)
-        if [[ -d $DIR/me/module ]]; then
-            openUrl "file://$DIR/me/module/build/coverage/index.html"
-            url=$( cd me/module && git config --get remote.origin.url )
-            openGitUrl "$url"
-        fi
-        ;;
+    kmom01 | \
+    kmom02 | \
     kmom03)
-    ;;
-    kmom10)
+        # Local version with the correct tag
+        openUrl "http://127.0.0.1:18080/gui-repo/htdocs"
+
+        # Open repo at student server
+        REPO="me/game"
+        url="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
+        openUrl "$url"
+
+        # Code coverage
+        #openUrl "file://$DIR/me/redovisa/build/coverage/index.html"
+
+        # Open github
+        url=$( cd $REPO && git config --get remote.origin.url )
+        openGitUrl "$url"
     ;;
 esac
+
+# Open me/redovisa
+#url="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REDOVISA_HTTP_POSTFIX/htdocs"
+#openUrl "$url"
+
+# Code coverage
+#openUrl "file://$DIR/me/redovisa/build/coverage/index.html"
+
+# Open github
+#url=$( cd me/redovisa && git config --get remote.origin.url )
+#openGitUrl "$url"

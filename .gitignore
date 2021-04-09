@@ -7,6 +7,7 @@ node_modules/
 package-lock.json
 composer.lock
 .log/
+gui-repo/
 
 __pycache__
 *.pyc

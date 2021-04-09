@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-. ".dbwebb/inspect-src/kmom.d/functions.bash"
+. ".dbwebb/test/functions.bash"
 
-cd me/redovisa || exit
+cd gui-repo || exit 1
+[[ ! -d .git ]] && echo "Missing .git directory." && exit 1
 
 lowtag="1.0.0"
 hightag="2.0.0"

@@ -13,4 +13,4 @@
 
 # Course specific settings
 export REDOVISA_HTTP_PREFIX="http://www.student.bth.se"
-export REDOVISA_HTTP_POSTFIX="me/redovisa"
+#export REDOVISA_HTTP_POSTFIX="me/redovisa"

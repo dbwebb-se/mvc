@@ -23,7 +23,8 @@ fi
 
 MSG_OK="\033[0;30;42mOK\033[0m"
 MSG_DONE="\033[1;37;40mDONE\033[0m"
-export MSG_WARNING="\033[43mWARNING\033[0m"
+#export MSG_WARNING="\033[43mWARNING\033[0m"
+export MSG_WARNING="\033[0;30;43mWARNING\033[0m"
 export MSG_FAILED="\033[0;37;41mFAILED\033[0m"
 
 
@@ -48,11 +49,11 @@ function text {
 function doLog {
     if (( $1 )); then
         echo "[-] $2" >> "$LOG"
-    else
-        echo "[+] $2" >> "$LOG"
+        exit 2
     fi
 
-    exit $1
+    echo "[+] $2" >> "$LOG"
+    exit 0
 }
 
 export -f doLog
@@ -73,10 +74,13 @@ for file in $DIR/$KMOM/??*_*.bash; do
     echo && header "$target"
 
     bash "$file"
-    if (( $? )); then
-        output="$MSG_FAILED $target\n"
+    status=$?
+    if (( $status == 2 )); then
+        output="$MSG_WARNING $target\n"
+    elif (( $status )); then
+        output="$MSG_FAILED  $target\n"
     else
-        output="$MSG_OK $target\n"
+        output="$MSG_OK      $target\n"
     fi
     printf "$output"
     summary="$summary$output"
