@@ -1,0 +1,463 @@
+<!doctype html>
+<html class="theme-5">
+<meta charset="utf-8" />
+<link href="../html-slideshow.bundle.min.css" rel="stylesheet" />
+<link href="../style.css" rel="stylesheet" />
+<script src="https://dbwebb.se/cdn/js/html-slideshow_v1.1.0.bundle.min.js"></script>
+
+<title>Software Unit Testing</title>
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Software Unit Testing
+## What about it?
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Agenda
+
+* Unit testing
+* Terminology
+* Why do it?
+* How its done
+* Testable code
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# The last picture
+
+<figure>
+<img src="img/moon.png" width="70%">
+<figcaption>This was the last photo that the Beresheet spacecraft captured before it crashed into the lunar surface on April 12, 2019, due to a bug in the software (<a href="https://www.space.com/beresheet-moon-crash-engine-glitch.html">article</a>).</figcaption>
+</figure>
+
+<!--
+Israel's first attempt to land an unmanned spacecraft on the moon with the Beresheet was rendered unsuccessful on April 11, 2019 due to a software bug with its engine system, which prevented it from slowing down during its final descent on the moon's surface. Engineers attempted to correct this bug by remotely rebooting the engine, but by time they regained control of it, Beresheet could not slow down in time to avert a hard, crash landing that disintegrated it.
+-->
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Unit Testing
+
+* Divide your code into units
+* Write testcode to use and test each unit
+* Execute in isolation from other units
+* Execute from different aspects
+    * (correct input, wrong input, exception, etc)
+* Run the tests automatically
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# The arguments
+
+* Finds problems early in the development cycle
+
+* Problems beeing:
+    * bugs in the programmer's implementation
+    * flaws or missing parts of the specification
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# The arguments...
+
+* Process of writing a thorough set of **tests forces the author to think** through inputs, outputs, and error conditions, and thus more crisply define the unit's desired behavior.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# The arguments...
+
+* The **cost of finding a bug** before coding begins or when the code is first written is considerably lower than the cost of detecting, identifying, and correcting the bug later.
+
+* Bugs in released code may also cause **costly problems for the end-users** of the software.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# The arguments...
+
+* Code can be **impossible or difficult to unit test** if poorly written, thus unit testing can force developers to structure functions and objects in better ways.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Write testable code
+
+## Unit testing produces better code
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Pros of unit testing
+
+* You need to think about how to use your code
+* You need to write code that is testable
+* The result is testable and good code (better than code that is hard to test)
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Black or white box test
+
+* Black box testing - "Test the code without knowing how it look like"
+* White box testing - "Test the code knowing exactly how it look like"
+
+> "Unit testing is white box testing."
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# How to do unit testing
+
+## Some basic structure on how to do unit testing
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# An example
+
+* A application is divided into classes, testable objects
+* Each class have one or several test suites
+* Each test suite contains a set of test cases
+* Each test case have one or more assertions
+* A test runner executes the test suites
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# An example...
+
+* Test runner
+* Test object
+* Test suites
+    * Test cases
+        * Assertions
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Assertions
+
+* Verify (assert) that each test produces expected result or behaviour
+
+> "If there is no assertion, then there is no test."
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Assertion example
+
+```
+class TestGameClass(unittest.TestCase):
+    """Test the class."""
+
+    def test_start_the_game(self):
+        """Roll a dice and check value is in bounds."""
+        the_game = game.Game()
+        the_game.start()
+
+        res = the_game.the_number
+        exp = the_game.low_number <= res <= the_game.high_number
+        self.assertTrue(exp)
+```
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Terminology summary
+
+* The unit / test object is the focus for the tests
+* All test cases makes up a test suite
+* Test runner executes the test suite
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# More on Unit Testing
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Test in isolation
+
+* Run independently of other tests
+* Each test suite should be tested in isolation
+* Each test case should be tested in isolation
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Test in isolation...
+
+* Use substitutes to assist isolation testing
+    * Mock objects
+    * Fakes
+    * Test harnesses
+
+</script>
+
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Use of test doubles
+
+> "In automated unit testing, it may be necessary to use objects or procedures that look and behave like their release-intended counterparts, but are actually simplified versions that reduce the complexity and facilitate testing. A test double is a generic (meta) term used for these objects or procedures."
+
+* Aka test - mock, fake, stub, dummy, spy, harness
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Test fixtures
+
+* Fixture are used to prepare before a particular test or test case
+* Setup before class (test suite)
+* Setup before method (test case)
+* Tear down after method (test case)
+* Tear down after class (test suite)
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Code coverage
+
+* Measure the lines of code that is coveraged by tests
+* Try to reach high code coverage (means to an end)
+* Easy to see how much a code section is tested
+* Test strategy:
+    * Test everything that can possibly break
+    * Test every execution path
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Terminology summary
+
+> We have test suites with test cases that use assertions to verify various aspects of the code.
+
+> A test runner execute the test suites and the tests are done in isolation.
+
+> Test fixtures are used to enable tests in isolation.
+
+> Code coverage measures how much of the code is tested
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# About side effects and testable code
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Side effect
+
+> "An operation is said to have a side effect if it modifies some state variable value outside its local environment, that is to say has an observable effect besides returning a value (the main effect) to the invoker of the operation"
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Side effect, example
+
+* Modifying a non-local variable
+* Modifying a static local variable
+* Modifying a mutable argument passed by reference
+* Performing I/O (file, database, etc)
+* Calling other side-effect functions
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Referential transparency
+
+> "An expression is called referentially transparent if it can be replaced with its corresponding value (and vice-versa) without changing the program's behavior."
+
+1. The expression must be pure (produce same result for the same arguments)
+2. Must have no side effects.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Pure function
+
+1. Return value is the same for the same arguments.
+2. Its evaluation has no side-effects.
+
+> Use pure functions to get referential transparency.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Deterministic algorithm
+
+1. Given a particular input -> always produce the same output.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Idempotence
+
+1. A subroutine with side effects is idempotent if the system state remains the same after one or several calls.
+
+> "The operation can be repeated or retried as often as necessary without causing unintended effects."
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Unit test and side effects
+
+* Be cautious with side effects
+* Easier test case when no/limited side effects
+* Easier debugging when no/limited side effects
+* Easy to understand expression when no/limited side effects
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Object orientation and side effects
+
+* The object state is "side effects"
+    * Private and public properties
+
+> "Functional programming is having a stateless programming model."
+
+> "Object-oriented programming is having a stateful programming model."
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# False positives and negatives
+
+* False positive
+    * The test fails but there is no error
+* False negative
+    * The test passes but there is a error
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# False positives and negatives...
+
+> False positive indicates the presence of a condition such as a disease when the disease is not present.
+
+> False negative incorrectly fails to indicate the presence of a condition when it is present.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Terminology summary
+
+* Side effect
+* Referential transparency
+* Pure function
+* Deterministic algorithm
+* Idempotence
+* False positives and negatives
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Industry matters
+
+* Depends on work the company does, its size and level of maturity
+* Many skilled developers always write unit tests when they write code
+    * (if the time/project allows for it)
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Research
+
+* An industrial evaluation of unit test generation: Finding real faults in a financial application
+* On Learning Meaningful Assert Statements for Unit Test Cases
+* Mythical unit test coverage
+* An empirical evaluation of evolutionary algorithms for unit test suite generation
+
+<p class="footnote">Some examples on topics of recent research papers.</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# The end
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+</script>
+
+</html>
