@@ -12,7 +12,9 @@ This is short tutorial with code samples on how to get going with phpunit for un
 * [Get good code coverage](#get-good-code-coverage)
 * [Review a test case](#review-a-test-case)
 * [More on testing](#more-on-testing)
-* [Summary and final excercise](#summary-and-final-excercise)
+* [Summary](#summary)
+* [Excercise](#excercise)
+* [Thoughts](#thoughts)
 
 
 
@@ -235,9 +237,21 @@ Use many small test methods, testing specific areas. Name these methods with pro
 
 
 
-Summary and final excercise
+Summary
 -----------------------------------
 
-You have now verified that phpunit and code coverage works on your environment.
+You have now verified that phpunit and code coverage works on your environment and you have perhaps gained some understanding of how unit testing and phpunit works.
 
-As the final exercise you shall now finalize the test suite by adding test case(s) with assertions for the method `Guess::makeGuess()` and do reach a code coverage of 100%.
+
+
+Excercise
+-----------------------------------
+
+As an exercise you shall now finalize the test suite by adding test case(s) with assertions for the method `Guess::makeGuess()` and do reach a code coverage of 100%.
+
+
+
+Thoughts
+-----------------------------------
+
+What about the PHP code in the directories `config/`, `htdocs/` and `view/`? Should that code also the covered by unit test or?
