@@ -4,15 +4,15 @@ Get going with phpunit
 This is short tutorial with code samples on how to get going with phpunit for unit testing and code coverage.
 
 * [Prerequisite](#prerequisite)
+* [Get going](#get-going)
+* [The game source code](#the-game-source-code)
 * [Directory structure](#directory-structure)
-* [Setup autoloader](#setup-autoloader)
-* [The source code](#the-source-code)
 * [Executing the test cases](#executing-the-test-cases)
 * [Review the code coverage](#review-the-code-coverage)
 * [Get good code coverage](#get-good-code-coverage)
 * [Review a test case](#review-a-test-case)
 * [More on testing](#more-on-testing)
-* [Summary and further excercise](#summary-and-further-excercise)
+* [Summary and final excercise](#summary-and-final-excercise)
 
 
 
