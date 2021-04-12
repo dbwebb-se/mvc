@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":268:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:3:{s:60:"Mos\Guess\GuessCreateObjectTest::testCreateObjectNoArguments";d:0.003;s:62:"Mos\Guess\GuessCreateObjectTest::testCreateObjectFirstArgument";d:0;s:62:"Mos\Guess\GuessCreateObjectTest::testCreateObjectBothArguments";d:0;}}}
