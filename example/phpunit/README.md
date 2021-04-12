@@ -103,13 +103,13 @@ I usually prefer dividing my test cases into several test classes for each sourc
 
 You can execute the test suite, with all test cases, through the Makefile.
 
-```bash
+```text
 make phpunit
 ```
 
 Or
 
-```bash
+```text
 make test
 ```
 
