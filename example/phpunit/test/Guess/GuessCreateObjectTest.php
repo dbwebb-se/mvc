@@ -11,7 +11,7 @@ class GuessCreateObjectTest extends TestCase
 {
     /**
      * Construct object and verify that the object has the expected
-     * properties. Use no arguments.
+     * properties, use no arguments.
      */
     public function testCreateObjectNoArguments()
     {
@@ -27,7 +27,7 @@ class GuessCreateObjectTest extends TestCase
 
     /**
      * Construct object and verify that the object has the expected
-     * properties. Use only first argument.
+     * properties, use only first argument.
      */
     public function testCreateObjectFirstArgument()
     {
@@ -47,7 +47,7 @@ class GuessCreateObjectTest extends TestCase
 
     /**
      * Construct object and verify that the object has the expected
-     * properties. Use both arguments.
+     * properties, use both arguments.
      */
     public function testCreateObjectBothArguments()
     {
