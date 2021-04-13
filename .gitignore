@@ -8,6 +8,7 @@ package-lock.json
 composer.lock
 .log/
 gui-repo/
+.phpunit.result.cache
 
 __pycache__
 *.pyc
