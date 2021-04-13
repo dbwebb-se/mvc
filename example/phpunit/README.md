@@ -21,7 +21,7 @@ This is short tutorial with code samples on how to get going with phpunit for un
 A walkthrough
 -----------------------------------
 
-There is a recording from a Zoom session where Mikael walkt you through this exercise.
+There is a recording from a Zoom session where Mikael walks you through this exercise.
 
 [![YouTube video image](http://img.youtube.com/vi/HSZH4VKpE_k/0.jpg)](http://www.youtube.com/watch?v=HSZH4VKpE_k "Kurs mvc kmom03 tisdagsgenomgång, del 2/3 övning phpunit (Zoom med Mikael)")
 
