@@ -1,4 +1,7 @@
 {
+    "name": "dbwebb/mvc-game",
+    "description": "A part of the course dbwebb/mvc, the game.",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "Mos\\": "src/",
