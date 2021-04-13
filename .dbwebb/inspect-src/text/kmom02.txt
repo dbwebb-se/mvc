@@ -1,10 +1,8 @@
 Då kikar vi på kmom02!
 
-I princip är det samma upplägg som i kmom01.
+Jag läser igenom din rapport.
 
-Jag Läser igenom din rapport.
-
-Jag cehckar ut den senaste taggen som är >= 2.0.0 och < 3.0.0. Jag hade gärna sett att du hade tiotalet commits i ditt repo.
+Jag checkar ut den senaste taggen som är >= 2.0.0 och < 3.0.0. Jag hade gärna sett att du hade tiotalet commits i ditt repo.
 
 Det vore bra om valideringsverktygen inte visade på några bekymmer.
 

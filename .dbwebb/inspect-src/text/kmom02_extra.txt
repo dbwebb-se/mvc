@@ -1,0 +1,5 @@
+[FIX TILL NÄSTA KMOM] Du har en hel del valideringsfel när man kör 'make phps', städa upp dem till nästa kmom. Det är egentligen rätt enkelt om du kör 'make phpcbf' som försöker städa upp koden automatiskt.
+
+[FIX] Jag hittar inte filerna till dina flödesdiagram/pseudokoden, de skulle ligga i katalogen 'me/game/doc/yatzy'.
+
+[FIX TILL NÄSTA KMOM] Jag hittar inte filerna till dina flödesdiagram/pseudokoden, de skulle ligga i katalogen 'me/game/doc/yatzy'. Jag hittade dem dock på en annan plats.
