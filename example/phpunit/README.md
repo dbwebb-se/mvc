@@ -233,7 +233,7 @@ The main approach is to write test cases for the public methods of the class. It
 
 Divide your test suite into classes having reasonable sizes. That will make it easier to maintain and further develop your test suite.
 
-Use many small test methods, testing specific areas. Name these methods with proper names, describing what they test. This will aid when trying to remember what a certain method is testing. Write a one-ilner comment above each method to further exaplain what the test does, that will also aid in maintaining and developing your test suite.
+Use many small test methods, testing specific areas. Name these methods with proper names, describing what they test. This will aid when trying to remember what a certain method is testing. Write a one-liner comment above each method to further exaplain what the test does, that will also aid in maintaining and developing your test suite.
 
 
 
