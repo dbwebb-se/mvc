@@ -7,7 +7,7 @@ all:
 clean:
 	rm -rf build .phpunit.result.cache
 
-clean-all:
+clean-all: clean
 	rm -rf vendor composer.lock
 
 install:
