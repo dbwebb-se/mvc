@@ -3,3 +3,5 @@
 [FIX] Jag hittar inte filerna till dina flödesdiagram/pseudokoden, de skulle ligga i katalogen 'me/game/doc/yatzy'.
 
 [FIX TILL NÄSTA KMOM] Jag hittar inte filerna till dina flödesdiagram/pseudokoden, de skulle ligga i katalogen 'me/game/doc/yatzy'. Jag hittade dem dock på en annan plats.
+
+[FIX]. Jag provade ditt spel enligt ovan tagg men det gav ett felmeddelande.
