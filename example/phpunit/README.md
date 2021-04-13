@@ -3,6 +3,7 @@ Get going with phpunit
 
 This is short tutorial with code samples on how to get going with phpunit for unit testing and code coverage.
 
+* [A walkthrough](#a-walkthrough)
 * [Prerequisite](#prerequisite)
 * [Get going](#get-going)
 * [The game source code](#the-game-source-code)
