@@ -47,6 +47,11 @@ function text {
 # Log to summary
 #
 function doLog {
+    if [[ $3 && $1 ]]; then
+        echo "[x] $2" >> "$LOG"
+        exit 1
+    fi
+
     if (( $1 )); then
         echo "[-] $2" >> "$LOG"
         exit 2
