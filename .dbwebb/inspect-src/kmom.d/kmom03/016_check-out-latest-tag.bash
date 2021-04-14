@@ -8,8 +8,8 @@ cd gui-repo || exit 1
 git stash >& /dev/null
 git status >& /dev/null
 
-lowtag="1.0.0"
-hightag="2.0.0"
+lowtag="3.0.0"
+hightag="4.0.0"
 tag=$( hasGitTagBetween . $lowtag $hightag )
 mainBranch=$( getMainOrMasterBranch . )
 
