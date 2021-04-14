@@ -10,6 +10,6 @@ echo "[$ACRONYM] commits=$num"
 log=$( git log --pretty=format:"%h - %an, %ar : %s" | head -5 )
 echo addNewLine "$log"
 
-req=10
+req=15
 (( $num >= $req ))
 doLog $? "Number of commits = $num (>=$req)"
