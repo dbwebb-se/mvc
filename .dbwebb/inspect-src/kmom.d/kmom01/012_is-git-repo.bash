@@ -3,5 +3,4 @@
 
 cd gui-repo || exit 1
 [[ -d .git ]]
-status=$?
-doLog $status "is Git repo" 1
+doLog $? "is Git repo" 1

@@ -4,6 +4,6 @@
 cd gui-repo || exit 1
 [[ ! -d .git ]] && echo "Missing .git directory." && exit 1
 
-gitUrl=$( cd $REPO && git config --get remote.origin.url )
+gitUrl=$( git config --get remote.origin.url )
 [[ $gitUrl ]]
 doLog $? "remote = '$gitUrl'" 1
