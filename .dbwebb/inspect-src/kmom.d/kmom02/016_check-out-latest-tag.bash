@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 . ".dbwebb/test/functions.bash"
 
-rsync -a --delete me/game/ gui-repo/
 cd gui-repo || exit 1
+[[ ! -d .git ]] && echo "Missing .git directory." && exit 1
 
 #echo "[Git] stash and then status to remove not committed stuff"
 git stash >& /dev/null
 git status >& /dev/null
 
-lowtag="2.0.0"
-hightag="3.0.0"
+lowtag="1.0.0"
+hightag="2.0.0"
 tag=$( hasGitTagBetween . $lowtag $hightag )
 mainBranch=$( getMainOrMasterBranch . )
 
@@ -23,4 +23,4 @@ else
 fi
 
 echo "[$ACRONYM] using tag = $tag"
-doLog $status "using tag = '$tag'"
+doLog $status "using tag = '$tag'" 1
