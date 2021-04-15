@@ -16,15 +16,17 @@
 #
 #printf ">>> -------------- Pre (all kmoms) ----------------------\n"
 
+echo $DIR
+
 # Open log
 echo "[$ACRONYM/$COURSE/$KMOM]" > "$LOG_DOCKER"
 
 # Do different things depending on kmom
 localRepoUrl="http://127.0.0.1:18080/gui-repo"
-REPO="me/game"
+export REPO="me/game"
 
-[[ -d $REPO ]] || echo "MISSING TARGET DIR '$GAME'. Epic fail."
-[[ -d $REPO/.git ]] || echo "MISSING TARGET GIT DIR '$GAME/.git'. Epic fail."
+[[ -d "$DIR/$REPO" ]] || echo "MISSING TARGET DIR '$REPO'. Epic fail."
+[[ -d "$DIR/$REPO/.git" ]] || echo "MISSING TARGET GIT DIR '$REPO/.git'. Epic fail."
 
 case $KMOM in
     kmom02)
@@ -44,7 +46,7 @@ openUrl "$localRepoUrl/htdocs"
 studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
 openUrl "$studentServerUrl"
 
-gitUrl=$( cd $REPO && git config --get remote.origin.url )
+gitUrl=$( cd "$DIR/$REPO" && git config --get remote.origin.url )
 openGitUrl "$gitUrl"
 [[ $gitUrl ]] || echo "MISSING GIT REMOTE. Epic fail."
 

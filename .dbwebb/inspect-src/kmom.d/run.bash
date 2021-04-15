@@ -72,6 +72,9 @@ if ! compgen -G "$DIR/$KMOM/??*_*.bash" > /dev/null; then
     exit 0
 fi
 
+file="$DIR/docker_pre.bash"
+[[ -f "$file" ]] && . "$file"
+
 for file in $DIR/$KMOM/??*_*.bash; do
     output=
     target=$( basename "$file" )

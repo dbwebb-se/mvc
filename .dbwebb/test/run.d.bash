@@ -63,20 +63,24 @@ function text {
 # Log to summary
 #
 function doLog {
+    local status=2
+
+    [[ $3 ]] && status=1
+
     if (( $1 )); then
         echo "[-] $2" >> "$LOG"
-    else
-        echo "[+] $2" >> "$LOG"
+        exit $status
     fi
 
-    exit $1
+    echo "[+] $2" >> "$LOG"
+    exit 0
 }
 
 export -f doLog
 
 # printf "\n"
 header "Start"
-printf "[%s] %s %s %s\n" "$ACRONYM" "$TARGET" "$TESTSUITE" "$( date )"
+printf "%s/%s/%s %s\n" "$ACRONYM" "$COURSE" "$TESTSUITE" "$( date )"
 
 summary=
 if ! compgen -G "$TEST_TARGET/??*_*.bash" > /dev/null; then
@@ -84,16 +88,22 @@ if ! compgen -G "$TEST_TARGET/??*_*.bash" > /dev/null; then
     exit 0
 fi
 
+file="$DIR/pre.bash"
+[[ -f "$file" ]] && . "$file"
+
 for file in "$TEST_TARGET/"??*_*.bash; do
     output=
     target=$( basename "$file" )
     echo && header "$target"
 
     bash "$file"
-    if (( $? )); then
-        output="$MSG_FAILED $target\n"
+    status=$?
+    if (( $status == 2 )); then
+        output="$MSG_WARNING $target\n"
+    elif (( $status )); then
+        output="$MSG_FAILED  $target\n"
     else
-        output="$MSG_OK $target\n"
+        output="$MSG_OK      $target\n"
     fi
     printf "$output"
     summary="$summary$output"

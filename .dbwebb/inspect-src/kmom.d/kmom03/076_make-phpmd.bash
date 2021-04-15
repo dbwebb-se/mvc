@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 . ".dbwebb/inspect-src/kmom.d/functions.bash"
 
-cd gui-repo || exit 1
+cd $TARGET_DIR || exit 1
 
 target="phpmd"
 #make $target >& /dev/null

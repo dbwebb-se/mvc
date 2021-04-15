@@ -4,6 +4,10 @@
 cd $TARGET_DIR || exit 1
 [[ ! -d .git ]] && echo "Missing .git directory." && exit 1
 
-gitUrl=$( git config --get remote.origin.url )
-[[ $gitUrl ]]
-doLog $? "remote = '$gitUrl'" 1
+num=$( git tag | wc -l )
+echo "[$ACRONYM] tags=$num"
+git tag
+
+req=1
+(( $num >= $req ))
+doLog $? "Number of tags = $num (>=$req)"

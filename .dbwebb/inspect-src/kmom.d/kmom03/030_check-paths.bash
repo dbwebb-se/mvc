@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 . ".dbwebb/test/functions.bash"
 
-cd gui-repo || exit 1
+cd $TARGET_DIR || exit 1
 
 all=0
 fail=0
