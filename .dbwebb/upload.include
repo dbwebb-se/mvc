@@ -22,7 +22,7 @@
 - /me/redovisa/theme
 - /me/redovisa/cache/cimage/*
 - vendor/mos/cimage/webroot
-- vendor/**/config
+#- vendor/**/config
 - vendor/**/docs
 - vendor/**/test
 - node_modules/
