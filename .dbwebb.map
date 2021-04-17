@@ -25,11 +25,7 @@
 # kmom10
 #me/kmom10/
 
-# game
 me/game
-
-# wapp
+me/framework
 me/wapp
-
-# proj
 me/proj
