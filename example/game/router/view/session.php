@@ -15,6 +15,7 @@ echo <<<EOD
 <p>Here are some details on the session. Reload this page to see the counter increment itself.</p>
 <p>You may <a href="$url">destroy the session</a> if you like, good for dealing
 with trouble.</p>
+<pre>
 EOD;
 
 var_dump(session_name());
