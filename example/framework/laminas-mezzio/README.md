@@ -8,19 +8,9 @@ Documentation
 
 Install using composer create project into the directory `app`.
 
+Use Plates as a template engine when the installation program asks you to, othervise you will get a more pure REST server which serves JSON responses.
+
 ```
 composer create-project mezzio/mezzio-skeleton app
 cd app
 ```
-
-<!--
-Make it run in your own Apache or XAMPP installation.
-
-```
-# Make the dirs writable by the web server
-chmod o+w var/{cache,log}
-```
-
-Open a browser to your own installation of Apache or XAMPP and point to the `web/` directory.
-
--->
