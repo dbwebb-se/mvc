@@ -32,12 +32,13 @@ Create routes, controllers and views
 Copy example files.
 
 ```
+cp .htaccess app/public
 cp HelloWorldController.php app/app/Http/Controllers
 cp message.blade.php app/resources/views
 cp web.php app/routes
 ```
 
-Clear the cache.
+Clear the cache when updating your routes.
 
 ```
 php artisan route:cache
