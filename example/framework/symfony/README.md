@@ -36,6 +36,7 @@ Copy example files.
 
 ```
 cp .env app
+cp .htaccess app/public
 cp HelloWorldController.php app/src/Controller
 cp message.html.twig app/templates
 cp routes.yaml app/config
