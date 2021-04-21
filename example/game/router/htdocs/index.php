@@ -59,22 +59,18 @@ switch ($routeInfo[0]) {
         $handler = $routeInfo[1];
         $vars = $routeInfo[2];
 
-        if (is_callable($handler)) {
-            if (is_array($handler)
-                && is_string($handler[0])
-                && class_exists($handler[0])
-            ) {
-                $obj = new $handler[0]();
-                $action = $handler[1];
-                $response = $obj->$action();
-            } else {
-                $response = call_user_func_array($handler, $vars);
-            }
+        if (is_array($handler)
+            && is_string($handler[0])
+            && class_exists($handler[0])
+            && method_exists($handler[0], $handler[1])
+        ) {
+            $response = (new $handler[0]())->{$handler[1]}(...array_values($vars));
+        } else if (is_callable($handler)) {
+            $response = call_user_func_array($handler, $vars);
         } else if (is_string($handler) && class_exists($handler)) {
             $rc = new \ReflectionClass($handler);
             if ($rc->hasMethod("__invoke")) {
-                $obj = new $handler;
-                $response = $obj();
+                $response = (new $handler)(...array_values($vars));
             }
         }
         break;
