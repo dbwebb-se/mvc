@@ -10,11 +10,6 @@ composer.lock
 gui-repo/
 .phpunit.result.cache
 
-#example/framework/laravel/app/
-#example/framework/symfony/app/
-example/framework/yii/app/
-example/framework/laminas-mezzio/app/
-
 __pycache__
 *.pyc
 
