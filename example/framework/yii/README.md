@@ -75,8 +75,4 @@ web/hello-world/hello?message=The-message
 Problem
 -----------------------
 
-The following problems might make it too hard to publish changes to the student server, since each time you need to remove the generated directories by hand.
-
-* Removing the `app/` after running the example might give errors due to Yii creates log files in subdirectories which can not be removed without using `sudo rm` as root.
-
-* Removing files from the student server when the webserver creates files in cache directories in a hierarchy of sub directories. Use `mv` to move the folder "away somewhere else".
+* When publishing to the student server you (might) get error on files that can not be removed. This is due to these cache-files being generated from the web server and you have no rights to these directories or files. The Yii application seems to work anyway. So it it okey to proceed anyway.

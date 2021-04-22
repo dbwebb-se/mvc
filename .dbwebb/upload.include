@@ -31,6 +31,10 @@
 
 # Symfony cache files
 
+# Yii cache files
+- /me/framework*/**/web/assets/*
+- /me/framework*/**/runtime/*
+
 - vendor/mos/cimage/webroot
 #- vendor/**/config
 - vendor/**/docs
