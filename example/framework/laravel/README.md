@@ -68,12 +68,16 @@ cp message.blade.php app/resources/views
 cp web.php app/routes
 ```
 
+<!--
+Unclear if this is needed.
+
 Always clear the cache when updating your routes.
 
 ```
 cd app
 php artisan route:cache
 ```
+-->
 
 Try out the routes, both locally and publish to the student server.
 
