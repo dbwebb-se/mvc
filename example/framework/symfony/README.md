@@ -12,34 +12,53 @@ composer create-project symfony/website-skeleton app
 ls app
 ```
 
-Make it run in your own Apache or XAMPP installation.
+You can open the PHP built in webserver to verify the installation.
 
 ```
-# Make the dirs writable by the web server
-chmod o+w var/{cache,log}
+php -S localhost:8080 -t app/public
 ```
+
+
+Make it run in your Apache locally
+-----------------------
 
 Open a browser to your own installation of Apache or XAMPP and point to the `public/` directory.
 
 
 
-Create routes, controllers and views
+Make it run on the student server
 -----------------------
+
+Copy the `.htaccess` file.
+
+```
+# From the root of the example directory
+cp .htaccess app/public
+```
+
+Edit the file and change 'mosstud' to your own acronym. Do also review that the path seems to be correct.
+
+Publish using `dbwebb publishpure` to the student server and verify that it works.
+
+
+
+Implement views, routes and controllers
+-----------------------
+
+Copy example files.
+
+```
+# From the root of the example directory
+cp .env app
+cp HelloWorldController.php app/src/Controller
+cp message.html.twig app/templates
+cp routes.yaml app/config
+```
 
 Check the status of the routes.
 
 ```
 php bin/console debug:router
-```
-
-Copy example files.
-
-```
-cp .env app
-cp .htaccess app/public
-cp HelloWorldController.php app/src/Controller
-cp message.html.twig app/templates
-cp routes.yaml app/config
 ```
 
 Try out the routes.
@@ -50,3 +69,10 @@ app/public/hello-world-view
 app/public/hello
 app/public/hello/hello-the-new-world-by-arg
 ```
+
+
+
+Problem
+-----------------------
+
+No particular problems were detected.

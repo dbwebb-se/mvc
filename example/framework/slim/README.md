@@ -1,10 +1,9 @@
-Get going Laminas Mezzio
+Get going Slim
 ====================
 
 Documentation
 
-* https://github.com/mezzio/mezzio
-* https://docs.mezzio.dev/mezzio/
+* https://www.slimframework.com/
 
 
 
@@ -13,10 +12,8 @@ Install it
 
 Install using composer create project into the directory `app`.
 
-Use Plates as a template engine when the installation program asks you to, othervise you will get a more pure REST server which serves JSON responses.
-
 ```
-composer create-project mezzio/mezzio-skeleton app
+composer create-project slim/slim-skeleton:dev-master app
 ls app
 ```
 
@@ -33,8 +30,8 @@ Make it run in your Apache locally
 
 Needs extra configuration to run in a sub directory.
 
-Needs to be further investigated.
-https://github.com/mezzio/mezzio/issues/69
+Evaluate it the following article might be a solid approach.
+https://akrabat.com/running-slim-4-in-a-subdirectory/
 
 
 

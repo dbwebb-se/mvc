@@ -13,7 +13,7 @@ RewriteRule (.*) - [NC,L]
 
 # Rewrite 1 - For request via www.student.bth.se
 RewriteCond %{HTTP_HOST} ^www\.student\.bth\.se$ [NC]
-RewriteRule (.*) /~mosstud/dbwebb-kurser/mvc/me/framework-test/laravel/app/public/index.php/$1 [NC,L]
+RewriteRule (.*) /~mosstud/dbwebb-kurser/mvc/me/framework-test/yii/app/web/index.php/$1 [NC,L]
 
 # Rewrite 2 - For other requests
 RewriteCond %{HTTP_HOST} !^www\.student\.bth\.se$ [NC]
