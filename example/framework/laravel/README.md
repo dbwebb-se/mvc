@@ -71,6 +71,7 @@ cp web.php app/routes
 Always clear the cache when updating your routes.
 
 ```
+cd app
 php artisan route:cache
 ```
 

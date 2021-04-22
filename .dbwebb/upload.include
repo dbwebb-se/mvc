@@ -21,6 +21,14 @@
 - /me/redovisa/build
 - /me/redovisa/theme
 - /me/redovisa/cache/cimage/*
+
+# Laravel cache files
+- /me/framework*/**/bootstrap/cache/*.php
+- /me/framework*/**/storage/app/**/*.php
+- /me/framework*/**/storage/framework/**/*.php
+- /me/framework*/**/storage/framework/sessions/*
+- /me/framework*/**/storage/logs/**/*.php
+
 - vendor/mos/cimage/webroot
 #- vendor/**/config
 - vendor/**/docs
