@@ -9,11 +9,8 @@ Install using composer create project into the directory `app`.
 
 ```
 composer create-project laravel/laravel app
-cd app
-php artisan serve
+ls app
 ```
-
-Open a browser to `http://localhost:8000`.
 
 Make it run in your own Apache or XAMPP installation.
 

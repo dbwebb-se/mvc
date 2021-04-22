@@ -37,3 +37,10 @@ web/hello-world/hello1
 web/hello-world/hello2
 web/hello-world/hello?message=The-message
 ```
+
+
+
+Problem
+-----------------------
+
+* Removing files from the student server when the webserver creates files in cache directories in a hierarchy of sub directories. Use `mv` to move the folder "away somewhere else".

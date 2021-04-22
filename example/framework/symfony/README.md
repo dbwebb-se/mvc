@@ -9,7 +9,7 @@ Install using composer create project into the directory `app`.
 
 ```
 composer create-project symfony/website-skeleton app
-cd app
+ls app
 ```
 
 Make it run in your own Apache or XAMPP installation.

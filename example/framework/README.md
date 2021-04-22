@@ -12,3 +12,10 @@ cd me/framework-test
 Each directory contains the instructions on how to get going with each framework.
 
 Do remember to update each `.htaccess` and replace 'mosstud' with your own acronym.
+
+
+
+Docker
+----------------------------
+
+You can use `docker-compose` and the file `docker-compose.yaml` to start up a docker container to run the frameworks in.
