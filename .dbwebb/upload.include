@@ -29,6 +29,8 @@
 - /me/framework*/**/storage/framework/sessions/*
 - /me/framework*/**/storage/logs/**/*.php
 
+# Symfony cache files
+
 - vendor/mos/cimage/webroot
 #- vendor/**/config
 - vendor/**/docs

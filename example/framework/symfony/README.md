@@ -76,3 +76,15 @@ Problem
 -----------------------
 
 No particular problems were detected.
+
+<!--
+* If you run into cache issues when publishing to the student server, try to clear the cache and warm it up for the production server (student server).
+
+```
+APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear
+```
+-->
+
+<!--
+* Clear the cache by executing `php bin/console cache:pool:clear`.
+-->
