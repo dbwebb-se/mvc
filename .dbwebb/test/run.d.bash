@@ -17,6 +17,7 @@ if (( $# < 4 )); then
     exit 1
 fi
 
+cd $1
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export COURSE_REPO_BASE="$1"
 export COURSE="$2"

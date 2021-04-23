@@ -9,5 +9,11 @@ target="phpunit"
 file="build/$target"
 lines=$( wc -l $file )
 
-[[ $( grep "\[OK] No errors" $file ) ]]
-doLog $? "$target: NOT IMPLEMENTED ($lines)"
+res=$( grep 'OK (' $file )
+[[ $res ]]
+status=$?
+if [[ !$res ]]; then
+    doLog $status "$target: $res"
+else
+    doLog $status "$target: NOT IMPLEMENTED"
+fi
