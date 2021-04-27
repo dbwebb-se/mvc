@@ -1,5 +1,5 @@
 .bin/
-bin/
+/bin/
 build/
 .venv/
 vendor/

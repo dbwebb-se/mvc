@@ -5,6 +5,11 @@ Documentation
 
 * https://laravel.com/docs/8.x
 
+
+
+Install
+-----------------------
+
 Install using composer create project into the directory `app`.
 
 ```

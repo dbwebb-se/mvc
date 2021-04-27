@@ -1,0 +1,16 @@
+{
+    "name": "dbwebb/mvc-orm",
+    "description": "A part of the course dbwebb/mvc, the ORM.",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mos\\": "src/"
+        }
+    },
+    "scripts": {
+        "clean": "rm -rf db/* vendor composer.lock"
+    },
+    "require": {
+        "gabordemooij/redbean": "^5.7"
+    }
+}
