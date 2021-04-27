@@ -1,0 +1,465 @@
+<!doctype html>
+<html class="theme-5">
+<meta charset="utf-8" />
+<link href="../html-slideshow.bundle.min.css" rel="stylesheet" />
+<link href="../style.css" rel="stylesheet" />
+<script src="https://dbwebb.se/cdn/js/html-slideshow_v1.1.0.bundle.min.js"></script>
+
+<title>Database ORM</title>
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Database ORM
+## Object Relational Mapping
+### Mikael Roos
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Agenda
+
+* Mapping object orientation to databases and back
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Object orientation
+
+* Classes, objects, properties, methods
+* Class extends (is) or contains (has)
+* Programmer sees "programming code" and works in an object oriented manner
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Relational database
+
+* Table, column, row, primary key
+* SQL queries for
+    * SELECT
+    * INSERT, UPDATE, DELETE
+* Stored procedures can supply an API
+* Table has relation with other table through foreign key
+* Programmer sees data, structures, query language and works with connections and resultsets
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Questions
+
+When looking from the OO-programmer perspective
+
+* How to store objects persistently?
+* How to represent and access relational data in objects?
+* How to connect classes to the database?
+* Must one learn databases?
+* Must one learn SQL?
+* How to support many database vendors?
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Solutions
+
+* No SQL and Document databases
+* Object oriented databases to save objects persistently
+* Relational databases and SQL, provide an API to the application programmers
+* Object oriented design patterns for data access
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Data access patterns
+## Object Relational Mapping
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# PHP PDO
+
+* Data Access Layer (DAL)
+* Unifies the methods used to access data
+
+> PDO provides a data-access abstraction layer, which means that, regardless of which database you're using, you use the same functions to issue queries and fetch data.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# PHP PDO...
+
+* Database Abstraction Layer (DBAL)
+* Unify SQL queries to support various vendors
+
+> PDO does not provide a database abstraction; it doesn't rewrite SQL or emulate missing features. You should use a full-blown abstraction layer if you need that facility.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# A Database class
+
+* Built upon PDO, add generic features, ease of configuration and debugging
+* [A database class, wrapper on top of PDO](https://github.com/canax/database)
+* Still a DAL
+
+```
+$sql = "SELECT * FROM movie;";
+$app->db->connect();
+$res = $app->db->executeFetchAll($sql);
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# A Database class...
+
+* Fetch into a choosen class
+
+```
+$sql = "SELECT * FROM movie WHERE id = ?;";
+$app->db->connect();
+$res = $app->db->executeFetchClass($sql, [1], "\Mos\SomeClass");
+
+$res->title;
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# A Database class...
+
+* Fetch into object using public properties
+
+```
+$sql = "SELECT * FROM movie WHERE id = ?;";
+$obj = new SomeClass();
+$app->db->connect();
+$res = $app->db->executeFetchInto($sql, [1], $obj);
+
+$obj->title;
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# A Database Query Builder
+
+* Remove the need of SQL and use methods instead
+* Provide a DBAL supporting various vendors, even when their SQL differ
+* [A database query builder class](https://github.com/canax/database-query-builder)
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Query Builder create
+
+```
+// Create a table
+$this->db->createTable(
+    'user',
+    [
+        'id'    => ['integer', 'primary key', 'not null'],
+        'age'   => ['integer'],
+        'name'  => ['varchar(10)']
+    ]
+)->execute();
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Query Builder insert
+
+```
+$this->db->insert(
+    "user",
+    [
+        "age" => 3,
+        "name" => "three",
+    ]
+)->execute();
+
+$last = $this->db->lastInsertId(); // 1
+$rows = $this->db->rowCount();     // 1
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Query Builder query
+
+```
+$res = $this->db->select("*")
+                ->from("user")
+                ->where("id = 1")
+                ->execute()
+                ->fetch();
+
+$res->id;   // 1
+$res->age;  // 3
+$res->name; // "three"
+```
+
+<p class="footnote">Behind the methods, an ordinary SQL query is being built and executed. Objec notation can be used.</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# An Active Record implementation
+
+* Create class as a model class
+* Save objects to database
+* Find objects in database
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Active Record model
+
+```
+// A database driven model using the Active Record design pattern.
+class Book extends ActiveRecordModel
+{
+    // @var string $tableName name of the database table.
+    protected $tableName = "Book";
+
+    // Columns in the table.
+    // @var integer $id primary key auto incremented.
+    public $id;
+    public $column1;
+    public $column2;
+}
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Active Record create
+
+```
+$book = new Book();
+$book->column1 = "column1";
+$book->column2 = "column2";
+$book->save();
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Active Record update
+
+```
+$book = new Book();
+$book->find("id", $id);
+$book->column1 = $column1;
+$book->column2 = $column2;
+$book->save();
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Active Record delete
+
+```
+$book = new Book();
+$book->find("id", $id);
+$book->delete();
+```
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# ORM
+
+* Object Relational Mapping
+* Vendors implementing database, query builder and/or active record or similair data access patterns
+* Application programmer uses databases through objects
+* Administration through scripts and configuration
+* Pro?
+    * Database agnostic
+    * Just program as usual
+    * Ease of use (avoid the wonderful world of database and SQL)
+
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# ORM...
+
+* Pros
+    * Database agnostic
+    * Just program as usual
+    * Ease of use (avoid the wonderful world of database and SQL)
+Cons
+    * Magic (how the object to relational mapping occurs)
+    * Can not avoid the table/column structure entirly
+    * Learning curve
+    * Another layer (learn, configure, troubleshoot)
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Data access patterns
+## Design patterns
+</script>
+
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# Query Object
+
+<figure>
+<img src="img/queryObjectSketch.gif" style="width:60%; padding: 1em; background-color: white;">
+<figcaption>An object that represents a database query.</figcaption>
+</figure>
+
+<p class="footnote">https://www.martinfowler.com/eaaCatalog/queryObject.html</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# Active Record
+
+<figure>
+<img src="img/activeRecordSketch.gif" style="width:45%; padding: 1em; background-color: white;">
+<figcaption>An object that wraps a row in a database table or view, encapsulates the database access, and adds domain logic on that data.</figcaption>
+</figure>
+
+<p class="footnote">https://www.martinfowler.com/eaaCatalog/activeRecord.html</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# Data Mapper
+
+<figure>
+<img src="img/databaseMapperSketch.gif" style="width:70%; padding: 1em; background-color: white;">
+<figcaption>A layer of Mappers that moves data between objects and a database while keeping them independent of each other and the mapper itself.</figcaption>
+</figure>
+
+<p class="footnote">https://www.martinfowler.com/eaaCatalog/dataMapper.html</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="center">
+# Repository
+
+<figure>
+<img src="img/repositorySketch.gif" style="width:60%; padding: 1em; background-color: white;">
+<figcaption>Mediates between the domain and data mapping layers using a collection-like interface for accessing domain objects.</figcaption>
+</figure>
+
+<p class="footnote">https://www.martinfowler.com/eaaCatalog/repository.html</p>
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# More data access patterns
+
+* Table Data Gateway
+* Row Data Gateway
+* Identity Map
+* Single Table Inheritance
+* Class Table Inheritance
+* and even more...
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Summary
+
+* Object Relational Mapping (ORM)
+* A collection of design patterns for
+    * Data access
+    * Mapping object-relational
+* Software modules to work with the database through classes and no need of SQL
+* Partly vendor agnostic (supporting several database vendors)
+
+</script>
+
+
+<!--
+<script data-role="slide" type="text/html" data-markdown>
+# Industry matters
+
+*
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Research
+
+*
+
+<p class="footnote">Some examples on topics of recent research papers.</p>
+
+</script>
+-->
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# The end
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+</script>
+
+</html>
