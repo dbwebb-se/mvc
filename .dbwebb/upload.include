@@ -23,17 +23,19 @@
 - /me/redovisa/cache/cimage/*
 
 # Laravel cache files
-- /me/framework*/**/bootstrap/cache/*.php
-- /me/framework*/**/storage/app/**/*.php
-- /me/framework*/**/storage/framework/**/*.php
-- /me/framework*/**/storage/framework/sessions/*
-- /me/framework*/**/storage/logs/**/*.php
+- /me/**/bootstrap/cache/*.php
+- /me/**/storage/app/**/*.php
+- /me/**/storage/framework/**/*.php
+- /me/**/storage/framework/sessions/*
+- /me/**/storage/logs/**/*.php
 
 # Symfony cache files
+- /me/**/var/cache/**
+- /me/**/var/log/**
 
 # Yii cache files
-- /me/framework*/**/web/assets/*
-- /me/framework*/**/runtime/*
+- /me/**/web/assets/*
+- /me/**/runtime/*
 
 - vendor/mos/cimage/webroot
 #- vendor/**/config
