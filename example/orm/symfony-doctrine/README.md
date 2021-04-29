@@ -25,21 +25,14 @@ php -S localhost:8080 -t app/public
 
 
 
-Install Doctrine
+Run in your local Apache
 ---------------------------
 
-Install Doctrine helpers.
+To be able to run the application in your local Apache you need to have a `.htaccess`.
 
 ```
 cd app
-composer require symfony/orm-pack
-composer require --dev symfony/maker-bundle
-```
-
-Do also install the annotations that we are going to use for mapping the controller actions to route paths.
-
-```
-composer require doctrine/annotations
+cp ../.htaccess public
 ```
 
 
@@ -47,23 +40,20 @@ composer require doctrine/annotations
 Configure the database URL
 ---------------------------
 
-Open up the `app/.env` in your editor and update the `DATABASE_URL` to your liking.
+Create a file `.env.local` in your editor and create the `DATABASE_URL` to your liking. The content in this file will override and add to the the content in the `.env` file.
 
-Start by adding a comment infront of the current selected database.
-
-```
-# DATABASE_URL="postgresql://db_user:db_password@127.0.0.1:5432/db_name?serverVersion=13&charset=utf8"
-```
-
-Now uncomment and edit the DATABASE_URL of your choice. For SQLite, use the default setup.
+For SQLite, use the default setup.
 
 ```
 DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 ```
 
-<!--
+The database file will now be stored as `var/data.db`.
+
+You can also copy a `.env.local` like this, it already have the above settings.
+
 ```
-cp ../.env .
+cp ../.env.local .
 ```
 
 <!-- MySQL -->
@@ -218,7 +208,7 @@ Open the route path in your browser to create a new product into the database.
 If you get a "Read-only" error on your database, then make it writable for the user who runs the web server.
 
 ```
-chmod 777 var/data.db
+chmod 666 var/data.db
 ```
 
 Review the content of your database, your newly created rows should be there.
@@ -283,15 +273,10 @@ Open the route path in your browser to view the result.
 
 
 
-Publish and run on sutdent server
+Publish and run on student server
 ---------------------------
 
-Copy (and edit) the .htaccess-file.
-
-```
-# In the app dir
-cp ../.htaccess public
-```
+Edit the file `public/.htaccess`. There is a sample file in the root of the example directory.
 
 Publish to the student server using dbwebb cli.
 
@@ -301,29 +286,57 @@ dbwebb publishpure me
 dbwebb publispure symfony-doctrine
 ```
 
-You can also login to the student server and execute the console commands, this might be useful for troubleshooting.
+You can also login to the student server and execute the console commands, this might be useful for troubleshooting or analysing the database.
 
 ```
 dbwebb login
 cd www/dbwebb-kurser/mvc/me/orm-test/symfony-doctrine/app
 php bin/console debug:router
+php bin/console doctrine:query:sql 'SELECT * FROM product'
 ```
 
 
-<!--
+
 The quick version of this guide
 ---------------------------
 
--->
+This is how to quickly repeat the setup of this guide.
+
+```
+composer create-project symfony/website-skeleton app
+cd app
+cp ../.htaccess public
+cp ../.env.local .
+cp ../HelloController.php src/Controller
+cp ../Product.php src/Entity
+cp ../ProductRepository.php src/Repository
+cp ../ProductController.php src/Controller
+install -d templates/product
+cp ../index.html.twig templates/product
+php bin/console doctrine:database:create
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+```
+
+Useful commands, used in the guide.
+
+```
+php bin/console doctrine:database:create
+sqlite3 var/data.db
+php bin/console make:entity
+php bin/console make:migration
+php bin/console doctrine:migrations:migrate
+php bin/console make:controller ProductController
+php bin/console debug:router
+php bin/console debug:router product
+php bin/console router:match /product
+php bin/console doctrine:query:sql 'SELECT * FROM product'
+```
+
+
 
 
 Problems
 ---------------------------
-
-* The route annotations was not included in the bundle I used.
-
-https://symfony.com/doc/current/routing.html#creating-routes-as-attributes-or-annotations
-composer require doctrine/annotations
-
 
 No particular problems detected.

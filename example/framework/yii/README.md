@@ -75,4 +75,4 @@ web/hello-world/hello?message=The-message
 Problem
 -----------------------
 
-* When publishing to the student server you (might) get error on files that can not be removed. This is due to these cache-files being generated from the web server and you have no rights to these directories or files. The Yii application seems to work anyway. So it it okey to proceed anyway.
+* When publishing to the student server you (might) get error on files that can not be removed. This is due to these cache-files being generated from the web server and you have no rights to these directories or files. The Yii application seems to work anyway. So it is okey to proceed anyway.
