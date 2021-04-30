@@ -31,6 +31,5 @@ me/framework
 me/framework-test
 me/orm
 me/orm-test
+me/ci
 me/proj
-# ?
-me/wapp
