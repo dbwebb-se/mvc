@@ -99,3 +99,5 @@ Du kan manuellt trigga en build eller rebuild av en specifik commit.
 Bekanta dig med de loggar som tjänsterna producerar, de kan hjälpa dig att förstå varför din build misslyckas.
 
 Vissa tjänster tillåter att man kopplar upp sig med en ssh-inloggning till ett pågående bygge, det kan vara en bra möjlighet att felsöka och dubbelkolla hur miljön är på byggservern.
+
+Formatet för konfigurationsfilerna är [YAML](https://en.wikipedia.org/wiki/YAML).
