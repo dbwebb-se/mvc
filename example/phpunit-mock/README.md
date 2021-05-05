@@ -16,7 +16,7 @@ First install the environment.
 composer install
 ```
 
-Then run the test suite.
+Then run the test suite. The test script is part of the `composer.json` file.
 
 ```
 composer test
@@ -24,8 +24,7 @@ composer test
 
 Check out the code coverage by opening a browser to the `build/coverage/` folder.
 
-When you are done you may clean up all the generated files.
-
+When you are done you may clean up all the generated files. The test script is part of the `composer.json` file.
 
 ```
 composer clean
