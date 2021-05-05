@@ -51,7 +51,7 @@ class DiceTest extends TestCase
 
         // Configure the stub.
         $stub->method('roll')
-             ->willReturn(6);
+            ->willReturn(6);
 
         $exp = 6;
         $res = $stub->roll();
