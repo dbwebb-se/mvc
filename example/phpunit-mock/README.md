@@ -76,9 +76,9 @@ public function testAddStubbedDices()
 
     // Configure the stub.
     $stub->method('roll')
-         ->willReturn(6);
-     $stub->method('lastRoll')
-          ->willReturn(6);
+        ->willReturn(6);
+    $stub->method('lastRoll')
+        ->willReturn(6);
 
     $dicehand = new DiceHand();
     $dicehand->addDice(clone $stub);
