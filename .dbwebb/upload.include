@@ -17,10 +17,9 @@
 /example/**
 
 /me/
-- /me/redovisa/.bin
-- /me/redovisa/build
-- /me/redovisa/theme
-- /me/redovisa/cache/cimage/*
+- /me/**/.bin
+- /me/**/build
+- /me/**/cache/cimage/*
 
 # Laravel cache files
 - /me/**/bootstrap/cache/*.php
