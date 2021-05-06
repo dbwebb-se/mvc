@@ -7,13 +7,14 @@ target="phpunit"
 #make $target >& /dev/null
 
 file="build/$target"
-lines=$( wc -l $file )
 
-res=$( grep 'OK (' $file )
-[[ $res ]]
-status=$?
-if [[ !$res ]]; then
+if [[ -f $file ]]; then
+    lines=$( wc -l $file )
+    res=$( grep 'OK (' $file )
+    [[ $res ]]
+    status=$?
     doLog $status "$target: $res"
 else
-    doLog $status "$target: NOT IMPLEMENTED"
+    printf "Missing log file: '$file'\nWas the build successfully done and generated a logfile?\n"
+    doLog 1 "$target: no log file detected"
 fi

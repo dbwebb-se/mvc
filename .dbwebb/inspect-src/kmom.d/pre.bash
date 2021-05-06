@@ -23,33 +23,50 @@ echo "[$ACRONYM/$COURSE/$KMOM]" > "$LOG_DOCKER"
 
 # Do different things depending on kmom
 localRepoUrl="http://127.0.0.1:18080/gui-repo"
-export REPO="me/game"
+studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
+
+case $KMOM in
+    kmom01)
+        REPO="me/game"
+        openUrl "$localRepoUrl/htdocs"
+    ;;
+    kmom02)
+        REPO="me/game"
+        openUrl "$localRepoUrl/htdocs"
+        openUrl "$localRepoUrl/doc/yatzy" # Pseudocode & flowchart
+    ;;
+    kmom03)
+        REPO="me/game"
+        openUrl "$localRepoUrl/htdocs"
+        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
+    ;;
+    kmom04)
+        REPO="me/framework"
+        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+    ;;
+    kmom05)
+        REPO="me/orm"
+        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+    ;;
+    kmom06)
+        REPO="me/ci"
+        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+    ;;
+    kmom10)
+        REPO="me/proj"
+        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+    ;;
+esac
+
 
 [[ -d "$DIR/$REPO" ]] || echo "MISSING TARGET DIR '$REPO'. Epic fail."
 [[ -d "$DIR/$REPO/.git" ]] || echo "MISSING TARGET GIT DIR '$REPO/.git'. Epic fail."
 
-case $KMOM in
-    kmom02)
-        # Pseudocode & flowchart
-        openUrl "$localRepoUrl/doc/yatzy"
-    ;;
-
-    kmom03)
-        # Code coverage
-        openUrl "$localRepoUrl/build/coverage/index.html"
-    ;;
-
-esac
-
-openUrl "$localRepoUrl/htdocs"
-
-studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
 openUrl "$studentServerUrl"
 
-gitUrl=$( cd "$DIR/$REPO" && git config --get remote.origin.url )
+gitUrl=$( cd "$DIR/$REPO" && [[ -d .git ]] && git config --get remote.origin.url )
 openGitUrl "$gitUrl"
 [[ $gitUrl ]] || echo "MISSING GIT REMOTE. Epic fail."
-
 
 # # Rsync the target dir/repo to a temp space
 # install -d gui-repo/

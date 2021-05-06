@@ -1,13 +1,12 @@
 Låt se hur kmom04 föll ut.
 
-Jag tittar främst på din module och hur du integrerat den i me/redovisa och hur du städat upp i me/redovisa.
+Jag läser främst igenom din redovisningstext för att se hur du upplevde kursmomentet, vilket ramverk du valde och dina tankar kringa det.
 
-Jag kikar på dina taggar och commits så att det ser ordnat ut.
+Därefter kör jag din applikation som den ligger på studentservern och vill se hur du lyckades porta din applikation till ditt valda ramverk.
 
-Jag läser igenom redovisningstexten och vill gärna se en väl formulerad sådan.
+Jag försöker köra igenom de automatiska rättningsskripten som vi har sedan tidigare, men de förutsätter att du har lagt dina filer på vissa platser. Om det misslyckas så låter vi den biten vara i detta kmomet.
 
-Avslutningsvis kollar jag in din väderapplikation och ditt REST API och ser att det fungerar som tidigare.
-
-Kämpa på, gott jobbat så här långt.
+Det står lite mer om detta i GitHub issuen:
+https://github.com/dbwebb-se/mvc/issues/33
 
 $TEACHER_SIGNATURE

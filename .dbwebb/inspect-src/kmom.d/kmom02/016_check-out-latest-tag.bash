@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-. ".dbwebb/test/functions.bash"
+. ".dbwebb/inspect-src/kmom.d/functions.bash"
+
+lowtag="$LOW_TAG"
+hightag="$HIGH_TAG"
 
 cd $TARGET_DIR || exit 1
 [[ ! -d .git ]] && echo "Missing .git directory." && exit 1
@@ -8,8 +11,6 @@ cd $TARGET_DIR || exit 1
 git stash >& /dev/null
 git status >& /dev/null
 
-lowtag="2.0.0"
-hightag="3.0.0"
 tag=$( hasGitTagBetween . $lowtag $hightag )
 mainBranch=$( getMainOrMasterBranch . )
 

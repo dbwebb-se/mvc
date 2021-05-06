@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-. ".dbwebb/test/functions.bash"
+. ".dbwebb/inspect-src/kmom.d/functions.bash"
 
 apachectl start
