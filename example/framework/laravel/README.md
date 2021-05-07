@@ -68,8 +68,8 @@ Copy example files.
 
 ```
 # From the root of the example directory
-cp HelloWorldController.php app/app/Http/Controllers
-cp message.blade.php app/resources/views
+cp *Controller.php app/app/Http/Controllers
+cp *.blade.php app/resources/views
 cp web.php app/routes
 ```
 
@@ -91,6 +91,40 @@ app/public/hello-world
 app/public/hello-world-view
 app/public/hello
 app/public/hello/hello-the-new-world-by-arg
+```
+
+There is a form example that uses the flash session at the following url.
+
+```
+app/public/form
+```
+
+
+
+The fast track
+-----------------------
+
+These are the commands to execute to quickly setup the installation in this guide.
+
+```
+composer create-project laravel/laravel app
+chmod -R o+w app/storage/
+cp .htaccess app/public
+cp *Controller.php app/app/Http/Controllers
+cp *.blade.php app/resources/views
+cp web.php app/routes
+```
+
+Start the web server.
+
+```
+php -S localhost:8080 -t app/public
+```
+
+Useful commands.
+
+```
+php artisan route:list
 ```
 
 

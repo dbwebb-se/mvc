@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloWorldController;
+use App\Http\Controllers\FormController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +31,7 @@ Route::get('/hello-world-view', function () {
 });
 Route::get('/hello', [HelloWorldController::class, 'hello']);
 Route::get('/hello/{message}', [HelloWorldController::class, 'hello']);
+
+Route::get('/form', [FormController::class, 'index']);
+Route::post('/form/process', [FormController::class, 'process']);
+Route::get('/form/view', [FormController::class, 'view']);
