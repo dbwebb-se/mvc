@@ -45,18 +45,22 @@ case $KMOM in
     kmom04)
         REPO="me/framework"
         studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
     kmom05)
         REPO="me/orm"
         studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
     kmom06)
         REPO="me/ci"
         studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
     kmom10)
         REPO="me/proj"
         studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
 esac
 
