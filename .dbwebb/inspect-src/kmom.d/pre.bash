@@ -23,20 +23,22 @@ echo "[$ACRONYM/$COURSE/$KMOM]" > "$LOG_DOCKER"
 
 # Do different things depending on kmom
 localRepoUrl="http://127.0.0.1:18080/gui-repo"
-studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
 
 case $KMOM in
     kmom01)
         REPO="me/game"
+        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
         openUrl "$localRepoUrl/htdocs"
     ;;
     kmom02)
         REPO="me/game"
+        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
         openUrl "$localRepoUrl/htdocs"
         openUrl "$localRepoUrl/doc/yatzy" # Pseudocode & flowchart
     ;;
     kmom03)
         REPO="me/game"
+        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
         openUrl "$localRepoUrl/htdocs"
         openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
@@ -57,7 +59,6 @@ case $KMOM in
         studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
     ;;
 esac
-
 
 [[ -d "$DIR/$REPO" ]] || echo "MISSING TARGET DIR '$REPO'. Epic fail."
 [[ -d "$DIR/$REPO/.git" ]] || echo "MISSING TARGET GIT DIR '$REPO/.git'. Epic fail."
