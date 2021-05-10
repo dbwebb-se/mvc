@@ -12,6 +12,9 @@
 /.*.conf
 /.*.json
 
+.env.student.local
+- .env*.local
+
 /example/
 - /example/**/node_modules/*
 /example/**
@@ -42,6 +45,7 @@
 - vendor/**/test
 - node_modules/
 - gulpfile.js
+
 /me/**
 
 - */
