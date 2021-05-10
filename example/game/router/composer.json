@@ -13,7 +13,8 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9",
-        "phpstan/phpstan": "^0.12"
+        "phpstan/phpstan": "^0.12",
+        "phpmetrics/phpmetrics": "^2.7"
     },
     "require": {
         "twig/twig": "^3.3",
