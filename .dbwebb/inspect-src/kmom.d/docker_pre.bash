@@ -51,9 +51,9 @@ case $KMOM in
     kmom10)
         export SOURCE_DIR="me/proj"
         export TARGET_DIR="gui-repo"
-        export LOW_TAG="1.0.0"
-        export HIGH_TAG="2.0.0"
-        export NUM_TAGS=1
+        export LOW_TAG="7.0.0"
+        export HIGH_TAG="8.0.0"
+        export NUM_TAGS=2
         export NUM_COMMITS=20
     ;;
 esac

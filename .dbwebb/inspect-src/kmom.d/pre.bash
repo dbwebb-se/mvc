@@ -60,6 +60,7 @@ case $KMOM in
     kmom10)
         REPO="me/proj"
         studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
+        openUrl "$localRepoUrl/doc/design" # Pseudocode & flowchart
         openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
 esac

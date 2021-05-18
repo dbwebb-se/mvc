@@ -5,7 +5,7 @@ cd $TARGET_DIR || exit 1
 
 all=0
 fail=0
-for dir in .git; do
+for dir in .git doc/design; do
     (( all++ ))
     if [[ ! -d "$dir" ]]; then
         printf "Missing '$dir' dir.\n"

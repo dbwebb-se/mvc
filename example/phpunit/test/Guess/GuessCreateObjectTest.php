@@ -15,6 +15,7 @@ class GuessCreateObjectTest extends TestCase
      */
     public function testCreateObjectNoArguments()
     {
+      var_dump(getenv("APP_ENV"));
         $guess = new Guess();
         $this->assertInstanceOf("\Mos\Guess\Guess", $guess);
 
