@@ -37,6 +37,7 @@ if [[ ! -d "$TEST_TARGET" ]]; then
     printf "No such directory '%s'\n" "$TEST_TARGET"
     exit 1
 fi
+WORK_TARGET="$DIR/suite.d/.work"
 
 # Export to be used in test scripts
 MSG_OK="\033[0;30;42mOK\033[0m"
@@ -50,7 +51,7 @@ export MSG_FAILED="\033[0;37;41mFAILED\033[0m"
 # Print a header
 #
 function header {
-    printf "\033[32;01m>>> -------------- %-20s -------------------------\033[0m\n" "$1"
+    printf "\033[32;01m>>> -------------- %-30s -------------------------\033[0m\n" "$1"
 }
 
 #
@@ -79,12 +80,29 @@ function doLog {
 
 export -f doLog
 
+# Gather all scripts into one dir
+install -d "$WORK_TARGET"
+rm -f "$WORK_TARGET/"*
+SUITES_FILE="$TEST_TARGET/suites"
+if [[ -f "$SUITES_FILE" ]]; then
+    while read dir; do
+        if [[ ! -d "$TEST_TARGET/../$dir" ]]; then
+            printf "No such dir '$dir' to read testsuite from.\n %s\n" "$TEST_TARGET/../$dir"
+            exit 1
+        fi
+        cp -f "$TEST_TARGET/../$dir/"??*_*.bash "$WORK_TARGET/" &> /dev/null
+    done < <( grep -v "^#" < "$SUITES_FILE" )
+fi
+cp -f "$TEST_TARGET/"??*_*.bash "$WORK_TARGET/" &> /dev/null
+
+
+# Run it
 # printf "\n"
 header "Start"
 printf "%s/%s/%s %s\n" "$ACRONYM" "$COURSE" "$TESTSUITE" "$( date )"
 
 summary=
-if ! compgen -G "$TEST_TARGET/??*_*.bash" > /dev/null; then
+if ! compgen -G "$WORK_TARGET/??*_*.bash" > /dev/null; then
     printf "\n$MSG_DONE No script to execute.\n"
     exit 0
 fi
@@ -92,7 +110,7 @@ fi
 file="$DIR/pre.bash"
 [[ -f "$file" ]] && . "$file"
 
-for file in "$TEST_TARGET/"??*_*.bash; do
+for file in "$WORK_TARGET/"??*_*.bash; do
     output=
     target=$( basename "$file" )
     echo && header "$target"
