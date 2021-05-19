@@ -29,7 +29,7 @@
 - /me/**/storage/app/**/*.php
 - /me/**/storage/framework/**/*.php
 - /me/**/storage/framework/sessions/*
-- /me/**/storage/logs/**/*.php
+- /me/**/storage/logs/**
 
 # Symfony cache files
 - /me/**/var/cache/**
