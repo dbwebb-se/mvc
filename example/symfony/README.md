@@ -244,7 +244,9 @@ You might want to learn more on controllers and routing.
 Fast track to test this README
 -----------------------
 
-These are commands to test this article by reproducing the installation using docker. Warning that the commands will remove all files in the `me/kmom01/symfony` directory.
+These are commands to test this article by reproducing the installation using docker. These are used only for test purpose.
+
+Warning that the commands will remove all files in the `me/kmom01/symfony` directory.
 
 ```
 # Root of the course repo
