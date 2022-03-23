@@ -10,9 +10,7 @@ This exercise will help you create a web application/service using a Symfony ins
 Documentation
 ----------------------------
 
-The exercise is built on the documentation of the Symfony project.
-
-* https://symfony.com/doc/current/setup.html
+The exercise is built on the documentation of the Symfony project and the basics comes from the article "[Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)".
 
 
 
