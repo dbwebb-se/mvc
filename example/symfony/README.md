@@ -1,9 +1,9 @@
 ![Symfony image](http://dbwebb.se/image/kurs/mvc/kmom01-symfony.png?w=900&h=200&cf)
 
-Get going Symfony
+Get going with Symfony
 ====================
 
-This exercise will help you create a web application/service using a Symfony installation. You will add a controller, web pages and a REST API.
+This exercise will help you create a web application/service using a Symfony installation. You will add a controller, web pages using a template engine and a REST API.
 
 
 
