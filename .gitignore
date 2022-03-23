@@ -10,6 +10,7 @@ composer.lock
 gui-repo/
 .phpunit.result.cache
 .work/
+stud.txt
 
 __pycache__
 *.pyc

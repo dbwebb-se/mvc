@@ -35,9 +35,9 @@
 - /me/**/var/cache/**
 - /me/**/var/log/**
 
-# Yii cache files
-- /me/**/web/assets/*
-- /me/**/runtime/*
+# Yii cache files (issues with Symfony runtime)
+#- /me/**/web/assets/*
+#- /me/**/runtime/*
 
 - vendor/mos/cimage/webroot
 #- vendor/**/config

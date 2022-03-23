@@ -1,4 +1,24 @@
 # mvc
+
+Hmm. retake.
+
+Jobba i grupp?
+
+* objektorientering? räcker moduler?
+* mvc
+* databas med ORM (relation eller objektdatabas?)
+* REST API med JSON
+* web hook?
+* enhetstestning
+* utvecklingsmiljö, validatorer, build, travis, kodkvalitet
+* PHP, Typescript, JavaScript?
+* webapp med ramverk och inloggning?
+* owasp och säkerhet.
+* (azure eller studserver)
+
+---
+
+
 Course repo for the mvc course - mvc.
 
 

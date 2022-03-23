@@ -1,0 +1,11 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+
+hello:
+    path: /hello-world
+    controller: App\Controller\HelloWorldController::helloMessage
+
+hello-view:
+    path: /hello-world-view
+    controller: App\Controller\HelloWorldController::helloMessageView

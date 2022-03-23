@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'propel' => [
+        'database' => [
+            'connections' => [
+                'demo' => [
+                    'adapter'    => 'sqlite',
+                    'classname'  => 'Propel\Runtime\Connection\ConnectionWrapper',
+                    'dsn'        => 'sqlite:'.__DIR__.'/../db/db.sqlite',
+                    //'user'       => 'my_db_user',
+                    //'password'   => 's3cr3t',
+                    'attributes' => []
+                ]
+            ]
+        ],
+        'runtime' => [
+            'defaultConnection' => 'demo',
+            'connections' => ['demo']
+        ],
+        'generator' => [
+            'defaultConnection' => 'demo',
+            'connections' => ['demo']
+        ]
+    ]
+];

@@ -1,0 +1,35 @@
+version: "3"
+services:
+    php74: &latest
+        image: anax/dev:php74
+        volumes: [ ".:/home/anax/repo" ]
+
+    php74-apache: &latest-apache
+        image: anax/dev:php74-apache
+        ports: [ "10074:80" ]
+        volumes: [ ".:/home/anax/repo" ]
+
+    php73:
+        image: anax/dev:php73
+        volumes: [ ".:/home/anax/repo" ]
+
+    php73-apache:
+        image: anax/dev:php73-apache
+        ports: [ "10073:80" ]
+        volumes: [ ".:/home/anax/repo" ]
+
+    php72:
+        image: anax/dev:php72
+        volumes: [ ".:/home/anax/repo" ]
+
+    php72-apache:
+        image: anax/dev:php72-apache
+        ports: [ "10072:80" ]
+        volumes: [ ".:/home/anax/repo" ]
+
+    php:
+        <<: *latest
+
+    apache:
+        <<: *latest-apache
+        ports: [ "10080:80" ]

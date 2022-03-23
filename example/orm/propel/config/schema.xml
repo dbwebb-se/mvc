@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="bookstore" defaultIdMethod="native">
+  <table name="product" phpName="Product">
+    <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"/>
+    <column name="name" type="varchar" size="255" required="true" />
+    <column name="value" type="integer" required="true"/>
+  </table>
+</database>
