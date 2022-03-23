@@ -154,6 +154,8 @@ Inspect the code in the controller and make a few small changes to the web page 
 
 Lets move the rendering of the web page to a template file and use the Twig template engine to render it.
 
+Quickly browse the documentation on [the template engine Twig](https://twig.symfony.com/).
+
 Install the Twig package.
 
 ```
