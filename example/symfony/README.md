@@ -14,6 +14,17 @@ The exercise is built on the documentation of the Symfony project and the basics
 
 
 
+Video
+----------------------------
+
+There is a playlist on YouTube where Mikael works through this exercise, step by step.
+
+Playlist "[Get going with Symfony](https://www.youtube.com/playlist?list=PLKtP9l5q3ce8KNlbcnlyYInNqwDHxnpH0)".
+
+[![Playlist: Get going with Symfony](https://img.youtube.com/vi/EbeLHSMMs_0/0.jpg)](https://www.youtube.com/watch?v=EbeLHSMMs_0&list=PLKtP9l5q3ce8KNlbcnlyYInNqwDHxnpH0)
+
+
+
 Prepare
 ----------------------------
 
