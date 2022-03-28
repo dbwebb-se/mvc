@@ -221,7 +221,7 @@ Here are a few examples on how to use it.
 
 ```
 # Show the routes
-bin/console debug:routes
+bin/console debug:router
 
 # Match a specific route
 bin/console router:match /lucky/number
