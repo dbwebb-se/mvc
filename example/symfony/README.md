@@ -130,7 +130,7 @@ Verify that it works.
 Create a home page (lucky number)
 -----------------------
 
-This is a short example on how to [create your first page in Symfony](https://symfony.com/doc/current/page_creation.htm).
+This is a short example on how to [create your first page in Symfony](https://symfony.com/doc/current/page_creation.html).
 
 
 
