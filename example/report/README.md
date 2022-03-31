@@ -12,17 +12,28 @@ cp example/symfony/.htaccess me/report/public/
 dbwebb publishpure report
 ```
 
+Try it locally.
+
+```
+php -S localhost:8888 -t public
+```
+
+Prepare the installation as a website.
+
+```
+cd me/report
+composer require annotations twig webapp
+```
+
 Add a controller with the routes.
 
 ```
-cp example/symfony/LuckyControllerTwig.php me/report/src/Controller/ReportController.php
+# From me/report
+cp ../../example/symfony/LuckyControllerTwig.php src/Controller/ReportController.php
 
-cp example/symfony/lucky_number.html.twig me/report/templates/about.html.twig
-cp example/symfony/lucky_number.html.twig me/report/templates/home.html.twig
-cp example/symfony/lucky_number.html.twig me/report/templates/report.html.twig
-
-cd me/report
-composer require annotations twig webapp
+cp ../../example/symfony/lucky_number.html.twig templates/about.html.twig
+cp ../../example/symfony/lucky_number.html.twig templates/home.html.twig
+cp ../../example/symfony/lucky_number.html.twig templates/report.html.twig
 ```
 
 
@@ -51,7 +62,7 @@ wget https://dbwebb.se/favicon.ico -O public/favicon.ico
 ```
 
 ```
-<link rel="stylesheet" href="css/style.css"/>
+<link rel="icon" href="favicon.ico">
 ```
 
 
