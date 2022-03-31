@@ -1,7 +1,6 @@
 Helpers to get up me/report
 ============================
 
-
 Create the base for the website and see it work.
 
 ```
