@@ -2,7 +2,7 @@
 . ".dbwebb/inspect-src/kmom.d/functions.bash"
 
 TARGET_DIR="me/report"
-CHECK_FILES="composer.json composer.lock"
+CHECK_FILES="composer.json composer.lock public/.htaccess"
 
 cd $TARGET_DIR || exit 1
 

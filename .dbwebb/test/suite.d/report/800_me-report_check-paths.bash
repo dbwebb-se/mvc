@@ -2,7 +2,7 @@
 . ".dbwebb/inspect-src/kmom.d/functions.bash"
 
 TARGET_DIR="me/report"
-CHECK_DIRS="config public src templates"
+CHECK_DIRS="config public src templates vendor"
 
 cd $TARGET_DIR || exit 1
 
