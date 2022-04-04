@@ -3,7 +3,7 @@
 
 TARGET_DIR="me/report"
 
-req="1"
+req="2"
 
 cd $TARGET_DIR || exit 1
 [[ ! -d .git ]] && echo "Missing .git directory." && exit 1

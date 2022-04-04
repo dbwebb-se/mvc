@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+{# read and display all flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+<form method="post">
+    <fieldset>
+    <legend>A login form</legend>
+    <p>
+        <label>User:
+            <input type="text" name="user" value="">
+        </label>
+    </p>
+    <p>
+        <label>Password:
+            <input type="password" name="pwd" value="">
+        </label>
+    </p>
+    <p>
+        <input type="submit" value="Login">
+    </p>
+    </fieldset>
+</form>
+
+{% endblock %}

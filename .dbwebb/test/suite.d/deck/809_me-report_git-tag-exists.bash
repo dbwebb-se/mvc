@@ -3,8 +3,8 @@
 
 TARGET_DIR="me/report"
 
-lowtag="1.0.0"
-hightag="2.0.0"
+lowtag="2.0.0"
+hightag="3.0.0"
 
 cd $TARGET_DIR || exit 1
 [[ ! -d .git ]] && echo "Missing .git directory." && exit 1

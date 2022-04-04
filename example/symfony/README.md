@@ -212,6 +212,29 @@ Inspect the code in the controller. Make a few small changes to it and try to ge
 
 
 
+<!--
+Assets
+----------------------------
+
+```
+<link rel="icon" href="{{ asset("favicon.ico") }}">
+<link rel="stylesheet" href="{{ asset("css/style.css") }}"/>
+```
+
+https://symfony.com/doc/current/components/asset.html
+
+Disable json_manifest_path in
+    me/report/config/packages/webpack_encore.yaml
+
+```
+framework:
+    assets:
+        #json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
+```
+-->
+
+
+
 Symfony bin/console
 ----------------------------
 
