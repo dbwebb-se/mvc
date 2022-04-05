@@ -1,0 +1,22 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Dice hand{% endblock %}
+
+{% block content %}
+
+<form method="post">
+    <fieldset>
+    <legend>A dice hand</legend>
+
+    <p>
+        <input type="submit" name="roll" value="Roll">
+        <input type="submit" name="add" value="Add">
+        <input type="submit" name="clear" value="Clear">
+    </p>
+
+    {{ include('block/flash-message.html.twig') }}
+
+    </fieldset>
+</form>
+
+{% endblock %}
