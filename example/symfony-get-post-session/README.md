@@ -8,7 +8,7 @@ This exercise will show you how to work with GET, POST and SESSION in Symfony. T
 * Flash message
 * Increment the number (SESSION)
 
-There is working code for controllers and tempalte files which you can copy to your own website and see how it works. Use the code examples to understand how you should write your own code.
+There is working code for controllers and template files which you can copy to your own website and see how it works. Use the code examples to understand how you could write your own code.
 
 
 
