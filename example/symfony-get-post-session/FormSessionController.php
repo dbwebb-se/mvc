@@ -25,7 +25,7 @@ class FormSessionController extends AbstractController
     /**
      * @Route(
      *      "/form/session",
-     *      name="form-login-process",
+     *      name="form-session-process",
      *      methods={"POST"}
      * )
      */
