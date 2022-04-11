@@ -24,6 +24,13 @@ mkdir --parents tools/phpmd
 composer require --working-dir=tools/phpmd phpmd/phpmd
 ```
 
+Verify that the tool can be executed.
+
+```
+tools/phpmd/vendor/bin/phpmd --version
+tools/phpmd/vendor/bin/phpmd --help
+```
+
 Now you can execute the tool like this.
 
 ```
@@ -62,6 +69,13 @@ mkdir --parents tools/phpstan
 composer require --working-dir=tools/phpstan phpstan/phpstan
 ```
 
+Verify that the tool can be executed.
+
+```
+tools/phpstan/vendor/bin/phpstan --version
+tools/phpstan/vendor/bin/phpstan --help
+```
+
 Now you can execute the tool like this.
 
 ```
@@ -91,6 +105,13 @@ The recommendation is to install the tool in the directory `tools/` so it does n
 # Go to the root of your Symfony directory
 mkdir --parents tools/phpcpd
 composer require --working-dir=tools/phpcpd sebastian/phpcpd
+```
+
+Verify that the tool can be executed.
+
+```
+tools/phpcpd/vendor/bin/phpcpd --version
+tools/phpcpd/vendor/bin/phpcpd --help
 ```
 
 Now you can execute the tool like this.
