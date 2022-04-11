@@ -24,7 +24,7 @@ mkdir --parents tools/php-cs-fixer
 composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
 ```
 
-Now you can execute the fixer byt this.
+Now you can execute the tool like this.
 
 ```
 tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
@@ -102,7 +102,7 @@ Now you can try to add the following scripts.
     "scripts": {
         "csfix": "tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src",
         "phpcs": "tools/php-codesniffer/vendor/bin/phpcs --standard=PSR12 src",
-        "phpcbf": "tools/php-codesniffer/vendor/bin/phpcbf --standard=PSR12 src",
+        "phpcbf": "tools/php-codesniffer/vendor/bin/phpcbf --standard=PSR12 src"
     }
 }
 ```
