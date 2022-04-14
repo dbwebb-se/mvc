@@ -47,6 +47,7 @@
 - gulpfile.js
 
 /me/**
+/me/**/public/build
 
 - */
 - *
