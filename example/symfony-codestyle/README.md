@@ -1,7 +1,7 @@
 Symfony codestyle
 ==========================
 
-This exercise will show you how to get going with formatting your code like a Synfony developer. The exercise will also show you how to check and fix your codestyle for a general PHP project using PHP FIG standard codestyle.
+This exercise will show you how to get going with formatting your code like a Symfony developer. The exercise will also show you how to check and fix your codestyle for a general PHP project using PHP FIG standard codestyle.
 
 The tools you are going to install are really useful development tools.
 
