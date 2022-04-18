@@ -6,6 +6,8 @@ CHECK_FILES="composer.json composer.lock public/.htaccess
     tools/php-cs-fixer/vendor/bin/php-cs-fixer
 "
 # Add linters?
+# Add phpunit?
+# Add phpdoc?
 
 cd $TARGET_DIR || exit 1
 

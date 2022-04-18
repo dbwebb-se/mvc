@@ -6,6 +6,8 @@ CHECK_DIRS="config public src templates vendor
     tools tools/php-cs-fixer
 "
 # Add linters?
+# Add phpunit?
+# Add phpdoc?
 
 cd $TARGET_DIR || exit 1
 
