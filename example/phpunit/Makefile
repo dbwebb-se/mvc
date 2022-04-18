@@ -28,7 +28,7 @@ prepare:
 	rm -rf build/*
 
 phpunit: prepare
-	[ ! -d "test" ] || XDEBUG_MODE=coverage $(PHPUNIT) --configuration .phpunit.xml $(options) | tee build/phpunit
+	[ ! -d "test" ] || XDEBUG_MODE=coverage $(PHPUNIT) $(options) | tee build/phpunit
 
 test: phpunit
 	composer validate

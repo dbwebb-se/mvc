@@ -11,6 +11,9 @@
     "autoload": {
         "psr-4": {"Mos\\": "src/"}
     },
+    "scripts": {
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
+    },
     "require-dev": {
         "php": "^7.3",
         "phpunit/phpunit": "^9"

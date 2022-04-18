@@ -16,6 +16,7 @@ This is short tutorial with code samples on how to get going with phpunit for un
 * [Summary](#summary)
 * [Excercise](#excercise)
 * [Thoughts](#thoughts)
+* [References](#references)
 
 
 
@@ -26,7 +27,17 @@ There is a recording from a Zoom session where Mikael walks you through this exe
 
 [![YouTube video image](http://img.youtube.com/vi/HSZH4VKpE_k/0.jpg)](http://www.youtube.com/watch?v=HSZH4VKpE_k "Kurs mvc kmom03 tisdagsgenomgång, del 2/3 övning phpunit (Zoom med Mikael)")
 
+<!--
+Updates since the recording.
 
+* Change .phpunit.xml to phpunit.xml
+* Add composer phpunit
+
+Proposed updates to aline with the mvc-course.
+
+* Remove the Makefile and use only composer
+
+-->
 
 Prerequisite
 -----------------------------------
@@ -98,7 +109,7 @@ This is the directory structure for the complete example program.
 | `view/`         | Template files to create views. |
 | `test/<srcdir>` | The test suite with all test cases that phpunit will execute. |
 | `test/config.php` | Configuration file to setup PHP essentials for phpunit and the surroundings, including the autoloader and defining constanst or including mocks. |
-| `.phpunit.xml`  | Configuration read by phpunit on startup. |
+| `phpunit.xml`  | Configuration read by phpunit on startup. |
 
 Check out the directory structure and the content of the files to get acquainted with them.
 
@@ -113,16 +124,14 @@ All classes ending with postfix `Test` will be executed by phpunit. You can have
 
 I usually prefer dividing my test cases into several test classes for each source class, where appropriate, it gives me better overview of the test cases and enhance the documentation of the test suite.
 
-You can execute the test suite, with all test cases, through the Makefile.
+You can execute the test suite, with all test cases, through the Makefile or through Composer script.
 
 ```text
+# Using the Makefile
 make phpunit
-```
 
-Or
-
-```text
-make test
+# Using composer
+composer phpunit
 ```
 
 The output can look like this.
@@ -265,3 +274,19 @@ Thoughts
 -----------------------------------
 
 What about the PHP code in the directories `config/`, `htdocs/` and `view/`? Should that code also the covered by unit test or?
+
+
+
+References
+-----------------------------------
+
+You can read more on PHPUnit on their website and in the documentation.
+
+* [PHPUnits home page](https://phpunit.de/)
+* [Manualen](https://phpunit.readthedocs.io)
+* [PHPUnit and PHP supported version](https://phpunit.de/supported-versions.html)
+* [PHPUnit on GitHub](https://github.com/sebastianbergmann/phpunit)
+
+To enable code coverage yyou need to isntall Xdebug.
+
+* [Home page for Xdebug](https://xdebug.org/)
