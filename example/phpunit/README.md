@@ -36,6 +36,8 @@ Updates since the recording.
 Proposed updates to aline with the mvc-course.
 
 * Remove the Makefile and use only composer
+* Run individual testfile
+* Run individual testcase
 
 -->
 
