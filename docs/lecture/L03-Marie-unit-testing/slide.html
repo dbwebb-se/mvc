@@ -1,0 +1,261 @@
+<!doctype html>
+<html class="theme-5">
+<meta charset="utf-8" />
+<link href="../html-slideshow.bundle.min.css" rel="stylesheet" />
+<link href="../style.css" rel="stylesheet" />
+<script src="https://dbwebb.se/cdn/js/html-slideshow_v1.1.0.bundle.min.js"></script>
+
+<title>Software Testing</title>
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# Unit Testing
+## According to my experience
+### Marie Grahn
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Agenda
+
+* Me
+* Why do testing?
+* Different ways of working with unit testing
+* Test driven development
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Me
+
+* 30 years of work experience
+* First job as C++ designer - no tests!?
+* 20 years at Ericsson, different roles
+* Last 10 as Java designer (design and unit test).
+* Career change to web programming and teaching at BTH.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Ericsson
+
+* 100 000 employees (13 000 in Sweden).
+* 400 student summer interns each summer and 200 students write their master’s
+thesis with Ericsson each year.
+* Mostly mobile communication, like 5G, the fifth generation of cellular networks.
+* Me: Ericsson Dynamic Activation (EDA), a provisioning platform for automated activation
+of telecommunications services. e.g. IMSI change over.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Why do testing?
+
+* To secure that the code works according to requirements.
+* Used as quality assurance to prove that the task/project is done.
+* Used both in new software, software updates, and refactoring.
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Task/project
+
+* Do these requirements within this time frame.
+* Unit testing proves the requirements.
+* Present the result to product owner/project manager.
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Unit testing in different ways
+
+1. Designers code & testers unit tests
+2. Designers - unit tests afterwards
+3. Designers - unit tests during development/coding
+4. Designers, dived into designers & testers
+5. Test driven development (TDD), unit tests first & coding afterwards
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Prototyping
+
+* Between programming and unit testing.
+* Create a class and do some code lines to get started.
+* For example...
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Unit testing
+
+* Testing a class or part of the class.
+* Mocking database calls etc.
+* Both positive and negative cases.
+* Large code base => many test classes
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Basics
+
+* Unit test often.
+* Validate code often.
+* A lot of small commits (push, tags).
+* Use the required code standard and naming convention.
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 1. Designers code & testers unit tests
+
+* Testers start with unit tests in advance.
+* Designers starts coding and verifies the codes often with the unit test.
+* Advantages: high code quality, excellent unit tests
+* Disadvantage: cost
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 2. Designers - unit tests afterwards
+
+* White box testing
+* Unit tests are ok but not that as good as made by testers.
+* Unit tests are more to please management or some standard than improve code quality.
+* When testing is not prioritized.
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 3. Designers - unit tests during coding
+
+* White box testing
+* Unit tests are good but not that in class with testers.
+* Work: write a code part, doing some unit tests and run them => ev updating code
+or test => start over
+* Good unit tests, fast to write tests but influenced by own code
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 4. Designers, dived into designers & testers
+
+* Designer team discuss the task, requirements, and solution.
+* Designer team divided into designer and testers. Change roles next task.
+* Test group writing unit test from requirements and solution discussion.
+* Designer group programming according to requirements and solution discussion.
+* Good/very good unit tests
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Advantages with different designers and testers
+
+* Clear interface
+* Requirements are discussed and more understood
+* Testers - excellent & thorough unit tests
+* Designers - clean, efficient, and easy to read code doing the right things
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 5. TDD, unit tests first & coding afterwards
+
+* Designer team discuss the task, requirements, and solution.
+* Start writing unit test from requirements and solution discussion.
+* Then programming according to requirements and solution discussion.
+* Good/very good unit tests
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 5. TDD, an example
+
+* Requirements
+* Solution discussion and interface
+* Unit tests
+* Coding
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 5. TDD, Dice game, requirements
+
+* A dealer and a player, closest to 21 wins.
+* Player starts.
+* 3 dices, rolls, add the sum, and stop.
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 5. TDD, Solution discussion
+
+* Interface
+* Classes
+* Test classes
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 5. TDD, Classes/Test classes
+
+* Game21Interface/Game21InterfaceTest
+* Game21/Game21Test
+* Player/PlayerTest
+* Dice/DiceTest
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# 5. Test driven development, Game 21
+
+The code and the unit tests are in the example folder in example/phpunit together
+with the Guess example from kmom04 exercise.
+Source code in src/Game21 and unit tests in test/Game21
+
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
+# Summary
+
+* Unit testing is improving the code quality.
+* Quality insurance when updating/changing the code.
+
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown class="titlepage center">
+# The end
+</script>
+
+
+
+<script data-role="slide" type="text/html" data-markdown>
+</script>
+
+</html>
