@@ -50,6 +50,7 @@
 
 /me/**
 /me/**/public/build
+/me/**/build/coverage
 
 - */
 - *

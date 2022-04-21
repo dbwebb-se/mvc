@@ -10,6 +10,15 @@ This exercise will show you how to work with GET, POST and SESSION in Symfony. T
 
 There is working code for controllers and template files which you can copy to your own website and see how it works. Use the code examples to understand how you could write your own code.
 
+<!--
+
+Todo
+
+How to invalidate the session.
+https://symfony.com/doc/current/components/http_foundation/sessions.html#session-workflow
+
+-->
+
 
 
 Prepare
