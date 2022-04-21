@@ -12,7 +12,7 @@ PHP Coding Standards Fixer
 
 The Symfony community uses the tool "[PHP Coding Standards Fixer](https://cs.symfony.com/)" to format the code so it looks the same all throughout all Symfony modules.
 
-The tools does not provide any warnings or hints, it just processes your code to fix its codestyle.
+The tools does not provide any warnings or hints (as per default), it just processes your code to fix its codestyle.
 
 You can read more on the [Symfony Coding Standards](https://symfony.com/doc/current/contributing/code/standards.html) to learn how the code should be written.
 
@@ -25,6 +25,33 @@ composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
 ```
 
 Now you can execute the tool like this.
+
+```
+tools/php-cs-fixer/vendor/bin/php-cs-fixer --version
+tools/php-cs-fixer/vendor/bin/php-cs-fixer --help
+```
+
+
+
+### Detect code style issues
+
+Start by doing a `--dry-run` to only display the files needing to be fixed, this will not actually fix them.
+
+```
+tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run
+```
+
+If you add a `-v` you will get an explanation on the code style issues found.
+
+```
+tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src --dry-run -v
+```
+
+
+
+### Fix code style issues
+
+You can now just fix the code style issue, like this.
 
 ```
 tools/php-cs-fixer/vendor/bin/php-cs-fixer fix src
@@ -122,3 +149,21 @@ composer phpcbf
 ```
 
 These tools are very valuable when creating good code.
+
+
+
+Configuration file for php-cs-fixer [OPTIONAL]
+--------------------------
+
+This is useful when you want to check the code style in multiple directories, for example both `src/` and `tests/`.
+
+If you want to have php-cs-fixer to be able to check code style in multiple directories you will need a configuration file. There is a sample configuration file in [.php-cs-fixer.dist.php](.php-cs-fixer.dist.php).
+
+Copy that file and place it in the root of your project.
+
+You can then run the command like this and send in the multiple paths at the end of the command line.
+
+```
+# In the root of the project dir
+tools/php-cs-fixer/vendor/bin/php-cs-fixer --config=.php-cs-fixer.dist.php fix src tests
+```
