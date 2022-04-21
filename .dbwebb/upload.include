@@ -23,6 +23,8 @@
 - /me/**/.bin
 - /me/**/build
 - /me/**/cache/cimage/*
+- /me/**/.phpdoc
+- /me/**/tools
 
 # Laravel cache files
 - /me/**/bootstrap/cache/*.php
