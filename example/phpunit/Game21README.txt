@@ -11,6 +11,12 @@ See src/Game21/UML.png
 Assumptions:
 Interface with one method play() that returns a string with the winner.
 
+Preconditions:
+You have done the installation step in the Guess exercise, see phpunit/README.txt.
+composer install or make install
+change namespace in composer.json to your own and activate it with composer dump.
+It is recommended to do the Guess exersice first.
+
 Work order:
 1. UML and discussions about the classes
 2. Create src/Game21/Game21InterfaceTest.php with a test case create a Game21 object.
