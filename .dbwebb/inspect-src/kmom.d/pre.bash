@@ -16,65 +16,34 @@
 #
 #printf ">>> -------------- Pre (all kmoms) ----------------------\n"
 
-echo $DIR
+function doOpenGitUrl {
+    [[ -d "$DIR/$1" ]] || echo "MISSING TARGET DIR '$1'. Epic fail."
+    [[ -d "$DIR/$1/.git" ]] || echo "MISSING TARGET GIT DIR '$1/.git'. Epic fail."
+
+    gitUrl=$( cd "$DIR/$1" && [[ -d .git ]] && git config --get remote.origin.url )
+    openGitUrl "$gitUrl"
+    [[ $gitUrl ]] || echo "MISSING GIT REMOTE. Epic fail."
+}
 
 # Open log
 echo "[$ACRONYM/$COURSE/$KMOM]" > "$LOG_DOCKER"
 
-# Do different things depending on kmom
-localRepoUrl="http://127.0.0.1:18080/gui-repo"
+# Open Git remote
+doOpenGitUrl "me/report"
 
 case $KMOM in
     kmom01)
-        REPO="me/game"
-        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
-        openUrl "$localRepoUrl/htdocs"
     ;;
     kmom02)
-        REPO="me/game"
-        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
-        openUrl "$localRepoUrl/htdocs"
-        openUrl "$localRepoUrl/doc/yatzy" # Pseudocode & flowchart
     ;;
     kmom03)
-        REPO="me/game"
-        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO/htdocs"
-        openUrl "$localRepoUrl/htdocs"
-        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
     kmom04)
-        REPO="me/framework"
-        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
-        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
     kmom05)
-        REPO="me/orm"
-        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
-        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
     kmom06)
-        REPO="me/ci"
-        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
-        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
     kmom10)
-        REPO="me/proj"
-        studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/$REPO"
-        openUrl "$localRepoUrl/doc/design" # Pseudocode & flowchart
-        openUrl "$localRepoUrl/build/coverage/index.html" # Code coverage
     ;;
 esac
-
-[[ -d "$DIR/$REPO" ]] || echo "MISSING TARGET DIR '$REPO'. Epic fail."
-[[ -d "$DIR/$REPO/.git" ]] || echo "MISSING TARGET GIT DIR '$REPO/.git'. Epic fail."
-
-openUrl "$studentServerUrl"
-
-gitUrl=$( cd "$DIR/$REPO" && [[ -d .git ]] && git config --get remote.origin.url )
-openGitUrl "$gitUrl"
-[[ $gitUrl ]] || echo "MISSING GIT REMOTE. Epic fail."
-
-# # Rsync the target dir/repo to a temp space
-# install -d gui-repo/
-# rm -rf gui-repo/{*,.??*}
-# rsync -a --delete $REPO/ gui-repo/

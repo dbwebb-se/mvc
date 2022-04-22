@@ -1,16 +1,18 @@
 Välkommen till kursen mvc!
 
-Jag har kollat igenom din inlämning för att se att saker ligger på rätt plats och att du har ordning och reda på ditt Git-repo. I samband med det kör jag ett antal tester mot ditt repo och du ser resultatet från dem längst ned i denna texten.
+Jag har kollat igenom din inlämning för att se att saker ligger på rätt plats i kursrepot och att du har ordning och reda på ditt Git-repo. I samband med det kör jag ett antal tester mot ditt repo och du ser resultatet från dem längst ned i denna texten. Till viss del är det samma tester du själv kan köra via 'dbwebb test kmom01'.
 
-Jag vill se att din pdf med redovisningstext ser bra ut. Jag har lite högre förväntningar på rapporten i denna kursen än normalt sett.
+Jag vill gärna se en trevlig webbplats för 'me/report'. Med tanke på design-kursen så tillåter jag mig att ha höga förhoppningar.
 
-Jag förväntar mig ordning och reda med taggar och commits i repot, både lokalt och på GitHub/GitLab. När jag testar ditt repo kommer jag att använda den senaste taggen som är >= 1.0.0 och < 2.0.0. Jag hade gärna sett att du hade en handfull commits redan nu.
+Jag kikar runt på webbplatsen så att alla saker från uppgiften finns med.
 
-Jag vill helst inte se några problem med valideringsverktygen, det blir snyggast om de hintar att koden ser bra ut.
+Redovisningstexten får gärna vara väl formatterad och välskriven. Jag hoppas att mvc-kursens frågeställningar är tillräckligt öppna så att du kan diskutera och reflektera kring dem.
 
-Avslutningsvis spelar jag ditt spel och vill se att det fungerar enligt kraven.
+Det vore trevligt med ordning och reda i ditt Git-repo. Jag vill se taggar och gärna en handfull commits.
+
+Första kmomet handlar mest om att komma igång så nu kan vi börja.
 
 $TEACHER_SIGNATURE
 
-PS. Glöm inte att fråga i GitHub issues för mer utförliga svar på funderingar eller för feedback på kod och lösningar.
+PS. Glöm inte att fråga i GitHub issues för mer utförliga svar på funderingar eller för att be om feedback på kod och lösningar.
 https://github.com/dbwebb-se/mvc/issues

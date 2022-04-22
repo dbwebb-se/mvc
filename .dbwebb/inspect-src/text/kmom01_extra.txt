@@ -1,3 +1,21 @@
+Vanliga problem
+=====================
+
+[FIXA] till nästa kmom. Ditt me/report har inte en koppling till GitHub/GitLab. Du kan testa det med 'dbwebb test kmom01'.
+
+[FIXA] Ditt GitHub repo är privat/skyddat så jag kan inte se det, vill du öppna upp det så länge kursen pågår?
+
+[FIXA] Ditt repo har inte taggats på rätt sätt. Lös det till nästa kmom.
+
+[FIXA] Du har inte laddat upp senaste versionen av din kod till din remote (GitHub/GitLab). Fixa det till nästa kmom.
+
+
+
+
+
+Gamla saker
+=====================
+
 [FIX] Jag spelade ditt spel, både lokalt med rätt tagg och på studentservern (senaste versionen du publicerat). Ingen av de versionerna fungerade. Laga så att spelet 21 fungerar.
 
 [FIX] Du har en hel del valideringsfel när man kör 'make phps', städa upp dem.
