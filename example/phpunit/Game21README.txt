@@ -15,7 +15,7 @@ Preconditions:
 You have done the installation step in the Guess exercise, see phpunit/README.txt.
 composer install or make install
 change namespace in composer.json to your own and activate it with composer dump.
-It is recommended to do the Guess exersice first.
+It is recommended to do the Guess exercise first.
 
 Work order:
 1. UML and discussions about the classes
