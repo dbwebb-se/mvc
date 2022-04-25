@@ -37,3 +37,9 @@ Updating the database url it can now look like this.
 ```
 DATABASE_URL="mysql://maria:PAssw0rd@127.0.0.1:3306/mvc?serverVersion=mariadb-10.5.8"
 ```
+
+
+<!-- Raw SQL -->
+
+<!-- Add methods to the entity object -->
+<!-- Search page -->

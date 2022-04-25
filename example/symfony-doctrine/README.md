@@ -37,7 +37,7 @@ The database file will now be stored as `var/data.db`.
 
 
 
-About DotEnv {#dotenv}
+About DotEnv
 ---------------------------
 
 Using `.env` files to configure your application is used by many frameworks and in many programming languages.
