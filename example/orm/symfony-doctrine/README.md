@@ -183,6 +183,7 @@ use App\Entity\Product;
  * @Route("/product/create", name="create_product")
  */
 public function createProduct(): Response
+//public function createProduct(EntityManagerInterface $entityManager): Response
 {
     // you can fetch the EntityManager via $this->getDoctrine()
     // or you can add an argument to the action:

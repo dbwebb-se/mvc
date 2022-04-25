@@ -48,9 +48,9 @@
 - node_modules/
 - gulpfile.js
 
+/me/report/public/build/**
+/me/report/build/coverage/**
 /me/**
-/me/**/public/build
-/me/**/build/coverage
 
 - */
 - *
