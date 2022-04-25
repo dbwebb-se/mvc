@@ -3,7 +3,6 @@
 
 TARGET_DIR="me/report"
 CHECK_DIRS="config public src templates vendor
-    tools tools/php-cs-fixer
 "
 
 cd $TARGET_DIR || exit 1
