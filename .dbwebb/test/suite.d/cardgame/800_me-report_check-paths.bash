@@ -3,7 +3,12 @@
 
 TARGET_DIR="me/report"
 CHECK_DIRS="config public src templates vendor
-    tools tools/php-cs-fixer
+    tools
+    tools/php-cs-fixer
+    tools/php-codesniffer
+    tools/phpcpd
+    tools/phpmd
+    tools/phpstan
 "
 # Add linters?
 
