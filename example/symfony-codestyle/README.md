@@ -7,7 +7,7 @@ The tools you are going to install are really useful development tools.
 
 
 
-Git ignore tooles/
+Git ignore tools/
 --------------------------
 
 Before we start.
