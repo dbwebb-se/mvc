@@ -1,6 +1,6 @@
 Då har jag kikat igenom ditt kmom02 för att se att din inlämning matchar kraven.
 
-Jag kör igenom 'dbwebb test kmom02'.
+Jag körde igenom 'dbwebb test kmom02'.
 
 Jag läste igenom din rapport.
 
@@ -8,7 +8,7 @@ Jag kollade så att du har rätt taggar och jag noterar hur många commits du ha
 
 Jag tittade snabbt på vilka klasser du hade utvecklat. Jag kommenterar dock inte din kod i detalj, fråga gärna om du vill ha feedback kring koden.
 
-Jag klickar igenom allt på din landningssida för kort/kortlek.
+Jag klickade igenom allt på din landningssida för kort/kortlek.
 
 $TEACHER_SIGNATURE
 
