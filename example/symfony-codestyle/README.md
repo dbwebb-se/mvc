@@ -7,6 +7,21 @@ The tools you are going to install are really useful development tools.
 
 
 
+Git ignore tooles/
+--------------------------
+
+Before we start.
+
+You should ignore the directory `tools/` in the file `.gitignore` to avoid checking in those development tools as part of your repository.
+
+You can just add the following line to your `.gitignore` file you have in the root of your repo.
+
+```
+tools/
+```
+
+
+
 PHP Coding Standards Fixer
 --------------------------
 
