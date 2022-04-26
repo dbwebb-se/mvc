@@ -340,7 +340,7 @@ If you want to add more custom queries into the ProductRepository object you mig
 
 * [Doctrine Query Language](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/dql-doctrine-query-language.html) (almost like SQL but for objects)
 * [Query builder](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/query-builder.html) (build queries through methods)
-* [Native SQL](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/native-sql.html)
+* [Native SQL](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/native-sql.html) (execute SQL and map results to entities)
 * Standard SQL
 
 You can read more on these different types of techniques and how to extend the ProductRepository with more methods in the article section "[Querying for Objects: The Repository](https://symfony.com/doc/current/doctrine.html#querying-for-objects-the-repository)".
