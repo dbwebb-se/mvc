@@ -1,0 +1,21 @@
+{
+    "name": "mos/phpunit-test",
+    "description": "To start get going with unittesting and phpunit.",
+    "license": "MIT",
+    "authors": [
+            {
+                "name": "Mikael Roos",
+                "email": "mos@dbwebb.se"
+            }
+    ],
+    "autoload": {
+        "psr-4": {"Mos\\": "src/"}
+    },
+    "scripts": {
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
+    },
+    "require-dev": {
+        "php": "^8.0",
+        "phpunit/phpunit": "^9"
+    }
+}

@@ -44,7 +44,7 @@ Proposed updates to aline with the mvc-course.
 Prerequisite
 -----------------------------------
 
-You have PHP 8.0 or above.
+You have PHP 7.3 or above.
 
 You have composer installed.
 
