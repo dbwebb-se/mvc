@@ -325,3 +325,19 @@ SQLite and the production environment
 You can now try and push the repo to the studentserver to verify that the application also works there.
 
 You should be able to see that your local database is uploaded and used at the student server.
+
+
+
+Build custom queries into Repository object
+--------------------------
+
+If you want to add more custom queries into the ProductRepository object you might just add methods to it. There are several ways of writing these methods together with SQL to perform the actual queries.
+
+* [Doctrine Query Language](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/dql-doctrine-query-language.html) (almost like SQL but for objects)
+* [Query builder](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/query-builder.html) (build queries through methods)
+* [Native SQL](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/native-sql.html)
+* Standard SQL
+
+You can read more on these different types of techniques and how to extend the ProductRepository with more methods in the article section "[Querying for Objects: The Repository](https://symfony.com/doc/current/doctrine.html#querying-for-objects-the-repository)".
+
+That article also has sections on working with relationships and associations and how to work with testing when databases are involved.
