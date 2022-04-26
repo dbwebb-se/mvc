@@ -191,7 +191,12 @@ Review the content of your database, your newly created rows should be there.
 sqlite3 var/data.db
 ```
 
-You can also use the console to do SQL.
+
+
+Run SQL towards the database
+---------------------------
+
+You can also use the console to do pure SQL towards the database.
 
 ```
 php bin/console dbal:run-sql 'SELECT * FROM product'
@@ -341,3 +346,12 @@ If you want to add more custom queries into the ProductRepository object you mig
 You can read more on these different types of techniques and how to extend the ProductRepository with more methods in the article section "[Querying for Objects: The Repository](https://symfony.com/doc/current/doctrine.html#querying-for-objects-the-repository)".
 
 That article also has sections on working with relationships and associations and how to work with testing when databases are involved.
+
+
+
+MariaDB as development environment
+--------------------------
+
+This is an optional part that let you work with the MariaDB as the database.
+
+You can now try to change your database url to use MariaDB instead. There is an article "[MariaDB as development environment](README_mariadb_development.md)" showing you how that can be done.
