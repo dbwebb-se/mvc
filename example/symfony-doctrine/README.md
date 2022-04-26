@@ -208,13 +208,12 @@ To your controller, add a new method like this, to view all products.
 use App\Repository\ProductRepository;
 
 /**
- * @Route("/product/show", name="product_show_all")
- */
+    * @Route("/product/show", name="product_show_all")
+    */
 public function showAllProduct(
-        EntityManagerInterface $entityManager
+    ProductRepository $productRepository
 ): Response {
-    $products = $entityManager
-        ->getRepository(Product::class)
+    $products = $productRepository
         ->findAll();
 
     return $this->json($products);
@@ -238,10 +237,10 @@ public function showProductById(
     ProductRepository $productRepository,
     int $id
 ): Response {
-    $products = $productRepository
+    $product = $productRepository
         ->find($id);
 
-    return $this->json($products);
+    return $this->json($product);
 }
 ```
 
