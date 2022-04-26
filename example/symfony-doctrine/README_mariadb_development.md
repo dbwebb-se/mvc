@@ -16,13 +16,6 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=m
 You should now modify it to your environment, for example like this.
 
 ```
-DATABASE_URL="mysql://maria:db_password@127.0.0.1:3306/db_name?serverVersion=mariadb-10.5.8"
-```
-
-
-You can use the following SQL code to create the database.
-
-```
 DATABASE_URL="mysql://maria:P%40ssw0rd@127.0.0.1:3306/mvc?serverVersion=mariadb-10.6.5"
 ```
 
