@@ -1,11 +1,12 @@
 MariaDB as development environment
---------------------------
+===========================
 
-This is an optional part of this exercise and shows how you can use the MariaDB database instead of SQLite.
+This is an optional part of this exercise and shows how you can use the MariaDB database instead of SQLite as the local database.
 
 
 
-### Local database in `.env.local`
+Local database in `.env.local`
+---------------------------
 
 Update your settings in `.env.local` and comment out the previous database url and add another setting for MariaDB. This is the general setup of the connection string.
 
@@ -98,6 +99,11 @@ You should see that the same codebase you used to SQLite will now work MariaDB.
 You can change the database url in `.env.local` to reflect what database you are using.
 
 
+
+MariaDB as the production environment on the student server
+---------------------------
+
+There is an article showing how to use "[MariaDB as production environment on the student server](README_mariadb_production.md)". It shows how to setup the `.dev.student.local` to enable using MariaDB as the database server when running the application on the student server.
 
 
 

@@ -48,6 +48,20 @@ In the README for Ruby DotEnv there is a [table showing the order of the configu
 
 
 
+Verify settings from Dotenv
+--------------------------
+
+You can verify the files and settings that are read by the DotEnv.
+
+```
+# Debug the dotenv
+php bin/console debug:dotenv
+```
+
+This can be helpful to debug issues with the configuration settings.
+
+
+
 Create the database
 ---------------------------
 
@@ -355,3 +369,5 @@ MariaDB as development environment
 This is an optional part that let you work with the MariaDB as the database.
 
 You can now try to change your database url to use MariaDB instead. There is an article "[MariaDB as development environment](README_mariadb_development.md)" showing you how that can be done.
+
+There is also an article showing how to use "[MariaDB as production environment on the student server](README_mariadb_production.md)".
