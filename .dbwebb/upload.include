@@ -20,11 +20,17 @@
 /example/**
 
 /me/
+#+ /me/**/build/coverage
+#+ /me/**/build/coverage/
+#+ /me/**/build/coverage/**
 - /me/**/.bin
 - /me/**/build
 - /me/**/cache/cimage/*
 - /me/**/.phpdoc
 - /me/**/tools
+#+ /me/**/build/coverage
+#+ /me/**/build/coverage/
+#+ /me/**/build/coverage/**
 
 # Laravel cache files
 - /me/**/bootstrap/cache/*.php
@@ -48,8 +54,8 @@
 - node_modules/
 - gulpfile.js
 
-/me/report/public/build/**
-/me/report/build/coverage/**
+/me/**/public/build/*
+/me/**/build/coverage/*
 /me/**
 
 - */

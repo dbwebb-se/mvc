@@ -1,15 +1,11 @@
-Vi kör på med kmom03 och enhetstester!
+Då var det dags för kmom03.
 
-Jag läser igenom din rapport och ser hur du upplevde enhetstestningen.
+Jag körde igenom 'dbwebb test kmom03' och tittade kort på dit Git repo.
 
-Jag checkar ut den senaste taggen som är >= 3.0.0 och < 4.0.0 och jag hade gärna sett att du hade femton committs eller så.
+Därefter spelar jag framförallt ditt spel ett par gånger och försöker vinna över banken.
 
-Det vore bra om valideringsverktygen ger en bra bild av din kod.
+Jag tittar igenom din dokumentation, med pseudokod och flödesdiagram och klassbeskrivningar.
 
-Jag kikar extra på dina enhetstester och vilken kodtäckning du har.
-
-Förhoppningen med kmomet är att du upplever testning som intressant och förhoppningsvis sporrande till att uppdatera din kod och göra den "testbar", vilket kan leda till bättre kod rent allmänt.
-
-Vi kommer återkomma till mer kodkvalitet i kmom06.
+Jag läste igenom din rapport för att få en känsla av hur det gick för dig att utveckla spelet.
 
 $TEACHER_SIGNATURE
