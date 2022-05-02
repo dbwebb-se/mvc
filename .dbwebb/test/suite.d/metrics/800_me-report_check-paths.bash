@@ -4,12 +4,14 @@
 TARGET_DIR="me/report"
 CHECK_DIRS="config public src templates vendor
     docs/api
+    docs/metrics
     tools
     tools/php-cs-fixer
     tools/php-codesniffer
     tools/phpcpd
     tools/phpmd
     tools/phpstan
+    tools/phpmetrics
 "
 # Add linters?
 # Add phpunit?

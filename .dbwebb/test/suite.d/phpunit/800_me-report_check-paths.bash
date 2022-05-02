@@ -3,6 +3,7 @@
 
 TARGET_DIR="me/report"
 CHECK_DIRS="config public src templates vendor
+    docs/api
     tools
     tools/php-cs-fixer
     tools/php-codesniffer
