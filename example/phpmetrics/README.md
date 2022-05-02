@@ -1,4 +1,4 @@
-Quality metrics on your PHP code
+Quality metrics of your PHP code
 ==========================
 
 This exercise will show you how to get going with quality metrics using the tool phpmetrics.

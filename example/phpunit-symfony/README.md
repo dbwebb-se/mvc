@@ -125,7 +125,7 @@ This is how you can add the scripts.
 ```
 {
     "scripts": {
-        "phpunit": "XDEBUG_MODE=coverage bin/phpunit"
+        "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
     }
 }
 ```
