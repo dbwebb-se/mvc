@@ -1,7 +1,18 @@
 Software Quality Metrics
 ========================
 
-These are a few software quality matrics that you can work with when using tools like phpmetrics and Scrutinizer.
+This guide provides you with three sample projects that you can inspect through Scrutinizer and phpmetrics. The guide also provides explanations on some of the more comman metrics used for analysing software quality.
+
+
+
+Video
+----------------------------
+
+A walkthrough of this guide was recorded in the following videos.
+
+[![YouTube video image](http://img.youtube.com/vi/4P5r6eOp1lY/0.jpg)](http://www.youtube.com/watch?v=4P5r6eOp1lY "Zoom kmom06 - Övning med Scrutinizer och phpmetrics (1 av 2)")
+
+[![YouTube video image](http://img.youtube.com/vi/xZZMEX2ArWQ/0.jpg)](http://www.youtube.com/watch?v=xZZMEX2ArWQ "Zoom kmom06 - Övning med Scrutinizer och phpmetrics (2 av 2)")
 
 
 
