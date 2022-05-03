@@ -74,7 +74,7 @@ cp example/scrutinizer/.scrutinizer.yml me/report
 cp ../../example/scrutinizer/.scrutinizer.yml .
 ```
 
-The example configuration file will run your test suite using the command `composer phpunit`.
+The example configuration file will run your test suite using the command `composer phpunit`. The other local linters will not run, we will use Scrutinizers own linters to perform the code analysis.
 
 You should open the configuration file and inspect it in your texteditor.
 
