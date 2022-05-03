@@ -108,9 +108,11 @@ How well does the method stick together in the class.
 
 > "Things that need to change together should exist together."
 
-Lower values indicates focused classes with single responsibilities.  which gives "high cohesion" where the methods really belong to the class.
+Lower values indicates focused classes with single responsibilities which gives "high cohesion" where the methods really belong to the class.
 
 A higher value (low cohesion) might indicate a class with many responsibilities that can be divided into several classes.
+
+Try to aim for lower values. That is high cohesion supporting single responsibility.
 
 
 
