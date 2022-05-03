@@ -10,6 +10,8 @@ The tool phpmetrics
 
 The tool [phpmetrics](https://phpmetrics.org/) will read your source code and create a HTML report containing various quality metrics on your code. This type of information can indicate the level of code quality or code complexity. Using this tool can help you work with your code to improve the various quality aspects.
 
+There is a [new and more updated website for phpmetrics](https://phpmetrics.github.io/website/) with improved documentation on the metrics.
+
 The recommendation is to install the tool in the directory `tools/` so it does not conflict with your application.
 
 We will use the tool wget to download a PHAR containing the tool in one PHP executable.
