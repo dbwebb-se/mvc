@@ -10,6 +10,8 @@ Video
 
 A walkthrough of this guide was recorded in the following videos.
 
+Part 1 is 26 minutes and part 2 is 41 minutes.
+
 [![YouTube video image](http://img.youtube.com/vi/4P5r6eOp1lY/0.jpg)](http://www.youtube.com/watch?v=4P5r6eOp1lY "Zoom kmom06 - Övning med Scrutinizer och phpmetrics (1 av 2)")
 
 [![YouTube video image](http://img.youtube.com/vi/xZZMEX2ArWQ/0.jpg)](http://www.youtube.com/watch?v=xZZMEX2ArWQ "Zoom kmom06 - Övning med Scrutinizer och phpmetrics (2 av 2)")
@@ -83,7 +85,7 @@ Visible in Scrutinizer and phpmetrics.
 
 How "large" is a class/method when counting the lines of code, with and without the comments.
 
-A really large class or method could imply a toublesome code section to develop and maintain.
+A really large class or method could imply a troublesome code which might be harder to develop and maintain.
 
 
 
@@ -142,23 +144,47 @@ High number of AC (outgoing) might say that this class uses many other classes.
 High number of EC (incoming) might say that many other classes depends on this class.
 
 
-<!--
-Instability is a measuremnt
--->
 
-
-<!--
 Maintainability index
 ------------------------
 
+Visible in phpmetrics.
 
-Duplication
-------------------------
+Maintainability Index is a software metric which measures how maintainable (easy to support and change) the source code is. The maintainability index is calculated as a factored formula consisting of Lines Of Code, Cyclomatic Complexity and Halstead volume.
+
+Measurement are in general from 0 to 100.
+
+* 85 and more: good maintainability
+* 65-85: moderate maintainability
+* below 65: difficult to maintain
+
+With really bad pieces of code (big, uncommented, unstructured) the value can be even negative.
+
 
 
 CRAP
 ------------------------
 
+Visible in Scrutinizer.
+
+Change Risk Analyzer and Predictor (CRAP) is an estimate of the amount of work required to address crappy methods.
+
+The calculation is based on how complex a method is versus how many testcases cover that method. Increase the amount of testcases to decrease the crappiness.
+
+You can have high-complexity methods but you better have a lot of tests for them.
+
+
+
+Duplication
+------------------------
+
+Visible in Scrutinizer.
+
+Indicates duplicated code which could be avoided.
+
+
+<!--
+Instability is a measuremnt related to coupling
 
 Changes
 ------------------------
