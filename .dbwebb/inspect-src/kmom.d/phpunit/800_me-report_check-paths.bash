@@ -3,8 +3,11 @@
 
 TARGET_DIR="me/report"
 CHECK_DIRS="config public src templates vendor
+    docs/api
 "
 # Add linters?
+# Add phpunit?
+# Add phpdoc?
 
 cd $TARGET_DIR || exit 1
 

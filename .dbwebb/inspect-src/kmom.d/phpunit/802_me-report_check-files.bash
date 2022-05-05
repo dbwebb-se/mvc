@@ -5,6 +5,8 @@ TARGET_DIR="me/report"
 CHECK_FILES="composer.json composer.lock public/.htaccess
 "
 # Add linters?
+# Add phpunit?
+# Add phpdoc?
 
 cd $TARGET_DIR || exit 1
 

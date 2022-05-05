@@ -20,6 +20,9 @@
 studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/me/report/public"
 openUrl "$studentServerUrl"
 
+# Will not work on cygwin
+sudo rm -rf me/report/build
+
 case $KMOM in
     kmom01)
     ;;
@@ -28,7 +31,8 @@ case $KMOM in
     kmom03)
     ;;
     kmom04)
-    ;;
+        openUrl "file://$( pwd )/me/report/build/coverage/index.html"
+        ;;
     kmom05)
     ;;
     kmom06)

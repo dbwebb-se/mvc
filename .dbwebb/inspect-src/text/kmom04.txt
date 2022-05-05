@@ -1,28 +1,13 @@
 Låt se hur kmom04 föll ut.
 
-Jag läser främst igenom din redovisningstext för att se hur du upplevde kursmomentet, vilket ramverk du valde och dina tankar kringa det.
+Jag vill främst se hur du lyckades jobba med enhetstestningen och hur du upplevde att jobba med den.
 
-Därefter kör jag din applikation som den ligger på studentservern och vill se hur du lyckades porta din applikation till ditt valda ramverk.
+Jag läser din redovisningstext för att se hur du upplevde kursmomentet och enhetstestningen. Jag läser också på om och hur du valde att skriva om din kod med anledning av testbar kod.
 
-Jag försöker köra igenom de automatiska rättningsskripten som vi har sedan tidigare, men de förutsätter att du har lagt dina filer på vissa platser. Om det misslyckas så låter vi den biten vara i detta kmomet.
+Därefter kör jag igenom din testsuite och tittar på din kodtäckning. Det finns normalt sett inget direkt bra eller dåligt att notera. Jag vill mer se hur det ser ut.
 
-Det står lite mer om detta i GitHub issuen:
-https://github.com/dbwebb-se/mvc/issues/33
+Avslutningsvis lägger jag ett öga på din dokumentation i 'docs/api' och ser vilka klasser du har och ser om jag kan se något spår av DocBlock kommentarer.
 
-$TEACHER_SIGNATURE
-
-Vi kör på med kmom03 och enhetstester!
-
-Jag läser igenom din rapport och ser hur du upplevde enhetstestningen.
-
-Jag checkar ut den senaste taggen som är >= 3.0.0 och < 4.0.0 och jag hade gärna sett att du hade femton committs eller så.
-
-Det vore bra om valideringsverktygen ger en bra bild av din kod.
-
-Jag kikar extra på dina enhetstester och vilken kodtäckning du har.
-
-Förhoppningen med kmomet är att du upplever testning som intressant och förhoppningsvis sporrande till att uppdatera din kod och göra den "testbar", vilket kan leda till bättre kod rent allmänt.
-
-Vi kommer återkomma till mer kodkvalitet i kmom06.
+Vi kommer återkomma till mer kodkvalitet och automatisering av tester i kmom06.
 
 $TEACHER_SIGNATURE
