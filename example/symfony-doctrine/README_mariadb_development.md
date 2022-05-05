@@ -8,7 +8,9 @@ This is an optional part of this exercise and shows how you can use the MariaDB 
 Local database in `.env.local`
 ---------------------------
 
-Update your settings in `.env.local` and comment out the previous database url and add another setting for MariaDB. This is the general setup of the connection string.
+Create the file `.env.local` and update your settings for the `DATABASE_URL` by adding the setting for MariaDB. The details in the `.env.local` will ovveride the settings in the `.env`.
+
+This is the general setup of the connection string.
 
 ```
 DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=mariadb-10.5.8"
