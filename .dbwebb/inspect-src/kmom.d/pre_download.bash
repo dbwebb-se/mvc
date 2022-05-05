@@ -18,7 +18,7 @@
 
 # Open the student home page
 studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/me/report/public"
-openUrl "$studentServerUrl"
+openUrl "$studentServerUrl/report#$KMOM"
 
 # Will not work on cygwin
 sudo rm -rf me/report/build

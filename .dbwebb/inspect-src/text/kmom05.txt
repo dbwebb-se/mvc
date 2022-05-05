@@ -1,12 +1,9 @@
-Då avslutar vi ramverksdelen med kmom05 och ORM.
+Då tittar vi på kmom05 och ORM.
 
-Jag läser främst igenom din redovisningstext för att se hur du upplevde kursmomentet och hur det gick med ditt ORM.
+Jag läser igenom din redovisningstext för att se hur du upplevde kursmomentet och vilken din uppfattning är om ORM.
 
-Därefter kör jag din applikation som den ligger på studentservern och vill se hur du lyckades koppla samman din applikation med en databas.
+Därefter kör jag din applikation som den ligger på studentservern och vill se hur du lyckades koppla samman din applikation med en databas. Jag vill även se att alla delar i CRUD fungerar.
 
-Jag försöker köra igenom de automatiska rättningsskripten som vi har sedan tidigare, men de förutsätter att du har lagt dina filer på vissa platser. Om det misslyckas så låter vi den biten vara i detta kmomet.
-
-Det står lite mer om detta i GitHub issuen:
-https://github.com/dbwebb-se/mvc/issues/33
+Jag har även ett öga på ditt repo och antalet committs och taggar.
 
 $TEACHER_SIGNATURE
