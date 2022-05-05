@@ -3,7 +3,6 @@
 
 TARGET_DIR="me/report"
 CHECK_FILES="composer.json composer.lock public/.htaccess
-    tools/php-cs-fixer/vendor/bin/php-cs-fixer
     bin/phpunit vendor/bin/phpunit
 "
 # Add linters?
