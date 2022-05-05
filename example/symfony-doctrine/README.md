@@ -25,9 +25,9 @@ Configure the database URL
 
 The `.env` files contain configuration details for your Symfony application.
 
-Create a file `.env.local` in your editor and create the `DATABASE_URL` to your liking. The content in this file will override and add to the the content in the `.env` file.
+Open your file `.env` in your editor and edit the `DATABASE_URL`. For this exercise we will start using SQLite.
 
-For this exercise we will start using SQLite. <!--We will show an example on how to do this in MariaDB at the end of this article.-->
+This is how the setting should look like for SQLite.
 
 ```
 DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
