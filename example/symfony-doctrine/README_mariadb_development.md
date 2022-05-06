@@ -5,6 +5,15 @@ This is an optional part of this exercise and shows how you can use the MariaDB 
 
 
 
+A walkthrough
+-----------------------------------
+
+There is a recording where Mikael walks and talks you through this exercise.
+
+[![YouTube video image](http://img.youtube.com/vi/nEiN3mUGnmw/0.jpg)](http://www.youtube.com/watch?v=nEiN3mUGnmw "Kmom05 - Symfony och Doctrine ORM med MariaDB som lokal utvecklingsmiljö (övning)")
+
+
+
 Local database in `.env.local`
 ---------------------------
 
@@ -31,7 +40,7 @@ php -r "echo urlencode('P@ssw0rd');"
 You can find your database version like this.
 
 ```
-mariadb mvc -e "SELECT VERSION();"
+mariadb -e "SELECT VERSION();"
 ```
 
 
