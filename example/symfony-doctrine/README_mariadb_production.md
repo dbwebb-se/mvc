@@ -105,28 +105,38 @@ DATABASE_URL="mysql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE
 Verify settings from Dotenv
 --------------------------
 
-You can locally verify that the settings are correct by debugging the dotenv and use a specific setting for APP_ENV, for example `APP_ENV=student`.
+You can locally verify that the settings are correct by debugging the dotenv for a specific environment.
 
 ```
-# Check the value of APP_ENV
-echo $APP_ENV
-
-# Set the environment to use
-export APP_ENV="student"
-
 # Debug the dotenv
 php bin/console debug:dotenv
+
+# Debug for a specific environment
+php bin/console debug:dotenv --env=student
 ```
 
 You can now see the specific settings read from each .env file and the final settings.
 
-Unset the APP_ENV when you are done (or reset it to its original value).
+YOu can also check the value of APP_ENV, if any.
 
 ```
-# Set the environment to use
-unset APP_ENV
+# Check the value of the environment to use
+echo $APP_ENV
 ```
 
+You can also check the configuration variables like this.
+
+```
+# Check the value of the configuration variables
+bin/console debug:container --env-vars
+```
+
+If you want to check the variables for a specific environment, then you can use the APP_ENV.
+
+```
+# Check the value of the configuration variables
+APP_ENV=student bin/console debug:container --env-vars
+```
 
 <!--
 Secrets in `.env.student.local`
