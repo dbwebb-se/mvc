@@ -8,7 +8,7 @@ This is an optional part of this exercise and shows how you can use the MariaDB 
 Local database in `.env.local`
 ---------------------------
 
-Create the file `.env.local` and update your settings for the `DATABASE_URL` by adding the setting for MariaDB. The details in the `.env.local` will ovveride the settings in the `.env`.
+Create the file `.env.local` and update your settings for the `DATABASE_URL` by adding the setting for MariaDB. The details in the `.env.local` will override the settings in the `.env`.
 
 This is the general setup of the connection string.
 
