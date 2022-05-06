@@ -77,7 +77,7 @@ Once you are connected you can execute `SELECT VERSION();` to find your `serverV
 Database in `.env.student.local`
 --------------------------
 
-For this exercise we opt to use the uncommitted `.env.student.local`. Create that file and add the database url to it.
+For this exercise we opt to use the uncommitted `.env.student.local`. Create that file and add the database url to it. We could also use the file `.env.student` if we avoid adding any secrets to it, that file could then be committed.
 
 The general setup is like this.
 
@@ -97,7 +97,7 @@ DATABASE_NAME="acronym"
 DATABASE_VERSION="mariadb-10.5.8"
 
 # The database url uses the values from the settings above
-DATABASE_URL="mysql://$DATABASE_USER:$DATABASE_PASSWORD@$DATABASE_HOST:$DATABASE_PORT/$DATABASE_NAME?serverVersion=$DATABASE_VERSION"
+DATABASE_URL="mysql://%env(DATABASE_USER)%:%env(DATABASE_PASSWORD)%@%env(DATABASE_HOST)%:%env(DATABASE_PORT)%/%env(DATABASE_NAME)%?serverVersion=%env(DATABASE_VERSION)%"
 ```
 
 
@@ -117,13 +117,6 @@ php bin/console debug:dotenv --env=student
 
 You can now see the specific settings read from each .env file and the final settings.
 
-YOu can also check the value of APP_ENV, if any.
-
-```
-# Check the value of the environment to use
-echo $APP_ENV
-```
-
 You can also check the configuration variables like this.
 
 ```
@@ -137,16 +130,6 @@ If you want to check the variables for a specific environment, then you can use 
 # Check the value of the configuration variables
 APP_ENV=student bin/console debug:container --env-vars
 ```
-
-<!--
-Secrets in `.env.student.local`
---------------------------
-
-echo -n "xxx" | php bin/console secrets:set DATABASE_PASSWORD -
-bin/console secrets:list --reveal
-bin/console debug:dotenv
-
--->
 
 
 
@@ -175,16 +158,15 @@ bin/console debug:dotenv
 
 Now you can move on to set up the database.
 
-Do create the database.
+Do create the database and the schema. We use the option `--if-not-exists` since the database will already exist at the student server.
 
 ```
-bin/console doctrine:database:create
+bin/console doctrine:database:create --if-not-exists
 ```
 
-Prepare and execute the first migration that creates the database tables.
+Execute the existing migration, the one you created on your local development server which creates the database tables.
 
 ```
-bin/console make:migration
 bin/console doctrine:migrations:migrate
 ```
 
@@ -195,3 +177,36 @@ php bin/console dbal:run-sql 'SELECT * FROM product'
 ```
 
 You can now reload your database application and start adding products. Your application code should work without the need of any changes.
+
+
+
+Secrets in `.env.student.local`
+--------------------------
+
+Now we know that it all works. It would then a good practice to encrypt the database password as a secret. Lets do that. This is the short story on how to do it. You should really read a bit more in the article "[How to Keep Sensitive Information Secret](https://symfony.com/doc/current/configuration/secrets.html)" which explains how you should take care of your secrets and what to commit and what to not commit.
+
+First we check if we have any secrets created.
+
+```
+# List all current secrets
+bin/console secrets:list
+```
+
+Then we create the secret and store the password into it.
+
+```
+# Encrypt the database password as a secret
+APP_RUNTIME_ENV=student php bin/console secrets:set DATABASE_PASSWORD
+```
+
+Then we check the value of the secret to be certain it exists.
+
+```
+# List all current secrets
+bin/console secrets:list
+bin/console secrets:list --reveal
+```
+
+We should now go to the `.env.student.local` and comment out the current setting of the password. This way the encrypted value is used instead.
+
+You can now publish it all to the student production server and the database connection should work but now using the secret instead.
