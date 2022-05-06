@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+. ".dbwebb/inspect-src/kmom.d/functions.bash"
+
+TARGET_DIR="me/report"
+CHECK_DIRS="config public src templates vendor
+    docs/api
+    docs/metrics
+    tools
+    tools/php-cs-fixer
+    tools/php-codesniffer
+    tools/phpcpd
+    tools/phpmd
+    tools/phpstan
+    tools/phpmetrics
+"
+# Add linters?
+# Add phpunit?
+# Add phpdoc?
+
+cd $TARGET_DIR || exit 1
+
+all=0
+fail=0
+for dir in $CHECK_DIRS; do
+    (( all++ ))
+    if [[ ! -d "$dir" ]]; then
+        printf "Missing '$dir' dir.\n"
+        (( fail++ ))
+    fi
+done
+
+doLog $fail "$TARGET_DIR: check dirs ("$(( all-fail ))"/$all)"
