@@ -5,6 +5,15 @@ This is an optional part of this exercise and shows how you can use the MariaDB 
 
 
 
+A walkthrough
+-----------------------------------
+
+There is a recording where Mikael walks and talks you through this exercise.
+
+[![YouTube video image](http://img.youtube.com/vi/optNXaBUQd4/0.jpg)](http://www.youtube.com/watch?v=optNXaBUQd4 "Kmom05 - Symfony och Doctrine ORM med MariaDB som produktionsserver på studentservern (övning)")
+
+
+
 APP_ENV as student
 --------------------------
 
@@ -188,23 +197,24 @@ Now we know that it all works. It would then a good practice to encrypt the data
 First we check if we have any secrets created.
 
 ```
-# List all current secrets
+# List all current secrets for different environments
 bin/console secrets:list
+APP_RUNTIME_ENV=student bin/console secrets:list
 ```
 
 Then we create the secret and store the password into it.
 
 ```
 # Encrypt the database password as a secret
-APP_RUNTIME_ENV=student php bin/console secrets:set DATABASE_PASSWORD
+APP_RUNTIME_ENV=student bin/console secrets:set DATABASE_PASSWORD
 ```
 
 Then we check the value of the secret to be certain it exists.
 
 ```
 # List all current secrets
-bin/console secrets:list
-bin/console secrets:list --reveal
+APP_RUNTIME_ENV=student bin/console secrets:list
+APP_RUNTIME_ENV=student bin/console secrets:list --reveal
 ```
 
 We should now go to the `.env.student.local` and comment out the current setting of the password. This way the encrypted value is used instead.
