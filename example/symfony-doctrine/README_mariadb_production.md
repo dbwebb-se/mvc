@@ -109,10 +109,10 @@ You can locally verify that the settings are correct by debugging the dotenv for
 
 ```
 # Debug the dotenv
-php bin/console debug:dotenv
+bin/console debug:dotenv
 
 # Debug for a specific environment
-php bin/console debug:dotenv --env=student
+bin/console debug:dotenv --env=student
 ```
 
 You can now see the specific settings read from each .env file and the final settings.
