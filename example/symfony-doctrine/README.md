@@ -7,6 +7,15 @@ This short article is partly based on the longer Symfony documentation article "
 
 
 
+A walkthrough
+-----------------------------------
+
+There is a recording where Mikael walks and talks you through this exercise.
+
+[![YouTube video image](http://img.youtube.com/vi/1fs8OWvMhdg/0.jpg)](http://www.youtube.com/watch?v=1fs8OWvMhdg "Kmom05 - Symfony och Doctrine ORM CRUD övning")
+
+
+
 Install Doctrine
 --------------------------
 
