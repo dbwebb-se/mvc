@@ -52,6 +52,12 @@ tools/phpdoc/phpdoc
 
 
 
+### Git ignore .phpdoc/
+
+You should Git ignore the directory `.phpdoc/` that contains a cache of the genererated documentation. It is quite large and does not need to be part of your Git repository.
+
+
+
 DocBlock comments
 --------------------------
 
