@@ -125,7 +125,7 @@ This is how it can look like when it passes the first build.
 Get the badges
 --------------------------
 
-You should now get the badges for build status, code coverage and code quality and add them to the README.md of your project. Click the info button next to the badge to get the Mardown code to use in your README to display the badge.
+You should now get the badges for build status, code coverage and code quality and add them to the `README.md` of your project. Click the info button next to the badge to get the Markdown code to use in your README to display the badge.
 
 You can see [my example project README.md](https://github.com/mosbth/mvc-report/blob/main/README.md) how it can look like.
 
