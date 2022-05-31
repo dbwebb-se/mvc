@@ -1,15 +1,17 @@
-Jag har tittat på din sista inlämning och betygsatt enligt:
-https://dbwebb.se/kurser/faq/bedomning-och-betygsattning-projekt-quiz-rapport-video
+Jag har tittat på din sista inlämning och bedömt samt betygsatt enligt:
+https://dbwebb.se/kurser/databas-v2#betyg
 
-Du har fått en grov bedömning av de olika delarna och en slutbedömning och ett slutbetyg enligt följande:
+Du har fått poäng, bedömning och slutbetyg enligt följande:
 
-Projekt: G
-Rapport: G
-Quiz:    G (optionell)
-Video:   G (optionell)
+Projekt
+- K123: 30 (30p)
+- K4: 0 (10p)
+- K5: 0 (10p)
+- K6: 0 (10p)
+Report: 30 (30-40p)
+-------------------
+TOTALT:   60 (100p)
 
 SLUTBETYG: D (A-F, Fx)
 
 $TEACHER_SIGNATURE
-
---- Log output ---
