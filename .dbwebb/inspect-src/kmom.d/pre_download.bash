@@ -38,5 +38,6 @@ case $KMOM in
     kmom06)
     ;;
     kmom10)
-    ;;
+        openUrl "$studentServerUrl/proj"
+        ;;
 esac
