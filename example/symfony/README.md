@@ -772,7 +772,7 @@ The place to put this is into the base template, first in the body section. We c
     <ul>
         <li><a href="{{ path('home') }}">Home</a></li>
         <li><a href="{{ path('about') }}">About</a></li>
-        <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
+        <li><a href="{{ path('lucky-number') }}">Lucky number</a></li>
     </ul>
 </nav>
 ```
@@ -830,7 +830,7 @@ First we just add the image to the page `/about` through the template file `temp
 The same way we can add a favicon. This is done in the base template `templates/base.html.twig`.
 
 ```twig
-    <link rel="icon" href="{{ asset('img/glider') }}">
+    <link rel="icon" href="{{ asset('img/glider.svg') }}">
 ```
 
 However, note that it already exists an entry for the favicon in the base template, so remove that before adding your own entry.
@@ -861,10 +861,11 @@ Then we add some extra styling to the `asset/css/app.css`.
 }
 ```
 
-All together it might look like this.
+All together it might look like this. Well, I did some updates to my base template file and the other template files to make the header span the whole width of the page.
 
 ![header image](.img/background-image.png)
 
+Feel free to update your templates to create the structure you want from the website.
 
 
 <!--
