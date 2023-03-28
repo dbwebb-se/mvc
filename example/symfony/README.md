@@ -73,7 +73,7 @@ TODO
 Documentation
 ----------------------------
 
-The exercise is built on the [documentation of the Symfony project](https://symfony.com/doc/current). Use the documentation to learn more or as a reference if you get in to trouble.
+The exercise is built on the [documentation of the Symfony project](https://symfony.com/doc/current). Use the documentation to learn more or as a reference if you get into trouble.
 
 
 
@@ -122,7 +122,7 @@ We shall install and setup a skeleton for a Symfony web application using compos
 
 This part of the exercise comes from the article "[Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)". 
 
-Ok, lets start to install a project skeleton using `composer create-project` into the directory `app`.
+Ok, let's start to install a project skeleton using `composer create-project` into the directory `app`.
 
 This creates a traditional Symfony web application.
 
@@ -131,9 +131,9 @@ composer create-project symfony/website-skeleton app
 cd app
 ```
 
-You can check what files are available in the app directory. You can see that there are meerly only the file `composer.json`. You can open it to inspect it, it contiains the details that will be installed to setup the Symfony application.
+You can check what files are available in the app directory. You can see that there are merely only the file `composer.json`. You can open it to inspect it, it contains the details that will be installed to setup the Symfony application.
 
-The directory `vendor/` is the place where all downloaded files will be installed and the `composer.lock` contains the snapshot of all packages and versions installed. YOu can inspect the content below the `vendor/` directory to see the structure of the installed packages.
+The directory `vendor/` is the place where all the downloaded files will be installed and the `composer.lock` contains the snapshot of all the installed packages and versions. You can inspect the content below the `vendor/` directory to see the structure of the installed packages.
 
 You can now use composer to complete the installation of the web application.
 
@@ -141,9 +141,9 @@ You can now use composer to complete the installation of the web application.
 composer require webapp
 ```
 
-The process will start by checking that your system has all the neccessary php extensions before installing.
+The process will start by checking that your system has all the necessary php extensions before installing.
 
-If you get any questions during the installation procedure, just answer the default reply by pressing enter.
+If you get any questions during the installation procedure, just answer with the default reply by pressing enter.
 
 You can check what packages are installed and what versions.
 
@@ -158,9 +158,9 @@ Before you proceed, check the content below `vendor/` again.
 Run your app
 -----------------------
 
-Lets start the application to verify that it works.
+Let's start the application to verify that it works.
 
-You can open the PHP built in webserver to verify the installation.
+You can open the PHP built in web server to verify the installation.
 
 ```
 # You are in the app/ directory
@@ -256,7 +256,7 @@ The controller action `number()` returns the complete html page as the response 
 
 ### Use bin/console debug:router
 
-Now check that the route `lucky/number` is available and that symfony recognizes it. Use the following command in the terminal when you are in the `app/` directory.
+Now check that the route `lucky/number` is available and that Symfony recognizes it. Use the following command in the terminal when you are in the `app/` directory.
 
 ```
 bin/console debug:router
@@ -345,7 +345,7 @@ The controller is the C in the design pattern Model View Controller (MVC) and it
 
 ![mvc](.img/mvc.png)
 
-The url has a rout path that is intepretated by the (Symfony) router and it leads to a controller action which has the responsability to send a response back to the caller. It may take help of model classes and views when creating the response. In the example code above, the controller used no model classes and no views, it just returned the response directly as a web page.
+The url has a rout path that is interpreted by the (Symfony) router and it leads to a controller action which has the responsibility to send a response back to the caller. It may take help of model classes and views when creating the response. In the example code above, the controller used no model classes and no views, it just returned the response directly as a web page.
 
 
 
@@ -360,10 +360,10 @@ Here follows a `/api/lucky/number` version providing the number in a JSON struct
     #[Route("/api/lucky/number")]
     public function jsonNumber(): Response
     {
-        $this->number = random_int(0, 100);
+        $number = random_int(0, 100);
 
         $data = [
-            'lucky-number' => $this->number,
+            'lucky-number' => $number,
             'lucky-message' => 'Hi there!',
         ];
 
@@ -387,16 +387,16 @@ You can see that the HTTP response header is saying `application/json` indicatin
 
 ### Use a JsonResponse
 
-You can rewrite the above code and send a `JsonResponse` instead. That is a Symfoy class specialized for JSON data and it slightly reduces your code.
+You can rewrite the above code and send a `JsonResponse` instead. That is a Symfony class specialized for JSON data and it slightly reduces your code.
 
 ```php
     #[Route("/api/lucky/number")]
     public function jsonNumber(): Response
     {
-        $this->number = random_int(0, 100);
+        $number = random_int(0, 100);
 
         $data = [
-            'lucky-number' => $this->number,
+            'lucky-number' => $number,
             'lucky-message' => 'Hi there!',
         ];
 
@@ -453,7 +453,7 @@ It looks something like this.
 Add a new controller
 ----------------------------
 
-Lets try to add a new controller and move the method we just created doing `/api/lucky/number` into its own `src/Controller/LuckyControllerJson.php`.
+Let's try to add a new controller and move the method we just created doing `/api/lucky/number` into its own `src/Controller/LuckyControllerJson.php`.
 
 Ok? You should then do the following.
 
@@ -492,7 +492,7 @@ Now you know how to add new controller classes which is a vital part of structur
 Render a web page using a template
 ----------------------------
 
-Lets use a template engine to do the rendering of the `$data` using a template file to create the resulting web page. We are to use the Twig template engine to do this.
+Let's use a template engine to do the rendering of the `$data` using a template file to create the resulting web page. We are to use the Twig template engine to do this.
 
 Quickly browse the documentation on [the template engine Twig](https://twig.symfony.com/).
 
@@ -510,7 +510,7 @@ composer require twig
 
 ### Create a controller using twig
 
-Start by creating a new controller file `src/Controller/LockyControllerTwig.php` and add the following empty class to it.
+Start by creating a new controller file `src/Controller/LuckyControllerTwig.php` and add the following empty class to it.
 
 ```php
 <?php
@@ -532,7 +532,7 @@ This controller extends the base class `AbstractController` which provides acces
 Now add the following method the to `LuckyControllerTwig` class.
 
 ```php
-    #[Route("/lucky/number/twig", name: "lucky-number")]
+    #[Route("/lucky/number/twig", name: "lucky_number")]
     public function number(): Response
     {
         $number = random_int(0, 100);
@@ -598,7 +598,7 @@ It can look like this.
 Include CSS and JavaScript in the base template
 ----------------------------
 
-The base template `templates/base.html.twig` alreayd contains block to setup CSS and JavaScript files.
+The base template `templates/base.html.twig` already contains block to setup CSS and JavaScript files.
 
 ```twig
         {% block stylesheets %}
@@ -612,7 +612,7 @@ The base template `templates/base.html.twig` alreayd contains block to setup CSS
 
 These blocks uses the Symfony tool Encore to manage static assets like stylesheets and JavaScripts.
 
-Lets add a stylesheet and a JavaScript using the Encore tool.
+Let's add a stylesheet and a JavaScript using the Encore tool.
 
 
 
@@ -633,13 +633,13 @@ You now have a directory `assets/` and the configuration file `webpack.config.js
 
 You can read in detail on how to [setup the project using Encore](https://symfony.com/doc/current/frontend/encore/simple-example.html).
 
-To ensure that the stylesheets and the JsvaScript files are included, open up the configuration file `` end edit this line.
+To ensure that the stylesheets and the JavaScript files are included, open up the configuration file `webpack.config.js` and edit this line.
 
 ```
     .setPublicPath('/build')
 ```
 
-and remove the first slash to make it work even when the site is published as a subdirectory on the webserver.
+and remove the first slash to make it work even when the site is published as a subdirectory on the web server.
 
 ```
     .setPublicPath('build')
@@ -707,13 +707,13 @@ It can look like this.
 Navigate between pages
 ----------------------------
 
-Lets add a navbar where we can navigate between the pages on the website.
+Let's add a navbar where we can navigate between the pages on the website.
 
 
 
 ### Add routes to home, about
 
-Lets add two new routes in the class `LuckyControllerTwig` like this.
+Let's add two new routes in the class `LuckyControllerTwig` like this.
 
 ```php
     #[Route("/home", name: "home")]
@@ -763,16 +763,16 @@ We now want to add a navbar so we can navigate between the pages.
 
 * Home -> `/home`
 * About -> `/about`
-* Lucky number -> `lucku/number/twig`
+* Lucky number -> `/lucky/number/twig`
 
-The place to put this is into the base template. We can add it as HTML like this.
+The place to put this is into the base template, first in the body section. We can add it as HTML like this.
 
 ```html
 <nav>
     <ul>
         <li><a href="{{ path('home') }}">Home</a></li>
         <li><a href="{{ path('about') }}">About</a></li>
-        <li><a href="{{ path('lucky-number') }}">Lucky number</a></li>
+        <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
     </ul>
 </nav>
 ```
@@ -788,15 +788,15 @@ Reload the page and verify that the navbar works. Perhaps you would like to add 
 Show images
 ----------------------------
 
-Lets add a few images to the website to ensure that we can link to static assets like images.
+Let's add a few images to the website to ensure that we can link to static assets like images.
 
-We save the images in the directory `public/img` so lets create it.
+We save the images in the directory `public/img` so Let's create it.
 
 ```
 mkdir public/img
 ```
 
-We need to download a set of images. The following commands downloads two images.
+We need to download a set of images. The following commands download two images.
 
 ```
 curl -s https://upload.wikimedia.org/wikipedia/commons/4/45/Glider.svg > public/img/glider.svg
@@ -805,13 +805,13 @@ curl -s 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Coastal_build
 
 Check the content of the directory `public/img` and verify that there are two images there.
 
-Now we add those images to the webpage.
+Now we will add those images to the webpage.
 
 
 
 ### Ordinary image as asset
 
-First we just add the image to the page `/about` through the template file `templates/about.html.twig` like an ordinary image. We also add a link so if the user clicks on the image, then the image is displayed in its own tab.
+First we just add the image to the page `/about` through the template file `templates/about.html.twig` like an ordinary image. We also add a link, if the user clicks on the image, then the image is displayed in its own tab.
 
 ```twig
 {% block body %}
@@ -889,7 +889,7 @@ framework:
 Where to go from here?
 ----------------------------
 
-You now know the following about Symfon apps.
+You now know the following about Symfony apps.
 
 * How to install it.
 * How to run it.
