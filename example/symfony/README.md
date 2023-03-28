@@ -25,10 +25,10 @@ You will add a controller that serves responses as web pages using a template en
 * [Create a home page using a controller](#create-a-home-page-using-a-controller)
     * [Add a controller and a route](#add-a-controller-and-a-route)
     * [The controller class](#the-controller-class)
-    * [Use bin/console debug:router](#use-bin-console-debug-router)
+    * [Use bin/console debug:router](#use-binconsole-debugrouter)
     * [Visit the route](#visit-the-route)
     * [Add another route](#add-another-route)
-* [Symfony bin/console](#symfony-bin-console)
+* [Symfony bin/console](#symfony-binconsole)
 * [The controller](#the-controller)
 * [Add a JSON route](#add-a-JSON-route)
     * [Use a JsonResponse](#use-a-JsonResponse)
@@ -780,6 +780,8 @@ The place to put this is into the base template. We can add it as HTML like this
 We are using the [Twig extension `path()` defined by Symfony](https://symfony.com/doc/current/reference/twig_reference.html#path) to create the url for the navbar.
 
 Reload the page and verify that the navbar works. Perhaps you would like to add some style to the navbar?
+
+![navbar](.img/navbar.png)
 
 
 
