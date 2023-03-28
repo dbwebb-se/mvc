@@ -9,6 +9,9 @@
    id="svg5"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09, custom)"
    sodipodi:docname="mvc.svg"
+   inkscape:export-filename="../4cce197a/mvc.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -25,13 +28,13 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.1893044"
-     inkscape:cx="438.91202"
-     inkscape:cy="282.9385"
-     inkscape:window-width="2560"
-     inkscape:window-height="1536"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:cx="464.55727"
+     inkscape:cy="301.43671"
+     inkscape:window-width="2041"
+     inkscape:window-height="1056"
+     inkscape:window-x="26"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
   <defs
      id="defs2">
@@ -63,7 +66,7 @@
     <g
        id="g5129"
        transform="translate(111.8497,-4.501575)"
-       inkscape:export-filename="../6cc4606f/mvc.png"
+       inkscape:export-filename="../4cce197a/mvc.png"
        inkscape:export-xdpi="96"
        inkscape:export-ydpi="96">
       <rect
@@ -86,7 +89,7 @@
            y="101.67139">Model</tspan></text>
     </g>
     <rect
-       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.0940887;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.0940887;stroke-opacity:1"
        id="rect1132"
        width="176.62428"
        height="123.93527"
@@ -425,14 +428,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.87777px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:none;stroke:#000000;stroke-width:0.1;stroke-opacity:1"
-       x="23.148897"
-       y="114.32288"
+       x="23.8641"
+       y="109.28605"
        id="text5181"><tspan
          sodipodi:role="line"
          id="tspan5179"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.1"
-         x="23.148897"
-         y="114.32288">HTTP response</tspan></text>
+         x="23.8641"
+         y="109.28605">HTTP response</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.500666;stroke-dasharray:none;marker-start:url(#Arrow3)"
        d="m 151.79772,104.75652 c -0.9282,-40.269309 -8.64025,-24.732845 -8.64025,-24.732845"
@@ -442,6 +445,11 @@
        style="fill:none;stroke:#000000;stroke-width:0.529025;stroke-dasharray:none;marker-start:url(#Arrow3)"
        d="m 124.20055,96.485011 c 1.54238,-27.057124 14.35737,-16.618107 14.35737,-16.618107"
        id="path5185"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.646995;stroke-dasharray:none;marker-start:url(#Arrow3)"
+       d="M 63.379206,102.41038 C 110.51763,101.0862 116.36393,83.251379 116.36393,83.251379"
+       id="path486"
        sodipodi:nodetypes="cc" />
   </g>
 </svg>
