@@ -48,7 +48,7 @@ You will add a controller that serves responses as web pages using the template 
     * [Add routes to home, about](#add-routes-to-home,-about)
     * [Add a navbar](#add-a-navbar)
 * [Show images](#show-images)
-    * [Ordinary image as asset](#ordinary-image-as-asset)
+    * [Ordinary image as an asset](#ordinary-image-as-an-asset)
     * [Add a favicon](#add-a-favicon)
     * [Add a header image](#add-a-header-image)
 * [Where to go from here?](#where-to-go-from-here?)
@@ -258,11 +258,7 @@ The controller action `number()` returns the complete html page as the response 
 
 Now check that the route `lucky/number` is available and that Symfony recognizes it. Use the following command in the terminal when you are in the `app/` directory.
 
-```
-bin/console debug:router
-```
-
-You will se a entry like this, together with all other routes supported in the application.
+You will see an entry like this, together with all other routes supported in the application.
 
 ```
  -------------------------- -------- -------- ------ ---------------
@@ -272,7 +268,7 @@ You will se a entry like this, together with all other routes supported in the a
  -------------------------- -------- -------- ------ ---------------
 ```
 
-The application detects the route path from the attribute (annotation) `@Route("/lucky/number")` in the comment over the method.
+The application detects the route path from the attribute (annotation) `#[Route('/lucky/number')]` in the comment over the method.
 
 
 
@@ -573,9 +569,9 @@ It can look like this.
 
 Twig allows you to include other templates by including them, but a more advanced feature is the feature to extend a base template. Twig calls this feature "template inheritance".
 
-There is a file `templates/base.html.twig` and if you inspect it you see a html template file defining blocks which can be overridden by a template extending the base template.
+There is a file `templates/base.html.twig` and if you inspect it you see an html template file defining blocks that can be overridden by a template extending the base template.
 
-Now take you `templates/lucky_number.html.twig` and rewrite it to look like this.
+Now take your `templates/`lucky_number.html.twig` and rewrite it to look like this.
 
 ```twig
 {% extends "base.html.twig" %}
@@ -589,7 +585,7 @@ Now take you `templates/lucky_number.html.twig` and rewrite it to look like this
 {% endblock %}
 ```
 
-It can look like this.
+It can look like this in the browser.
 
 ![twig extends base](.img/twig-extends.png)
 
@@ -598,40 +594,30 @@ It can look like this.
 Include CSS and JavaScript in the base template
 ----------------------------
 
-The base template `templates/base.html.twig` already contains block to setup CSS and JavaScript files.
+The base template `templates/base.html.twig` already contains blocks to set up CSS and JavaScript files.
 
-```twig
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+These blocks use the Symfony tool Encore to manage static assets like stylesheets and JavaScripts.
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-```
-
-These blocks uses the Symfony tool Encore to manage static assets like stylesheets and JavaScripts.
-
-Let's add a stylesheet and a JavaScript using the Encore tool.
+Let's add a stylesheet and JavaScript using the Encore tool.
 
 
 
 ### Install Encore
 
-First we need to [install Encore](https://symfony.com/doc/current/frontend/encore/installation.html). Here are the few steps to do it.
+First, we need to [install Encore](https://symfony.com/doc/current/frontend/encore/installation.html). This is how to do it.
 
 ```
 composer require symfony/webpack-encore-bundle
 npm install
 ```
 
-You now have a directory `assets/` and the configuration file `webpack.config.js`. Review the both in your editor.
+You now have the directory `assets/` and the configuration file `webpack.config.js`. Review them both in your editor.
 
 
 
 ### Setup the project using Encore
 
-You can read in detail on how to [setup the project using Encore](https://symfony.com/doc/current/frontend/encore/simple-example.html).
+You can read in detail how to [set up the project using Encore](https://symfony.com/doc/current/frontend/encore/simple-example.html).
 
 To ensure that the stylesheets and the JavaScript files are included, open up the configuration file `webpack.config.js` and edit this line.
 
@@ -639,13 +625,13 @@ To ensure that the stylesheets and the JavaScript files are included, open up th
     .setPublicPath('/build')
 ```
 
-and remove the first slash to make it work even when the site is published as a subdirectory on the web server.
+Remove the first slash to make it work even when the site is published as a subdirectory on the web server.
 
 ```
     .setPublicPath('build')
 ```
 
-You can now build the assests like this.
+You can now build the assets like this.
 
 ```
 npm run build
@@ -659,7 +645,7 @@ Verify that it works by reloading your browser.
 
 ### Add style
 
-You can add your own style to the file `assets/styles/app.css`. Try to add the following and then rebuild the assets.
+You can add your style to the file `assets/styles/app.css`. Try to add the following and then rebuild the assets.
 
 ```css
 body {
@@ -680,7 +666,7 @@ Reload the page and it can now look like this.
 
 ### Add JavaScript
 
-You can add own Javascript modules. Try creating a file `assets/js/hello.js` and add the following module code to it (you need to create the directory `assets/js`).
+You can add your own Javascript modules. Try creating a file `assets/js/hello.js` and add the following module code to it (you need to create the directory `assets/js`).
 
 ```javascript
 export default () => {
@@ -696,7 +682,7 @@ import hello from './js/hello';
 console.log(hello())
 ```
 
-Now you can rebuild and the reload your browser to verify that it works.
+Now you can rebuild and reload your browser to verify that it works.
 
 It can look like this.
 
@@ -729,7 +715,7 @@ Let's add two new routes in the class `LuckyControllerTwig` like this.
     }
 ```
 
-You can see that you also need to add the template files that are used. For the time being just add them like this.
+You can see that you also need to add the template files that are used. For the time being, just add them like this.
 
 * `templates/home.html.twig`
 
@@ -790,7 +776,7 @@ Show images
 
 Let's add a few images to the website to ensure that we can link to static assets like images.
 
-We save the images in the directory `public/img` so Let's create it.
+We save the images in the directory `public/img` so let's create it.
 
 ```
 mkdir public/img
@@ -809,9 +795,9 @@ Now we will add those images to the webpage.
 
 
 
-### Ordinary image as asset
+### Ordinary image as an asset
 
-First we just add the image to the page `/about` through the template file `templates/about.html.twig` like an ordinary image. We also add a link, if the user clicks on the image, then the image is displayed in its own tab.
+Add the image to the page `/about` through the template file `templates/about.html.twig` like an ordinary image. Do also add a link so if the user clicks on the image, then the image is displayed in the browser.
 
 ```twig
 {% block body %}
@@ -827,13 +813,13 @@ First we just add the image to the page `/about` through the template file `temp
 
 ### Add a favicon
 
-The same way we can add a favicon. This is done in the base template `templates/base.html.twig`.
+Add a favicon, in the same manner, using `asset()`. This is done in the base template `templates/base.html.twig`.
 
 ```twig
     <link rel="icon" href="{{ asset('img/glider.svg') }}">
 ```
 
-However, note that it already exists an entry for the favicon in the base template, so remove that before adding your own entry.
+However, note that it already exists an entry for the favicon in the base template, so remove that before adding your entry.
 
 
 
@@ -841,7 +827,7 @@ However, note that it already exists an entry for the favicon in the base templa
 
 We can add a header that has a background image. This is done using CSS and we need to refer to the background image using CSS.
 
-First we add the header section in the base template `templates/base.html.twig`.
+First, we add the header section in the base template `templates/base.html.twig`.
 
 ```twig
 <header class="site-header" style="background-image: url({{ asset('img/background.jpg') }})">
@@ -849,19 +835,11 @@ First we add the header section in the base template `templates/base.html.twig`.
 </header>
 ```
 
-The background image is added through the style attribute. That is one of many different ways to do it.
+The background image is added through the style attribute. That is one of many different ways to do it to deal with referencing an image from a stylesheet construct.
 
-Then we add some extra styling to the `asset/css/app.css`.
+Then add some extra styling through the `asset/css/app.css``.
 
-```css
-.site-header {
-    height: 80px;
-    background-color: green;
-    background-size: cover;
-}
-```
-
-All together it might look like this. Well, I did some updates to my base template file and the other template files to make the header span the whole width of the page.
+Altogether it might look like this. Well, I did some updates to my base template file and the other template files to make the header span the whole width of the page, so my result might look a bit different from yours.
 
 ![header image](.img/background-image.png)
 
@@ -895,9 +873,9 @@ You now know the following about Symfony apps.
 * How to install it.
 * How to run it.
 * How to add a controller and render web pages through views (template files) to your Symfony app.
-* How to add routes that produces JSON responses which is an embryo to a RESTful API web service.
+* How to add routes that produce JSON responses which is an embryo of a RESTful API web service.
 
-You might want to learn more on controllers and routing. Start reading here.
+You might want to learn more about controllers and routing. Start reading here.
 
 * [Controller](https://symfony.com/doc/current/controller.html)
 * [Routing](https://symfony.com/doc/current/routing.html)
