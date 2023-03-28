@@ -24,7 +24,8 @@
 #+ /me/**/build/coverage/
 #+ /me/**/build/coverage/**
 - /me/**/.bin
-- /me/**/build
+#- /me/**/build
+- /me/**/vendor/**/build
 - /me/**/cache/cimage/*
 - /me/**/.phpdoc
 - /me/**/tools
