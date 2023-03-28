@@ -11,7 +11,7 @@ gui-repo/
 .phpunit.result.cache
 .work/
 stud.txt
-
+/grade/
 __pycache__
 *.pyc
 

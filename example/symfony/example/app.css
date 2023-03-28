@@ -1,0 +1,12 @@
+body {
+    background-color: lightgray;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+h1 {
+    border-bottom: 4px double #ccc;
+}
