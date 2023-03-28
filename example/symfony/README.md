@@ -17,6 +17,7 @@ This exercise will help you create a web application/service using a Symfony ins
 You will add a controller that serves responses as web pages using the template engine Twig. You will also create a controller that provides a REST API with JSON responses.
 
 * [Documentation](#documentation)
+* [Video](#video)
 * [Prerequisites](#prerequisites)
 * [Prepare](#prepare)
 * [Install the project skeleton](#install-the-project-skeleton)
@@ -77,17 +78,12 @@ The exercise is built on the [documentation of the Symfony project](https://symf
 
 
 
-<!--
 Video
 ----------------------------
 
-There is a playlist on YouTube where Mikael works through this exercise, step by step (in Swedish).
+There is a video where Mikael works through this exercise, step by step (in Swedish).
 
-Playlist "[Get going with Symfony](https://www.youtube.com/playlist?list=PLKtP9l5q3ce8KNlbcnlyYInNqwDHxnpH0)".
-
-[![Playlist: Get going with Symfony](https://img.youtube.com/vi/EbeLHSMMs_0/0.jpg)](https://www.youtube.com/watch?v=EbeLHSMMs_0&list=PLKtP9l5q3ce8KNlbcnlyYInNqwDHxnpH0)
-
--->
+[![Get going with Symfony](https://img.youtube.com/vi/1QVvLGNqTxw/0.jpg)](https://www.youtube.com/watch?v=1QVvLGNqTxw)
 
 
 
