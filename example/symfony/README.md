@@ -7,7 +7,7 @@ revision:
 ---
 -->
 
-![Symfony image](http://dbwebb.se/image/kurs/mvc/kmom01-symfony.png?w=900&h=200&cf)
+![Symfony image](.img/symfony.png)
 
 Get going with Symfony
 ====================
