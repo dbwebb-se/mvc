@@ -15,6 +15,11 @@ stud.txt
 __pycache__
 *.pyc
 
+# composer
+.cache/
+.config/
+.local/
+
 # Mac OS
 .DS_Store
 

@@ -14,7 +14,7 @@ Get going with Symfony
 
 This exercise will help you create a web application/service using a Symfony installation.
 
-You will add a controller that serves responses as web pages using a template engine. You will also create a controller that provides and a REST API with JSON responses.
+You will add a controller that serves responses as web pages using the template engine Twig. You will also create a controller that provides a REST API with JSON responses.
 
 * [Documentation](#documentation)
 * [Prerequisites](#prerequisites)
@@ -94,9 +94,9 @@ Playlist "[Get going with Symfony](https://www.youtube.com/playlist?list=PLKtP9l
 Prerequisites
 ----------------------------
 
-You have installed php in the terminal.
+You have installed PHP in the terminal.
 
-You have installed composer.
+You have installed Composer, the PHP package manager.
 
 
 
@@ -105,7 +105,7 @@ Prepare
 
 It is assumed that you are working in the course repository.
 
-Start by copying the code for this exercise to your own directory.
+Start by copying the code for this exercise to your directory.
 
 ```
 # Go to the root of the course repo
@@ -118,7 +118,7 @@ cd me/kmom01/symfony
 Install the project skeleton
 ----------------------------
 
-We shall install and setup a skeleton for a Symfony web application using composer.
+We shall install and set up a skeleton for a Symfony web application using composer.
 
 This part of the exercise comes from the article "[Installing & Setting up the Symfony Framework](https://symfony.com/doc/current/setup.html)". 
 
@@ -131,7 +131,7 @@ composer create-project symfony/website-skeleton app
 cd app
 ```
 
-You can check what files are available in the app directory. You can see that there are merely only the file `composer.json`. You can open it to inspect it, it contains the details that will be installed to setup the Symfony application.
+You can check what files are available in the app directory. You can see that there is merely only the file `composer.json`. You can open it to inspect it, it contains the details that will be installed to set up the Symfony application.
 
 The directory `vendor/` is the place where all the downloaded files will be installed and the `composer.lock` contains the snapshot of all the installed packages and versions. You can inspect the content below the `vendor/` directory to see the structure of the installed packages.
 
@@ -151,7 +151,7 @@ You can check what packages are installed and what versions.
 composer show
 ```
 
-Before you proceed, check the content below `vendor/` again.
+Before you proceed, check the content below `vendor/` again, it now contains a lot of directories with PHP packages.
 
 
 
@@ -160,7 +160,7 @@ Run your app
 
 Let's start the application to verify that it works.
 
-You can open the PHP built in web server to verify the installation.
+You can open the PHP built-in web server to verify the installation.
 
 ```
 # You are in the app/ directory
@@ -187,9 +187,9 @@ Start by copying the `.htaccess` file to the `public` directory.
 cp ../.htaccess public
 ```
 
-The file `.htaccess` will now be in the root of your public web directory and it will setup the paths so the application will work on the student server. This [file can be used to configure the Apache web server](https://httpd.apache.org/docs/2.4/howto/htaccess.html). 
+The file `.htaccess` will now be in the root of your public web directory and it will set up the paths so the application will work on the student server. This [file can be used to configure the Apache web server](https://httpd.apache.org/docs/2.4/howto/htaccess.html). 
 
-Edit the file `.htaccess` and change 'mosstud' to your own acronym. Do also review that the path seems to be correct.
+Edit the file `.htaccess` and change 'mosstud' to your acronym. Do also review that the path seems to be correct. Your images, stylesheets and the routing will not work if the acronym or path is incorrect.
 
 Publish the application to the student server.
 
@@ -197,7 +197,7 @@ Publish the application to the student server.
 dbwebb publishpure me
 ```
 
-Verify that you can see the welcome page correctly at the student server.
+Verify that you can see the welcome page correctly on the student server.
 
 ![welcome page student](.img/start_stud.png)
 
@@ -772,7 +772,7 @@ The place to put this is into the base template, first in the body section. We c
     <ul>
         <li><a href="{{ path('home') }}">Home</a></li>
         <li><a href="{{ path('about') }}">About</a></li>
-        <li><a href="{{ path('lucky-number') }}">Lucky number</a></li>
+        <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
     </ul>
 </nav>
 ```
