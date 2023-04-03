@@ -1,3 +1,14 @@
+<!--
+---
+author: mos
+revision:
+    "2023-03-28": "(B, mos) Work through and very updated."
+    "2022-03-27": "(A, mos) First release."
+---
+
+![Symfony image](.img/symfony.png)
+-->
+
 Write your own class in Symfony
 ==========================
 
@@ -6,6 +17,13 @@ This exercise will show you how to create and use your own classes in a Symfony 
 There is working code for controllers and template files which you can copy to your own website and see how it works. Use the code examples to understand how you could write your own code.
 
 
+<!--
+TODO
+
+* MVC
+* arv, komposition
+
+-->
 
 Prepare
 --------------------------
