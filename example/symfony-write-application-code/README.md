@@ -80,6 +80,16 @@ composer require symfony/webpack-encore-bundle
 npm install
 ```
 
+```text
+composer require twig
+```
+
+Clear the cache if needed.
+
+```text
+bin/console cache:clear
+```
+
 <!--
 * /build to build
 * Change to main in the base template
