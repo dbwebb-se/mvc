@@ -14,7 +14,7 @@ Write your application code in Symfony
 
 This exercise will show you how to create and use your classes through a Symfony controller. The example code is built around [the dice game 100](https://en.wikipedia.org/wiki/Pig_(dice_game)).
 
-There is code for controllers and template files that you can copy to your website to see how it works. Use the code examples to understand how you can integrate Symfony with your application classes.
+The exercise starts by creating application classes `Dice`, `DiceGraphic` and `DiceHand` for the Pig game, it then ties the application classes together with the Symfony framework by using HTML forms, the session and utilities.
 
 
 <!--
@@ -34,12 +34,14 @@ TODO
 
 
 * [Prepare](#Prepare)
+* [Example code](#Example-code)
 * [An empty controller](#An-empty-controller)
 * [Create a landing page](#Create-a-landing-page)
 * [Dice class](#Dice-class)
 * [Roll a dice](#Roll-a-dice)
 * [Roll many dice](#Roll-many-dice)
 * [Extend a base class](#Extend-a-base-class)
+* [Composition and DiceHand](#Composition-and-DiceHand)
 * [Set up the game](#Set-up-the-game)
 * [Symfony session](#Symfony-session)
 * [Make submit buttons go to own route](#Make-submit-buttons-go-to-own-route)
@@ -55,6 +57,15 @@ Prepare
 --------------------------
 
 You should have worked through the exercise "[Symfony with GET, POST, SESSION](https://github.com/dbwebb-se/mvc/tree/main/example/symfony-get-post-session)".
+
+
+
+Example code
+--------------------------
+
+All example code is saved in the directory `app/` so you can look at it or copy it to your site to see how it works as a complete application.
+
+You can also work through this exercise step by step, to set up the basics of the application.
 
 
 
@@ -368,10 +379,111 @@ The application now uses the graphical die that extends the basic die. This is h
 
 
 
+Composition and DiceHand
+--------------------------
+
+An object that holds other objects is called composition, the object is said to be composed by other objects. A dice hand is composed of one die or more dice.
+
+A `DiceHand` can look like this.
+
+```php
+namespace App\Dice;
+
+use App\Dice\Dice;
+
+class DiceHand
+{
+    private $hand = [];
+
+    public function add(Dice $die): void
+    {
+        $this->hand[] = $die;
+    }
+
+    public function roll(): void
+    {
+        foreach ($this->hand as $die) {
+            $die->roll();
+        }
+    }
+
+    public function getNumberDices(): int
+    {
+        return count($this->hand);
+    }
+
+    public function getValues(): array
+    {
+        $values = [];
+        foreach ($this->hand as $die) {
+            $values[] = $die->getValue();
+        }
+        return $values;
+    }
+
+    public function getString(): array
+    {
+        $values = [];
+        foreach ($this->hand as $die) {
+            $values[] = $die->getAsString();
+        }
+        return $values;
+    }
+}
+```
+
+The class is stored in the file `src/Dice/DiceHand.php`.
+
+Note that the actual dice objects are injected into the class. This enables the dice hand to ignore if it has a `Dice` or a `DiceGraphic` since both classes have the same base class.
+
+We can try how that works by creating an example route like this.
+
+```php
+    #[Route("/game/pig/test/dicehand/{num<\d+>}", name: "test_dicehand")]
+    public function testDiceHand(int $num): Response
+    {
+        if ($num > 99) {
+            throw new \Exception("Can not roll more than 99 dices!");
+        }
+
+        $hand = new DiceHand();
+        for ($i = 1; $i <= $num; $i++) {
+            if ($i % 2 === 1) {
+                $hand->Add(new DiceGraphic());
+            } else {
+                $hand->Add(new Dice());
+            }
+        }
+
+        $hand->roll();
+
+        $data = [
+            "num_dices" => $hand->getNumberDices(),
+            "diceRoll" => $hand->getString(),
+        ];
+
+        return $this->render('pig/test/dicehand.html.twig', $data);
+    }
+```
+
+The code adds dice to the dice hand, for each DiceGraphic it also adds one Dice, just to show that the dice hand can work with any object that has the Dice as a base class.
+
+You also need to add the use statement.
+
+```php
+use App\Dice\DiceHand;
+```
+
+It can look like this when you run the test route.
+
+![dicehand](.img/dicehand.png)
+
+
+
 Set up the game
 --------------------------
 
-To make this look a bit more like the dice game "Pig" we can create a start page to initiate the game where the player can opt to play the game with any number of dices. To do this we create a form for the player to select.
+To make this look a bit more like the dice game "Pig" we can create a start page to initiate the game where the player can opt to play the game with any number of dice. To do this we create a form for the player to select.
 
 Symfony has [a builtin feature for creating and working with Forms](https://symfony.com/doc/current/forms.html#creating-form-classes). However, for this example, we will use vanilla HTML forms created in the twig templates.
 
