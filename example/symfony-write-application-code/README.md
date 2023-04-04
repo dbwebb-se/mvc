@@ -136,9 +136,35 @@ Here is a sample for the landing page.
 {% block main %}
 <h1>Pig game</h1>
 
-<p>This is a classical dice game called "Pig" where you roll a set of dices to try and reach 100 points. You can read more on the <a href="https://en.wikipedia.org/wiki/Pig_(dice_game)">basics of the game on Wikipedia</a>.</p>
+<p>This is a classical dice game called "Pig" where you roll a 
+set of dices to try and reach 100 points. You can read more on 
+the <a href="https://en.wikipedia.org/wiki/Pig_(dice_game)"> 
+basics of the game on Wikipedia</a>.</p>
 
 {% endblock %}
+```
+
+Here is a set of CSS code that provides some basic styling.
+
+```css
+body {
+    margin: 0 auto;
+    max-width: 800px;
+    background-color: #eee;
+    font-size: 2em;
+}
+
+input {
+    font-size: 1em;
+}
+
+h1 {
+    border-bottom: 4px double green;
+}
+
+.die {
+    font-size: 2em;
+}
 ```
 
 It can look like this when we are done.
@@ -505,6 +531,29 @@ You also need to add the use statement.
 
 ```php
 use App\Dice\DiceHand;
+```
+
+THe template file `pig/test/dicehand.html.twig` can look like this.
+
+```php
+{% block main %}
+<h1>Roll dice hand</h1>
+
+<p>You rolled {{ num_dices }} dices. Here is the value of the dices.</p>
+
+<ul>
+{% for roll in diceRoll %}
+    <li>{{ roll }}</li>
+{% endfor %}
+</ul>
+
+<p>Try to roll 
+    <a href="{{ path('test_dicehand', {num: 5}) }}">5</a>
+    or 
+    <a href="{{ path('test_dicehand', {num: 10}) }}">10</a>
+    dices.
+</p>
+{% endblock %}
 ```
 
 It can look like this when you run the test route.
