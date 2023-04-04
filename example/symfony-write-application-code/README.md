@@ -121,6 +121,17 @@ The controller action part can look like this.
 
 The template file is stored in `templates/pig/home.html.twig`.
 
+Here is a sample for the landing page.
+
+```php
+{% block main %}
+<h1>Pig game</h1>
+
+<p>This is a classical dice game called "Pig" where you roll a set of dices to try and reach 100 points. You can read more on the <a href="https://en.wikipedia.org/wiki/Pig_(dice_game)">basics of the game on Wikipedia</a>.</p>
+
+{% endblock %}
+```
+
 It can look like this when we are done.
 
 ![pig home](.img/pig_home.png)
