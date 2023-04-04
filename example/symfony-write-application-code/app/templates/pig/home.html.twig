@@ -7,4 +7,14 @@
 
 <p>This is a classical dice game called "Pig" where you roll a set of dices to try and reach 100 points. You can read more on the <a href="https://en.wikipedia.org/wiki/Pig_(dice_game)">basics of the game on Wikipedia</a>.</p>
 
+<p>These are the routes used in developing this exercise and game.</p>
+
+<ul>
+    <li><a href="{{ path('pig_start') }}">Landing page</li>
+    <li><a href="{{ path('test_roll_dice') }}">Roll one dice</li>
+    <li><a href="{{ path('test_roll_num_dices', {num: 5}) }}">Roll many dice</li>
+    <li><a href="{{ path('test_dicehand', {num: 5}) }}">Roll dicehand</li>
+    <li><a href="{{ path('pig_init_get') }}">Game Pig Start</li>
+</ul>
+
 {% endblock %}
