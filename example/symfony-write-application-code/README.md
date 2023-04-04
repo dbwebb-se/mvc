@@ -478,6 +478,8 @@ It can look like this when you run the test route.
 
 ![dicehand](.img/dicehand.png)
 
+The DiceHand can hold Dice or DiceGraphic.
+
 
 
 Set up the game
