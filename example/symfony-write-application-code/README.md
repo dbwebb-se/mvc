@@ -67,6 +67,19 @@ All example code is saved in the directory `app/` so you can look at it or copy 
 
 You can also work through this exercise step by step, to set up the basics of the application.
 
+Here is a shortcut to creating a new Symfony app where you can write your code.
+
+```text
+composer create-project symfony/website-skeleton app
+cd app
+composer require webapp
+```
+
+```text
+composer require symfony/webpack-encore-bundle
+npm install
+```
+
 
 
 An empty controller
