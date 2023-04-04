@@ -635,6 +635,25 @@ To make the example flow work, we also create the landing page at the named rout
     }
 ```
 
+We add the template file `pig/play.html.twig` with the play buttons.
+
+```php
+{% block main %}
+<h1>Pig game [PLAYING]</h1>
+
+<p>Roll the dices or save the points you have.</p>
+
+<form method="post" action="">
+    <p>
+        <input type="submit" name="roll" value="Roll">
+        <input type="submit" name="save" value="Save">
+        <input type="submit" name="restart" value="Restart">
+    </p>
+</form>
+
+{% endblock %}
+```
+
 This way we have in place the complete flow to start and play the game.
 
 The game is not playable, but it can look something like this up till now.
@@ -642,6 +661,85 @@ The game is not playable, but it can look something like this up till now.
 ![game empty](.img/empty_game.png)
 
 This game will need a session to work, so let's move on and create the game engine using the session to store the vital parts of the game state.
+
+
+
+Make submit buttons go to own route
+--------------------------
+
+One thing that can help to organize the controller code is to make each button have its own callback, instead of having one callback for the form.
+
+Looking at the image above you can see three buttons that need to be dealt with using the controller callbacks. If we add one line of JavaScript code for each button, we can change the url and method that the form is posted to. That enables each button to have its own controller method, even if the buttons reside in the same form.
+
+
+
+### Restart button
+
+The "Restart" button shall take the user to restart the game and select how many dice to play with again.
+
+This is how the updated template code can look like.
+
+```php
+<input type="submit" name="restart" value="Restart"
+    onClick="this.form.action='{{ path('pig_init_get') }}';this.form.method='get';"
+>
+```
+
+The essential part is at the `onClick` attribute containing a small JavaScript that edits the form settings just before the submission is done.
+
+
+
+### Roll button
+
+The "Roll" button shall roll the dice and update the round sum.
+
+We create an empty controller method for this.
+
+```php
+    #[Route("/game/pig/roll", name: "pig_roll", methods: ['POST'])]
+    public function roll(): Response
+    {
+        // Logic to roll the dice
+
+        return $this->render('pig/play.html.twig');
+    }
+```
+
+This is how the updated template code can look like for the button.
+
+```php
+<input type="submit" name="roll" value="Roll"
+    onClick="this.form.action='{{ path('pig_roll') }}';"
+>
+```
+
+
+
+### Save button
+
+The "Save" button shall take the user to restart the game and select how many dice to play with again.
+
+We create an empty controller method for this.
+
+```php
+    #[Route("/game/pig/save", name: "pig_save", methods: ['POST'])]
+    public function save(): Response
+    {
+        // Logic to save the round
+
+        return $this->render('pig/play.html.twig');
+    }
+```
+
+This is how the updated template code can look like for the button.
+
+```php
+<input type="submit" name="save" value="Save"
+    onClick="this.form.action='{{ path('pig_save') }}';"
+>
+```
+
+You should now be able to click on the buttons and the click should lead you to the right place.
 
 
 
@@ -700,9 +798,6 @@ We can then update the play page to show the state of the game by reading the st
     ): Response
     {
         $data = [
-            "rollUrl" => $this->generateUrl('pig_roll'),
-            "saveUrl" => $this->generateUrl('pig_save'),
-            "restartUrl" => $this->generateUrl('pig_init_get'),
             "pigDices" => $session->get("pig_dices"),
             "pigRound" => $session->get("pig_round"),
             "pigTotal" => $session->get("pig_total"),
@@ -712,6 +807,15 @@ We can then update the play page to show the state of the game by reading the st
     }
 ```
 
+Add the following to the template file to print out the details.
+
+```php
+<p>You are playing with {{ pigDices }} dices.</p>
+
+<p>Round: {{ pigRound }}</p>
+<p>Total: {{ pigTotal }}</p>
+```
+
 The page can look like this when the game starts.
 
 ![dice start](.img/dice_start.png)
@@ -719,7 +823,7 @@ The page can look like this when the game starts.
 Now we can continue to make the first round and roll the dice.
 
 
-
+<!-->
 Make submit buttons go to own route
 --------------------------
 
@@ -760,24 +864,27 @@ This is how the template code can look like.
 ```
 
 The essential part is at the `onClick` attribute containing a small JavaScript that edits the form settings just before the submission is done.
+-->
 
 
 
 Store the dice
 --------------------------
 
-There might be several ways to implement the dice in this application. We will go with saving the dice objects in the sessions to show how the session can hold objects.
+There might be several ways to implement the dice in this application. We will go with saving the dice hand in the session to show how the session can hold objects.
 
-We update the `initCallback()` and create the dice and save them as an array to the session.
+We update the `initCallback()` and create the dice hand with the correct number of dices and then save it to the session.
 
 The code we add is this.
 
 ```php
-        $dice = [];
-        for ($i = 1; $i < $numDice; $i++) {
-            $dice[] = new DiceGraphic();
+        $diceHand = new DiceHand();
+        for ($i = 1; $i <= $numDice; $i++) {
+            $hand->add(new DiceGraphic());
         }
-        $session->set("pig_dice", $dice);
+        $hand->roll();
+
+        $session->set("pig_dicehand", $hand);
 ```
 
 The updated method now looks like this.
@@ -791,17 +898,16 @@ The updated method now looks like this.
     {
         $numDice = $request->request->get('num_dices');
 
+        $hand = new DiceHand();
+        for ($i = 1; $i <= $numDice; $i++) {
+            $hand->add(new DiceGraphic());
+        }
+        $hand->roll();
+
+        $session->set("pig_dicehand", $hand);
         $session->set("pig_dices", $numDice);
         $session->set("pig_round", 0);
         $session->set("pig_total", 0);
-
-        $dice = [];
-        for ($i = 1; $i <= $numDice; $i++) {
-            $die = new DiceGraphic();
-            $die->roll();
-            $dice[] = $die;
-        }
-        $session->set("pig_dice", $dice);
 
         return $this->redirectToRoute('pig_play');
     }
@@ -809,9 +915,9 @@ The updated method now looks like this.
 
 The complete state of the game, including the dice, is now saved in the session.
 
-We then update so the route `pig_play` reflects this and outputs the dice in the template file.
+We then update so the route `pig_play` reflects this and outputs the value of the dice in the template file.
 
-The controller method needs an update to get the dice from the session and translate their values into an array so they can be sent to the template.
+The controller method needs an update to get the dicehand from the session and translate their values into an array so they can be sent to the template.
 
 ```php
     #[Route("/game/pig/play", name: "pig_play", methods: ['GET'])]
@@ -819,25 +925,32 @@ The controller method needs an update to get the dice from the session and trans
         SessionInterface $session
     ): Response
     {
-        $dice = $session->get("pig_dice");
-        $diceValues = [];
-        foreach ($dice as $die) {
-            $diceValues[] = $die->getAsString();
-        }
+        $dicehand = $session->get("pig_dicehand");
 
         $data = [
-            "rollUrl" => $this->generateUrl('pig_roll'),
-            "saveUrl" => $this->generateUrl('pig_save'),
-            "restartUrl" => $this->generateUrl('pig_init_get'),
             "pigDices" => $session->get("pig_dices"),
             "pigRound" => $session->get("pig_round"),
             "pigTotal" => $session->get("pig_total"),
-            "diceValues" => $diceValues 
+            "diceValues" => $dicehand->getString() 
         ];
 
         return $this->render('pig/play.html.twig', $data);
     }
 ```
+
+To output the dice values we need to add the following code into the template file.
+
+```php
+<p>
+{% for value in diceValues %}
+    <span class="die">{{ value }}</span>
+{% endfor %}
+</p>
+```
+
+It can now look like this when the game is ready to start, the dice are shown, but not yet calculated.
+
+![dice shown](.img/show_dice.png)
 
 The code grows rather quickly now when we add application code, bit by bit.
 
@@ -848,7 +961,7 @@ At each step, we need to consider if the code is clean enough or if we can rewri
 The first roll
 --------------------------
 
-To make a roll we click the "Roll" button and we reach the following controller method.
+To make a roll we click the "Roll" button and we reach the following controller method that we created earlier.
 
 ```php
     #[Route("/game/pig/roll", name: "pig_roll", methods: ['POST'])]
@@ -860,9 +973,7 @@ To make a roll we click the "Roll" button and we reach the following controller 
     }
 ```
 
-The logic needed is to use the dice in the session, roll them and add the sum to the current round, but only if the dice do not hold the value of 1.
-
-Something like this. It is adding up to some application logic now.
+Here we want to use the dicehand from the session and roll the dices and add the sum to the current round, but only if the dicehand do not hold the value of 1.
 
 ```php
     #[Route("/game/pig/roll", name: "pig_roll", methods: ['POST'])]
@@ -870,15 +981,13 @@ Something like this. It is adding up to some application logic now.
         SessionInterface $session
     ): Response
     {
-        $dice = $session->get("pig_dice");
-        foreach ($dice as $die) {
-           $die->roll();
-        }
+        $hand = $session->get("pig_dicehand");
+        $hand->roll();
 
         $roundTotal = $session->get("pig_round");
         $round = 0;
-        foreach ($dice as $die) {
-            $value = $die->getValue();
+        $values = $hand->getValues();
+        foreach ($values as $value) {
             if ($value === 1) {
                 $round = 0;
                 $roundTotal = 0;
@@ -906,7 +1015,7 @@ A good thing with this layout is that we can reload the current play page and th
 Save round
 --------------------------
 
-To save the round we click the "Save" button and reach the following controller method.
+To save the round we click the "Save" button and reach the following controller method we created earlier.
 
 ```php
     #[Route("/game/pig/save", name: "pig_save", methods: ['POST'])]
