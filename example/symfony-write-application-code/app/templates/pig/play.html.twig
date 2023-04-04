@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Pig Game Play{% endblock %}
+{% block title %}Pig Game{% endblock %}
 
 {% block main %}
 <h1>Pig game [PLAYING]</h1>
@@ -21,15 +21,13 @@
 <form method="post" action="">
     <p>
         <input type="submit" name="roll" value="Roll"
-            onClick="this.form.action='{{ rollUrl }}';"
+            onClick="this.form.action='{{ path('pig_roll') }}';"
         >
-        
         <input type="submit" name="save" value="Save"
-            onClick="this.form.action='{{ saveUrl }}';"
+            onClick="this.form.action='{{ path('pig_save') }}';"
         >
-
         <input type="submit" name="restart" value="Restart"
-            onClick="this.form.action='{{ restartUrl }}';this.form.method='get';"
+            onClick="this.form.action='{{ path('pig_init_get') }}';this.form.method='get';"
         >
     </p>
 </form>
