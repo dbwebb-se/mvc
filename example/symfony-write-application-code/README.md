@@ -95,6 +95,10 @@ bin/console cache:clear
 * Change to main in the base template
 -->
 
+There is a video where Mikael shows how to set up your own copy of the code used in this exercise, step by step (in Swedish).
+
+[![Get going with Symfony](https://img.youtube.com/vi/h-FjY7IU69w/0.jpg)](https://www.youtube.com/watch?v=h-FjY7IU69w)
+
 
 
 An empty controller
