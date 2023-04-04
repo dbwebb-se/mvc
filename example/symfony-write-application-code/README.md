@@ -80,6 +80,11 @@ composer require symfony/webpack-encore-bundle
 npm install
 ```
 
+<!--
+* /build to build
+* Change to main in the base template
+-->
+
 
 
 An empty controller
@@ -124,6 +129,10 @@ The template file is stored in `templates/pig/home.html.twig`.
 Here is a sample for the landing page.
 
 ```php
+{% extends "base.html.twig" %}
+
+{% block title %}Pig Game{% endblock %}
+
 {% block main %}
 <h1>Pig game</h1>
 
