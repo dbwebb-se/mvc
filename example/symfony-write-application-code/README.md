@@ -340,9 +340,9 @@ Note how you can [use the path function to create a link to a named route that t
 Extend a base class
 --------------------------
 
-To show how to work with inheritance where a class extends another one, we create a `GraphicalDice` that has an improved variant on how to output the dice in a more "graphic" and pleasant way.
+To show how to work with inheritance where a class extends another one, we create a `DiceGraphic` that has an improved variant on how to output the dice in a more "graphic" and pleasant way.
 
-Here is the class `GraphicalDice` that extends the `Dice`. It is stored in the same directory as `GraphicalDice.php`.
+Here is the class `DiceGraphic` that extends the `Dice`. It is stored in the same directory as `DiceGraphic.php`.
 
 ```php
 namespace App\Dice;
