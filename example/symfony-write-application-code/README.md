@@ -6,8 +6,8 @@ revision:
     "2022-03-27": "(A, mos) First release."
 ---
 
-![Pig](.img/flash_notice.png)
 -->
+![Pig](.img/flash_notice.png)
 
 Write your application code in Symfony
 ==========================
