@@ -56,7 +56,7 @@ TODO
 Prepare
 --------------------------
 
-You should have worked through the exercise "[Symfony with GET, POST, SESSION](https://github.com/dbwebb-se/mvc/tree/main/example/symfony-get-post-session)".
+You should have worked through the exercise "[Get going with Symfony](https://github.com/dbwebb-se/mvc/tree/main/example/symfony)".
 
 
 
