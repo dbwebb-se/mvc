@@ -15,7 +15,6 @@ The tools you are going to install are really useful development tools that will
 
 * [PHPMD - PHP Mess Detector](#PHPMD---PHP-Mess-Detector)
 * [PHPStan - Find bugs before they reach production](#PHPStan---Find-bugs-before-they-reach-production)
-* [PHP Copy/Paste Detector (PHPCPD)](#PHP-Copy/Paste-Detector-(PHPCPD))
 * [Composer scripts](#Composer-scripts)
 
 
