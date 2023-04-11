@@ -1,11 +1,22 @@
+<!--
+---
+author: mos
+revision:
+    "2023-04-11": "(B, mos) Work through and updated."
+    "2022-03-27": "(A, mos) First release."
+---
+-->
 PHP Linter and Mess Detection
 ==========================
 
-This exercise will show you how to get going with static code linters and mess detectors for your PHP code you write in Symfony.
+This exercise will show you how to get going with static code linters and mess detectors for the PHP code you write in Symfony.
 
-The tools you are going to install are really useful development tools.
+The tools you are going to install are really useful development tools that will help you enhance your code style and reach cleaner code.
 
-It is common that you can find plugins to your texteditor to make it possible to execute the linters while you write your code.
+* [PHPMD - PHP Mess Detector](#PHPMD---PHP-Mess-Detector)
+* [PHPStan - Find bugs before they reach production](#PHPStan---Find-bugs-before-they-reach-production)
+* [PHP Copy/Paste Detector (PHPCPD)](#PHP-Copy/Paste-Detector-(PHPCPD))
+* [Composer scripts](#Composer-scripts)
 
 
 
@@ -41,16 +52,17 @@ When you get a warning you can read about it in the [documentation for the rules
 
 
 
-
 ### Configuration file
 
-You can add a configuration file [`phpmd.xml`](phpmd.xml) to the root of your project. In the configuration file can you make exceptions and tune the rules you want to follow.
+You can add a configuration file [`phpmd.xml`](phpmd.xml) to the root of your project. You can make exceptions and tune the rules in the configuration file.
 
-You can then execute the linter like this.
+You can then execute the linter like this to test the code in all your directories.
 
 ```
-tools/phpmd/vendor/bin/phpmd src text phpmd.xml
+tools/phpmd/vendor/bin/phpmd . text phpmd.xml
 ```
+
+It is recommended to use a configuration file.
 
 
 
@@ -82,7 +94,7 @@ Now you can execute the tool like this.
 tools/phpstan/vendor/bin/phpstan analyse src
 ```
 
-PHPstan validates your code according to [levels between 0 and 10](https://phpstan.org/user-guide/rule-levels) where 0 is the loosest level and 9 being the strictest level of linting.
+PHPstan validates your code according to [levels between 0 and 10](https://phpstan.org/user-guide/rule-levels) where 0 is the loosest level and 9 is the strictest level of linting.
 
 Try to validate your code on level 9 and then you can downsize the level to an acceptable one.
 
@@ -94,10 +106,24 @@ You can decide which level you want to use on your own.
 
 
 
+### Configuration file
+
+You can add a configuration file [`phpstan.neon`](phpstan.neon) to the root of your project. You can make exceptions and tune the rules in the configuration file.
+
+You can then execute the linter like this to test the code in all your directories.
+
+```
+tools/phpstan/vendor/bin/phpstan
+```
+
+It is recommended to use a configuration file.
+
+
+<!--
 PHP Copy/Paste Detector (PHPCPD)
 --------------------------
 
-[The tool phpcpd](https://github.com/sebastianbergmann/phpcpd) is a copy and paste detector for PHP. It analyses your code to find duplicated code which might be a hint on bad coding practice.
+[The tool phpcpd](https://github.com/sebastianbergmann/phpcpd) is a "copy and paste detector" for PHP. It analyses the code to find duplicated code which might be a hint of bad coding practice.
 
 The recommendation is to install the tool in the directory `tools/` so it does not conflict with your application.
 
@@ -119,6 +145,7 @@ Now you can execute the tool like this.
 ```
 tools/phpcpd/vendor/bin/phpcpd src
 ```
+-->
 
 
 
@@ -131,16 +158,18 @@ This is how you can add the scripts.
 
 Do not forget to set the accurate level for phpstan.
 
-Ensure that you are using the configuration file for phpmd, or update the command with the ruleset to use.
+Ensure that you are using the configuration file for phpmd and phpstan, or update the command used.
+
+<!--
+        "phpcpd": "tools/phpcpd/vendor/bin/phpcpd src || true",
+-->
 
 ```
 {
     "scripts": {
-        "phpmd": "tools/phpmd/vendor/bin/phpmd src text phpmd.xml || true",
-        "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -l 9 src || true",
-        "phpcpd": "tools/phpcpd/vendor/bin/phpcpd src || true",
+        "phpmd": "tools/phpmd/vendor/bin/phpmd . text phpmd.xml || true",
+        "phpstan": "tools/phpstan/vendor/bin/phpstan || true",
         "lint": [
-            "@phpcpd",
             "@phpmd",
             "@phpstan"
         ]
@@ -154,15 +183,14 @@ You can verify that your update did not make the `composer.json` corrupt by runn
 composer validate
 ```
 
-If all seems okey you should be able to execute the tools like this.
+If all seems ok you should be able to execute the tools like this.
 
 ```
 composer phpmd
 composer phpstan
-composer phpcpd
 composer lint
 ```
 
-The command `composer lint` is intended to run all tools that do linting. It could be a good idea to also include `phpcs` to check your codestyle.
+The command `composer lint` is intended to run all tools that do linting. It could be a good idea to also include `phpcsfixer` to fix your code style as a part of the linting.
 
 You can read more on "[composer and writing custom commands](https://getcomposer.org/doc/articles/scripts.md#writing-custom-commands)".
