@@ -25,6 +25,9 @@ sudo rm -rf me/report/build
 
 case $KMOM in
     kmom01)
+        openUrl "$studentServerUrl/"
+        openUrl "$studentServerUrl/lucky"
+        openUrl "$studentServerUrl/api/quote"
     ;;
     kmom02)
     ;;
