@@ -43,27 +43,27 @@ services:
 
 ##### OLDER TO BE REMOVED #########
 
-    # # Primary services to use with this course
-    # mvc: &mvc
-    #     #image: dbwebb/courserepo:mvc
-    #     image: dbwebb/courserepo
-    #     volumes:
-    #         - ".:/home/dbwebb/repo"
-    #         - "/home/dbwebb/repo/bin"
-    #         - "/home/dbwebb/repo/build"
-    #         - "/home/dbwebb/repo/node_modules"
-    #         - "/home/dbwebb/repo/vendor"
-    #         - "./example/sql/inspect/my.cnf:/home/dbwebb/.my.cnf"
+    # Primary services to use with this course
+    mvc: &mvc
+        #image: dbwebb/courserepo:mvc
+        image: dbwebb/courserepo
+        volumes:
+            - ".:/home/dbwebb/repo"
+            - "/home/dbwebb/repo/bin"
+            - "/home/dbwebb/repo/build"
+            - "/home/dbwebb/repo/node_modules"
+            - "/home/dbwebb/repo/vendor"
+            - "./example/sql/inspect/my.cnf:/home/dbwebb/.my.cnf"
 
-    # cli:
-    #     <<: *mvc
+    cli:
+        <<: *mvc
 
-    # server:
-    #     <<: *mvc
-    #     #volumes:
-    #         #- ./example/docker/site_default.conf:/etc/apache2/sites-enabled/000-default.conf
-    #     ports:
-    #         - "18080:80"
+    server:
+        <<: *mvc
+        #volumes:
+            #- ./example/docker/site_default.conf:/etc/apache2/sites-enabled/000-default.conf
+        ports:
+            - "18080:80"
 
     # courserepo:
     #     image: dbwebb/courserepo:cli
