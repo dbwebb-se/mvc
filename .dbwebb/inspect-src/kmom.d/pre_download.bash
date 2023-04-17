@@ -26,10 +26,14 @@ sudo rm -rf me/report/build
 case $KMOM in
     kmom01)
         openUrl "$studentServerUrl/"
+        openUrl "$studentServerUrl/about"
         openUrl "$studentServerUrl/lucky"
         openUrl "$studentServerUrl/api/quote"
     ;;
     kmom02)
+        openUrl "$studentServerUrl/"
+        openUrl "$studentServerUrl/api"
+        openUrl "$studentServerUrl/card"
     ;;
     kmom03)
     ;;
