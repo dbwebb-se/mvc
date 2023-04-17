@@ -9,7 +9,7 @@
             }
     ],
     "autoload": {
-        "psr-4": {"Mos\\": "src/"}
+        "psr-4": {"Grm\\": "src/"}
     },
     "scripts": {
         "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
