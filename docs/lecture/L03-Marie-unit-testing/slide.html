@@ -43,7 +43,7 @@
 <script data-role="slide" type="text/html" data-markdown>
 # Ericsson
 
-* 100 000 employees (13 000 in Sweden).
+* 105 000 employees (14 500 in Sweden).
 * 400 student summer interns each summer and 200 students write their master’s
 thesis with Ericsson each year.
 * Mostly mobile communication, like 5G, the fifth generation of cellular networks.
@@ -78,7 +78,7 @@ of telecommunications services. e.g. IMSI change over.
 # Unit testing in different ways
 
 1. Designers code & testers unit tests
-2. Designers - unit tests afterwards
+2. Designers code first & unit tests afterwards
 3. Designers - unit tests during development/coding
 4. Designers, dived into designers & testers
 5. Test driven development (TDD), unit tests first & coding afterwards
@@ -99,7 +99,7 @@ of telecommunications services. e.g. IMSI change over.
 <script data-role="slide" type="text/html" data-markdown>
 # Unit testing
 
-* Testing a class or part of the class.
+* Testing a function, a class or part of the class.
 * Mocking database calls etc.
 * Both positive and negative cases.
 * Large code base => many test classes
@@ -187,10 +187,19 @@ or test => start over
 
 
 <script data-role="slide" type="text/html" data-markdown>
+# Summary
+
+* Unit testing is improving the code quality.
+* Quality insurance when updating/changing the code.
+
+</script>
+
+
+<script data-role="slide" type="text/html" data-markdown>
 # 5. TDD, an example
 
 * Requirements
-* Solution discussion and interface
+* Solution discussion
 * Unit tests
 * Coding
 
@@ -200,7 +209,8 @@ or test => start over
 <script data-role="slide" type="text/html" data-markdown>
 # 5. TDD, Dice game, requirements
 
-* A dealer and a player, closest to 21 wins.
+* A dealer and a player, closest to 21 wins. 
+* Over 21 looses.
 * Player starts.
 * 3 dices, rolls, add the sum, and stop.
 
@@ -210,7 +220,6 @@ or test => start over
 <script data-role="slide" type="text/html" data-markdown>
 # 5. TDD, Solution discussion
 
-* Interface
 * Classes
 * Test classes
 
@@ -220,8 +229,7 @@ or test => start over
 <script data-role="slide" type="text/html" data-markdown>
 # 5. TDD, Classes/Test classes
 
-* Game21Interface/Game21InterfaceTest
-* Game21/Game21Test
+* Dice21/Dice21Test
 * Player/PlayerTest
 * Dice/DiceTest
 
@@ -229,21 +237,9 @@ or test => start over
 
 
 <script data-role="slide" type="text/html" data-markdown>
-# 5. Test driven development, Game 21
+# Tip & tricks
 
-The code and the unit tests are in the example folder in example/phpunit together
-with the Guess example from kmom04 exercise.
-Source code in src/Game21 and unit tests in test/Game21
-
-
-</script>
-
-
-<script data-role="slide" type="text/html" data-markdown>
-# Summary
-
-* Unit testing is improving the code quality.
-* Quality insurance when updating/changing the code.
+* Online PHP testtool; https://extendsclass.com/php.html
 
 </script>
 
