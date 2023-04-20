@@ -12,10 +12,15 @@
         "psr-4": {"Mos\\": "src/"}
     },
     "scripts": {
+        "clean": "rm -rf build .phpunit.result.cache",
+        "clean-all": [
+            "@clean",
+            "rm -rf vendor composer.lock"
+        ],
         "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
     },
     "require-dev": {
-        "php": "^8.0",
-        "phpunit/phpunit": "^9"
+        "php": "^8.1",
+        "phpunit/phpunit": "^10"
     }
 }

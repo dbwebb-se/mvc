@@ -1,3 +1,14 @@
+<!--
+---
+author: mos
+revision:
+    "2023-04-20": "(B, mos) Reviewed."
+    "2022-03-27": "(A, mos) First release."
+---
+
+![Symfony image](.img/symfony.png)
+-->
+
 Document your PHP code
 ==========================
 

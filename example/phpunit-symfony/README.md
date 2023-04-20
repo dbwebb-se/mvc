@@ -1,9 +1,21 @@
-Run unittests with PHPUnit in Symfony
+<!--
+---
+author: mos
+revision:
+    "2023-04-20": "(B, mos) Reviewed."
+    "2022-03-27": "(A, mos) First release."
+---
+
+![Symfony image](.img/symfony.png)
+-->
+
+
+Run unit tests with PHPUnit in Symfony
 ==========================
 
-This exercise will show you how to get going with unittesting in Symfony using PHPUnit.
+This exercise will show you how to get going with unit testing in Symfony using PHPUnit.
 
-This short article is based on the longer Symfony documentation article "[Testing](https://symfony.com/doc/current/testing.html)". You can head over to that article after you have completed the installation in this article. The important part are about unit test, you can skip (or read fast) the parts of integration and application tests.
+This short article is based on the longer Symfony documentation article "[Testing](https://symfony.com/doc/current/testing.html)". You can head over to that article after you have completed the installation in this article. The important parts are about unit test, you can skip (or read fast) the parts of integration and application tests.
 
 
 
@@ -47,7 +59,7 @@ Try to execute the test suite.
 bin/phpunit
 ```
 
-It could look like this showing that the test suite was successfully executed and it contains of one test case and two assertions.
+It could look like this showing that the test suite was successfully executed and it contains one test case and two assertions.
 
 ```
 PHPUnit 9.5.20
@@ -65,7 +77,7 @@ OK (1 test, 2 assertions)
 Code coverage report
 --------------------------
 
-Lets generate a code coverage report from the test suite.
+Let's generate a code coverage report from the test suite.
 
 You need to have installed [Xdebug](https://xdebug.org/) to generate code coverage reports.
 
@@ -111,7 +123,7 @@ Generating code coverage report in HTML format ... done [00:00.060]
 
 The Clover XML format is easy to use for other tools, for example when you want an external tool to visualize the code coverage report. That is why we included as default of your setup.
 
-The HTML report is generated in the directory `build/coverage`, open it up with your web browser. Find the coverage for the Dice class and try to add another test case with assertions to make it fully covering the class.
+The HTML report is generated in the directory `docs/coverage`, open it up with your web browser. Find the coverage for the Dice class and try to add another test case with assertions to make it fully covering the class.
 
 
 

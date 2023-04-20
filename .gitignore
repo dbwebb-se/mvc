@@ -14,6 +14,7 @@ stud.txt
 /grade/
 __pycache__
 *.pyc
+.phpunit.cache/
 
 # composer
 .cache/

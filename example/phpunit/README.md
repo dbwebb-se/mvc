@@ -1,3 +1,14 @@
+<!--
+---
+author: mos
+revision:
+    "2023-04-20": "(B, mos) Reviewed."
+    "2022-03-27": "(A, mos) First release."
+---
+
+![Symfony image](.img/symfony.png)
+-->
+
 Get going with phpunit
 ===================================
 
@@ -20,12 +31,14 @@ This is short tutorial with code samples on how to get going with phpunit for un
 
 
 
+<!--
 A walkthrough
 -----------------------------------
 
 There is a recording from a Zoom session where Mikael walks you through this exercise.
 
 [![YouTube video image](http://img.youtube.com/vi/HSZH4VKpE_k/0.jpg)](http://www.youtube.com/watch?v=HSZH4VKpE_k "Kurs mvc kmom03 tisdagsgenomgång, del 2/3 övning phpunit (Zoom med Mikael)")
+-->
 
 <!--
 Updates since the recording.
@@ -38,13 +51,16 @@ Proposed updates to aline with the mvc-course.
 * Remove the Makefile and use only composer
 * Run individual testfile
 * Run individual testcase
+* Fixtures, test doubles?
 
 -->
+
+
 
 Prerequisite
 -----------------------------------
 
-You have PHP 8.0 or above.
+You have PHP 8.1 or above (supported by PHPUnit 10).
 
 You have composer installed.
 
@@ -63,13 +79,15 @@ First install the essentials and dump the autoloader.
 composer install
 ```
 
+<!--
 Or by using the Makefile.
 
 ```
 make install
 ```
+-->
 
-Now point your browser to the gamecontroller in `htdocs/index.php` to launch the game.
+Now point your browser to the game controller in `htdocs/index.php` to launch the game.
 
 It looks like this.
 
@@ -82,9 +100,9 @@ The game should be working and be playable as one would expect.
 The game source code
 -----------------------------------
 
-The source code for this example is mainly a class [`Guess`](src/Guess/Guess.php) implementing the game "Guess my number" where it holds a number between 1 and 100 and the guesser should guess the number where each guess results in a reply of "Correct", "To high" or "To low".
+The source code for this example is mainly a class [`Guess`](src/Guess/Guess.php) implementing the game "Guess my number" where it holds a number between 1 and 100 and the guesser should guess the number where each guess results in a reply of "Correct", "Too high" or "Too low".
 
-An exception is thrown when your guess is higer than 100 or lower than 1.
+An exception is thrown when your guess is higher than 100 or lower than 1.
 
 The game controller is in the file [`htdocs/index.php`](htdocs/index.php).
 
@@ -109,8 +127,8 @@ This is the directory structure for the complete example program.
 | `htdocs/`       | The actual web program using the source code classes and implementing the game. |
 | `src/`          | The source code classes to test. |
 | `view/`         | Template files to create views. |
-| `test/<srcdir>` | The test suite with all test cases that phpunit will execute. |
-| `test/config.php` | Configuration file to setup PHP essentials for phpunit and the surroundings, including the autoloader and defining constanst or including mocks. |
+| `tests/<srcdir>` | The test suite with all test cases that phpunit will execute. |
+| `tests/config.php` | Configuration file to setup PHP essentials for phpunit and the surroundings, including the autoloader and defining constanst or including mocks. |
 | `phpunit.xml`  | Configuration read by phpunit on startup. |
 
 Check out the directory structure and the content of the files to get acquainted with them.
@@ -120,18 +138,15 @@ Check out the directory structure and the content of the files to get acquainted
 Executing the test cases
 -----------------------------------
 
-The test suite consists of the test cases in the directory `test/` and its subdirectories.
+The test suite consists of the test cases in the directory `tests/` and its subdirectories.
 
-All classes ending with postfix `Test` will be executed by phpunit. You can have all your test cases in one class, or one class per source class, or several test classes per source class, and in your own directory structure. How you do is all about structure, readability and maintainability.
+All classes ending with postfix `Test` will be executed by phpunit. You can have all your test cases in one class, one class per source class, or several test classes per source class. How you do is all about structure, readability and maintainability.
 
-I usually prefer dividing my test cases into several test classes for each source class, where appropriate, it gives me better overview of the test cases and enhance the documentation of the test suite.
+I usually prefer dividing my test cases into several test classes for each source class, where appropriate, as it gives a better overview of the test cases and enhances the documentation of the test suite.
 
-You can execute the test suite, with all test cases, through the Makefile or through Composer script.
+You can execute the test suite, with all test cases, through the Composer script.
 
 ```text
-# Using the Makefile
-make phpunit
-
 # Using composer
 composer phpunit
 ```
@@ -165,7 +180,7 @@ Now, lets use the code coverage to see how much of the code is covered by the cu
 Review the code coverage
 -----------------------------------
 
-Lets look at the code coverage report that is generated. It is a report saved in the generated directory `build/coverage` that provides a HTML view of the classes, methods and lines of code tested.
+Let's look at the code coverage report that is generated. It is a report saved in the generated directory `build/coverage` that provides a HTML view of the classes, methods and lines of code tested.
 
 Open a web browser to `build/coverage/index.html` and review the report.
 
@@ -173,20 +188,20 @@ Open a web browser to `build/coverage/index.html` and review the report.
 
 ![Details of code coverage](doc/img/code-coverage-detail.png)
 
-As a general rule of thumb, try go get the report to show the color green. It is nice to have 100% code coverage, but sometimes its just fine with 70%. The percentage of code coverage is not the single most important metric of how good your test suite are.
+As a general rule of thumb, try to get the report to show the color green. It is nice to have 100% code coverage, but sometimes it is just fine with 70%. The percentage of code coverage is not the single most important metric of how good your test suite is.
 
 
 
 Get good code coverage
 -----------------------------------
 
-One aim with a test suite is to cover all lines of code, we measure this through code coverage. The test cases you write should optimally cover the whole code, each line, at least once. Some code sections need to be covered by several test cases due to their complexity depending on different values or states.
+One aim of a test suite is to cover all lines of code, we measure this through code coverage. The test cases you write should optimally cover the whole code, each line, at least once. Some code sections need to be covered by several test cases due to their complexity depending on different values or states.
 
-In most cases one should be able to get code coverage thought the class public API, the public methods. That would imply a class that is written to be testable. If you have code sections that can not be reached through the public API, then you should ask yourself "why do I have this structure?".
+In most cases one should be able to get code coverage through the class public API, the public methods. That would imply a class that is written to be testable. If you have code sections that can not be reached through the public API, then you should ask yourself "why do I have this structure?".
 
-Sometimes you encounter classes that are hard to write test cases for, or to get enough code coverage. This can be an indicator to refactor the class to make it more testable.
+Sometimes you encounter classes that are hard to write test cases for or to get enough code coverage. This can be an indicator to refactor the class to make it more testable.
 
-Lets look a bit into the test cases.
+Let's look a bit into the test cases.
 
 
 
@@ -229,15 +244,15 @@ public function testCreateObjectNoArguments()
 }
 ```
 
-A test method is considered as one test, or one test case, that can carry out zero or several assertions that verifies that certain conditions are fulfilled. The various methods for assertions are provided by phpunit and documented in its documentation.
+A test method is considered as one test or one test case, that can carry out zero or several assertions that verifies that certain conditions are fulfilled. The various methods for assertions are provided by phpunit and documented in its documentation.
 
 Someone has said the following.
 
 > _"If it have no assert, it aint no test."_
 
-Assertions are ways to check that various states and values are correct, after some code is executed. A test, contains both code executing public methods in the class and performing asserts on post conditions, types and return values.
+Assertions are ways to check that various states and values are correct after some code is executed. A test contains both code executing public methods in the class and performing asserts on post conditions, types and return values.
 
-Another important thing to remember is that each test should be able to run independantly on the other tests. This will make it possible to execute tests independantly of each other and even in parallell to speed things up.
+Another important thing to remember is that each test should be able to run independently from the other tests. This will make it possible to execute tests independently of each other and even in parallel to speed things up.
 
 > _"If the tests can not run independently, then they are not unit tests."_
 
@@ -248,20 +263,13 @@ More on testing
 
 The aim is to use the class as a white box test object. The class code is readable to the one who writes the test suite.
 
-Your test suite shall executes as many class methods as possible and verify various states of the tested class using assertions.
+Your test suite shall execute as many class methods as possible and verify various states of the tested class using assertions.
 
-The main approach is to write test cases for the public methods of the class. It would require other test strategies to test a class having protected members not accessable from the class public API or testing a class having external dependencies or testing a class using persistent storage like a database. Those more advanced test cases are out of scope of this tutorial.
+The main approach is to write test cases for the public methods of the class. It would require other test strategies to test a class having protected members not accessible from the class public API or testing a class having external dependencies or testing a class using persistent storage like a database. Those more advanced test cases are out of the scope of this tutorial.
 
 Divide your test suite into classes having reasonable sizes. That will make it easier to maintain and further develop your test suite.
 
-Use many small test methods, testing specific areas. Name these methods with proper names, describing what they test. This will aid when trying to remember what a certain method is testing. Write a one-liner comment above each method to further exaplain what the test does, that will also aid in maintaining and developing your test suite.
-
-
-
-Summary
------------------------------------
-
-You have now verified that phpunit and code coverage works on your environment and you have perhaps gained some understanding of how unit testing and phpunit works.
+Use many small test methods, testing specific areas. Name these methods with proper names, describing what they test. This will aid when trying to remember what a certain method is testing. Write a one-liner comment above each method to further explain what the test does, which will also aid in maintaining and developing your test suite.
 
 
 
@@ -270,12 +278,29 @@ Excercise
 
 As an exercise you shall now finalize the test suite by adding test case(s) with assertions for the method `Guess::makeGuess()` and do reach a code coverage of 100%.
 
+<!--
+* Add code and explanations to solve this.
+
+* Have discussions on what is testable and not.
+
+* Test exceptions.
+-->
+
 
 
 Thoughts
 -----------------------------------
 
-What about the PHP code in the directories `config/`, `htdocs/` and `view/`? Should that code also the covered by unit test or?
+What about the PHP code in the directories `config/`, `htdocs/` and `view/`? Should that code also the covered by unit test or not?
+
+Testable code is said to be good and clean code. Consider refactoring your code when it is not testable.
+
+
+
+Summary
+-----------------------------------
+
+You have now verified that phpunit and code coverage works in your environment and you have had an opportunity to gain some understanding of how unit testing and phpunit work.
 
 
 
@@ -284,11 +309,11 @@ References
 
 You can read more on PHPUnit on their website and in the documentation.
 
-* [PHPUnits home page](https://phpunit.de/)
-* [Manualen](https://phpunit.readthedocs.io)
+* [PHPUnit home page](https://phpunit.de/)
+* [The Manual](https://phpunit.readthedocs.io)
 * [PHPUnit and PHP supported version](https://phpunit.de/supported-versions.html)
 * [PHPUnit on GitHub](https://github.com/sebastianbergmann/phpunit)
 
-To enable code coverage yyou need to isntall Xdebug.
+To enable code coverage you need to install Xdebug.
 
 * [Home page for Xdebug](https://xdebug.org/)
