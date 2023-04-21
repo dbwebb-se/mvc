@@ -284,6 +284,11 @@ As an exercise you shall now finalize the test suite by adding test case(s) with
 * Have discussions on what is testable and not.
 
 * Test exceptions.
+
+* The mock example
+
+* Setup and teardown
+
 -->
 
 
