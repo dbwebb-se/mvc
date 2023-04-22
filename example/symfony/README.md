@@ -250,9 +250,13 @@ The controller action `number()` returns the complete html page as the response 
 
 
 
-### Use bin/console debug:router
+### Use `bin/console debug:router`
 
-Now check that the route `lucky/number` is available and that Symfony recognizes it. Use the following command in the terminal when you are in the `app/` directory.
+Now check that the route `lucky/number` is available and that Symfony recognizes it. Use the following command in the terminal when you are in the `app/` directory:
+
+```
+bin/console debug:router
+```
 
 You will see an entry like this, together with all other routes supported in the application.
 
