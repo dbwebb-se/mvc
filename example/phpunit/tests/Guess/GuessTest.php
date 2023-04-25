@@ -7,11 +7,10 @@ use PHPUnit\Framework\TestCase;
 /**
  * Test cases for class Guess.
  */
-class GuessCreateObjectTest extends TestCase
+class GuessTest extends TestCase
 {
     /**
-     * Construct object and verify that the object has the expected
-     * properties, use no arguments.
+     * Construct object without arguments and verify there is 6 tries left.
      */
     public function testCreateObjectNoArguments()
     {
