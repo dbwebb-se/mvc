@@ -42,29 +42,12 @@ TODO
 -->
 
 
-<!--
-A walkthrough
+Recording
 -----------------------------------
 
 There is a recording from a Zoom session where Mikael walks you through this exercise.
 
-[![YouTube video image](http://img.youtube.com/vi/HSZH4VKpE_k/0.jpg)](http://www.youtube.com/watch?v=HSZH4VKpE_k "Kurs mvc kmom03 tisdagsgenomgång, del 2/3 övning phpunit (Zoom med Mikael)")
--->
-
-<!--
-Updates since the recording.
-
-* Change .phpunit.xml to phpunit.xml
-* Add composer phpunit
-
-Proposed updates to aline with the mvc-course.
-
-* Remove the Makefile and use only composer
-* Run individual testfile
-* Run individual testcase
-* Fixtures, test doubles?
-
--->
+[![YouTube video image](http://img.youtube.com/vi/T0dLCpoBvs4/0.jpg)](http://www.youtube.com/watch?v=T0dLCpoBvs4 "Kurs mvc kmom04 tisdagsgenomgång, övning phpunit")
 
 
 
