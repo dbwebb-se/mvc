@@ -106,8 +106,8 @@ We can also generate code coverage as HTML. To do so we update the configuration
 
 ```
 <report>
-  <clover outputFile="build/coverage.clover"/>
-  <html outputDirectory="build/coverage" lowUpperBound="35" highLowerBound="70"/>
+  <clover outputFile="docs/coverage.clover"/>
+  <html outputDirectory="docs/coverage" lowUpperBound="35" highLowerBound="70"/>
 </report>
 ```
 
