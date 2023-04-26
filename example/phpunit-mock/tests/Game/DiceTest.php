@@ -57,4 +57,26 @@ class DiceTest extends TestCase
         $res = $stub->roll();
         $this->assertEquals($exp, $res);
     }
+
+        /**
+     * Construct a mock object of the class Dicec and set consecutive values
+     * to assert against.
+     */
+    public function testCreateObjectWithMock()
+    {
+        // Create a stub for the SomeClass class.
+        $stub = $this->createMock(Dice::class);
+
+        // Configure the stub.
+        $stub->method('getValue')
+            ->willReturn(6);
+        $stub->method('roll')
+             ->willReturnOnConsecutiveCalls(2, 3, 5);
+
+        // $stub->doSomething() returns a different value each time
+        $this->assertEquals(6, $stub->getValue());
+        $this->assertEquals(2, $stub->roll());
+        $this->assertEquals(3, $stub->roll());
+        $this->assertEquals(5, $stub->roll());
+    }
 }
