@@ -164,7 +164,7 @@ The basic configuration is set up in [`config/config.php`](config/config.php), m
 The terminal application can be executed from the file [`src/Dice/main.php`](src/Dice/main.php) like this.
 
 ```
-php -r src/Dice/main.php
+php src/Dice/main.php
 ```
 
 The output can look like this.
