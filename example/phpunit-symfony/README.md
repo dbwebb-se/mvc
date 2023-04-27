@@ -17,7 +17,13 @@ This exercise will show you how to get going with unit testing in Symfony using 
 
 This short article is based on the longer Symfony documentation article "[Testing](https://symfony.com/doc/current/testing.html)". You can head over to that article after you have completed the installation in this article. The important parts are about unit test, you can skip (or read fast) the parts of integration and application tests.
 
+<!--
+TODO
 
+* Include code samples in the exercise and make a step by step on how to add tests.
+* Add section on troubleshooting
+  * class not found
+-->
 
 Install PHPUnit
 --------------------------
