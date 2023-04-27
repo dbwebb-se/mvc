@@ -16,7 +16,12 @@ This exercise will show you how to get going with documenting your code using th
 
 The tools you are going to install are really useful development tools.
 
+<!--
+TODO
 
+* Add example on dockblock comments
+* Show some images
+-->
 
 The tool phpDocumentor
 --------------------------
