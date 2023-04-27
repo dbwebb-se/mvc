@@ -20,7 +20,17 @@ Start by walking through the article and verifying that the examples work as exp
 <!--
 TODO
 
-* Improve?
+* Add slideshow explaining the details on phpunit, as an intro to the exercise
+* Improve, or is it already too large?
+    * Perhaps add another exercise that is optional that covers more advanced topics?
+
+* The mock example 
+    * include ReturnsOnConsecutiveCalls
+    * https://github.com/dbwebb-se/mvc/tree/main/example/phpunit-mock
+* Test class doing print (mock or rewrite)
+* Setup and teardown
+* Test with arrays of values
+* Make tests depend on each other
 
 -->
 
@@ -555,15 +565,6 @@ This is how you can verify that some code throws an exception.
 ```
 
 Work with the code coverage report to verify how close to 100% you can reach.
-
-
-<!--
-TODO
-
-* The mock example
-* Test class doing print (mock or rewrite)
-* Setup and teardown
--->
 
 
 
