@@ -1,9 +1,27 @@
+<!--
+---
+author: mos
+revision:
+    "2023-04-27": "(B, mos) Reviewed."
+    "2022-03-27": "(A, mos) First release."
+---
+
+![phpunit logo](.img/phpunit.png)
+-->
+
 Symfony and Doctrine
 ==========================
 
 This exercise will show you how to get going with the Doctrine ORM within your Symfony project.
 
-This short article is partly based on the longer Symfony documentation article "[Databases and the Doctrine ORM](https://symfony.com/doc/current/doctrine.html)". You can head over to that article to review it, after you have completed this exercise.
+This article is partly based on the longer Symfony documentation article "[Databases and the Doctrine ORM](https://symfony.com/doc/current/doctrine.html)". You can head over to that article to review it after you have completed this exercise.
+
+<!--
+TODO
+
+*
+
+-->
 
 
 
@@ -13,6 +31,13 @@ A walkthrough
 There is a recording where Mikael walks and talks you through this exercise.
 
 [![YouTube video image](http://img.youtube.com/vi/1fs8OWvMhdg/0.jpg)](http://www.youtube.com/watch?v=1fs8OWvMhdg "Kmom05 - Symfony och Doctrine ORM CRUD (övning)")
+
+
+
+Preconditions
+--------------------------
+
+You have access to a Symfony app where you can perform this exercise within.
 
 
 
@@ -34,13 +59,15 @@ Configure the database URL
 
 The `.env` files contain configuration details for your Symfony application.
 
-Open your file `.env` in your editor and edit the `DATABASE_URL`. For this exercise we will start using SQLite.
+Open your file `.env` in your editor and edit the `DATABASE_URL`. For this exercise, we will start using SQLite.
 
-This is how the setting should look like for SQLite.
+This is how the setting should look for SQLite.
 
 ```
 DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 ```
+
+Comment out all other previous settings for the `DATABASE_URL`.
 
 The database file will now be stored as `var/data.db`.
 
@@ -55,6 +82,8 @@ The concept first started with the [DotEnv for Ruby](https://github.com/bkeepers
 
 In the README for Ruby DotEnv there is a [table showing the order of the configuration files](https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use) and with recommendations for which files should be checked in to Git and which ones should not be checked in, given that you follow the recommendations and always have your secrets in the files ending with `.local`.
 
+Symfony has configured your `.gitignore` to ensure that the `.env` files ending with `.local` are not added to your git repo. Ensure that the settings are there by checking out your `.gitignore` file.
+
 
 
 Verify settings from Dotenv
@@ -68,6 +97,10 @@ php bin/console debug:dotenv
 ```
 
 This can be helpful to debug issues with the configuration settings.
+
+It can look like this.
+
+![debug dotenv](.img/debug-dotenv.png)
 
 
 

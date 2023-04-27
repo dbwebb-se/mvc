@@ -24,6 +24,9 @@ RUN apt-get update \
         php8.2-xdebug \
         php8.2-xml \
         php8.2-zip \
+        sqlite3 \
+        unzip \
+        zip \
     && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash - \
