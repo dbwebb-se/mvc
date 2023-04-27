@@ -18,28 +18,34 @@
 
 # Open the student home page
 studentServerUrl="$REDOVISA_HTTP_PREFIX/~$ACRONYM/dbwebb-kurser/$COURSE/me/report/public"
-openUrl "$studentServerUrl/report#$KMOM"
+openUrl "$studentServerUrl/public/report#$KMOM"
 
 # Will not work on cygwin
-sudo rm -rf me/report/build
+#sudo rm -rf me/report/build
 
 case $KMOM in
     kmom01)
-        openUrl "$studentServerUrl/"
-        openUrl "$studentServerUrl/about"
-        openUrl "$studentServerUrl/lucky"
-        openUrl "$studentServerUrl/api/quote"
+        openUrl "$studentServerUrl/public/"
+        openUrl "$studentServerUrl/public/about"
+        openUrl "$studentServerUrl/public/lucky"
+        openUrl "$studentServerUrl/public/api/quote"
     ;;
     kmom02)
-        openUrl "$studentServerUrl/"
-        openUrl "$studentServerUrl/api"
-        openUrl "$studentServerUrl/card"
+        openUrl "$studentServerUrl/public/"
+        openUrl "$studentServerUrl/public/api"
+        openUrl "$studentServerUrl/public/card"
     ;;
     kmom03)
+        openUrl "$studentServerUrl/public/"
+        openUrl "$studentServerUrl/public/game/"
+        openUrl "$studentServerUrl/public/game/doc/"
+        openUrl "$studentServerUrl/public/api"
     ;;
     kmom04)
-        openUrl "file://$( pwd )/me/report/build/coverage/index.html"
-        ;;
+        openUrl "$studentServerUrl/public/"
+        openUrl "$studentServerUrl/docs/api/"
+        openUrl "$studentServerUrl/docs/coverage/"
+    ;;
     kmom05)
     ;;
     kmom06)
