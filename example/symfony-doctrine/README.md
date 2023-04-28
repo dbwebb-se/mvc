@@ -7,7 +7,7 @@ revision:
 ---
 
 -->
-![Doctrine logo](.img/doctrine-logo-black-text.svg)
+![Doctrine logo](.img/logo.png)
 
 Symfony and Doctrine
 ==========================
