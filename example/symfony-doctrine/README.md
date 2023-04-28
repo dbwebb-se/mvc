@@ -6,8 +6,8 @@ revision:
     "2022-03-27": "(A, mos) First release."
 ---
 
-![phpunit logo](.img/phpunit.png)
 -->
+![Doctrine logo](.img/doctrine-logo-black-text.svg)
 
 Symfony and Doctrine
 ==========================
@@ -19,18 +19,22 @@ This article is partly based on the longer Symfony documentation article "[Datab
 <!--
 TODO
 
-*
+* Perhaps in own article
+    * Add code samples on "Build custom queries into Repository object"
+    * How to work with relations.
 
 -->
 
 
 
+<!--
 A walkthrough
 -----------------------------------
 
 There is a recording where Mikael walks and talks you through this exercise.
 
 [![YouTube video image](http://img.youtube.com/vi/1fs8OWvMhdg/0.jpg)](http://www.youtube.com/watch?v=1fs8OWvMhdg "Kmom05 - Symfony och Doctrine ORM CRUD (övning)")
+-->
 
 
 
@@ -119,12 +123,16 @@ This will create the database file `var/data.db`. You can now open it and check 
 sqlite3 var/data.db
 ```
 
+It can look like this.
+
+![sqlite3 schema](.img/sqlite3.png)
 
 
-Create a Entity Class
+
+Create an Entity Class
 ---------------------------
 
-You can now create a Entity Class, the class to hold the data to be saved to the database.
+You can now create an Entity Class, which is the class to hold the data to be saved to the database. You can see it as the class that represents the columns in the database table.
 
 Run the command to create the product entity class.
 
@@ -137,31 +145,51 @@ Create a class called Product with two fields.
 * name:string
 * value:int
 
-The following files were created. Open them in your editor to review them.
+It can look like this.
+
+![create entity](.img/create-entity.png)
+
+The following files were created. Open them in your editor to review them and see how the two fields were implemented in the class.
 
 ```
 created: src/Entity/Product.php
 created: src/Repository/ProductRepository.php
 ```
 
+The class in Entity represents a Product object, or one row, i the database table.
+
+The class in Respository has the responsibility to write and read objects of the Product class to the database.
+
 
 
 Create and run a migration
 ---------------------------
 
-When you update your entities you need to apply those changes to the database using migrations.
+When you update your entities you need to apply those changes to the database using migrations. Migration is a script that takes the version of the database one step up or down.
 
-First create the migration and inspect its result. It is the SQL that creates and alters the existing datababase.
+Create the migration and inspect its result. 
 
 ```
 php bin/console make:migration
 ```
+
+It looks like this when the command is run.
+
+![create migration](.img/migration.png)
+
+Review the code in the migration file. It is PHP code that executes SQL to the database. Inspect the SQL code and see that it creates the database table. 
+
+![view migration](.img/migration-src.png)
+
+You can also see that there are two functions, `up()` and `down()`. This is how a migration work. Each change in the database structure can be added or removed. YOu can upgrade the database schema through `up()` and you can downgrade the database schema through `down()`.
 
 Then run and apply the migration.
 
 ```
 php bin/console doctrine:migrations:migrate
 ```
+
+![migration execute](.img/migration-execute.png)
 
 Now you can review the current schema in the database.
 
@@ -170,6 +198,10 @@ sqlite3 var/data.db
 ```
 
 There should be a table that maps to your entity class (and some other utility tables managed by Doctrine).
+
+Something like this.
+
+![sqlite schema](.img/sqlite-schema.png)
 
 
 
@@ -182,6 +214,8 @@ Lets create a controller that can use the Product entity.
 php bin/console make:controller ProductController
 ```
 
+![controller create](.img/controller-create.png)
+
 Review the files created.
 
 ```
@@ -189,7 +223,7 @@ created: src/Controller/ProductController.php
 created: templates/product/index.html.twig   
 ```
 
-Check your routes.
+Check your routes to see if they works.
 
 ```
 php bin/console debug:router
@@ -197,7 +231,7 @@ php bin/console debug:router product
 php bin/console router:match /product
 ```
 
-Open up the route `/product` in your browser to access the controller handler.
+Open up the route `/product` in your browser to access the controller handler. It should be a valid route but the page should be empty.
 
 
 
@@ -206,13 +240,17 @@ Add a route `product/create`
 
 To your controller, add a new method like this, to create a new product.
 
-```
+Update the namespaces used.
+
+```php
 use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
+```
 
-/**
- * @Route("/product/create", name="create_product")
- */
+The method that creates a new product.
+
+```php
+#[Route('/product/create', name: 'product_create')]
 public function createProduct(
     ManagerRegistry $doctrine
 ): Response {
@@ -241,22 +279,40 @@ If you get a "Read-only" error on your database, then make it writable for the u
 chmod 666 var/data.db
 ```
 
+It can look like this when it works.
+
+![create product](.img/product-create.png)
+
 Review the content of your database, your newly created rows should be there.
 
 ```
-sqlite3 var/data.db
+sqlite3 -header -column var/data.db 
 ```
+
+```
+SELECT * FROM Product;
+```
+
+It can look something like this.
+
+![product created](.img/product-created.png)
 
 
 
 Run SQL towards the database
 ---------------------------
 
-You can also use the console to do pure SQL towards the database.
+You can use the console to do pure SQL towards the database.
 
 ```
 php bin/console dbal:run-sql 'SELECT * FROM product'
 ```
+
+This makes use of the connection details that your Symfony app is using through the dotenv files.
+
+It can look like this.
+
+![sql through symfony](.img/sql-symfony.png)
 
 
 
@@ -265,12 +321,14 @@ Add a route `product/show`
 
 To your controller, add a new method like this, to view all products.
 
-```
-use App\Repository\ProductRepository;
+Update the namespace used.
 
-/**
-    * @Route("/product/show", name="product_show_all")
-    */
+```php
+use App\Repository\ProductRepository;
+```
+
+```php
+#[Route('/product/show', name: 'product_show_all')]
 public function showAllProduct(
     ProductRepository $productRepository
 ): Response {
@@ -282,6 +340,10 @@ public function showAllProduct(
 ```
 
 Open the route path in your browser to view the result.
+
+It can look like this.
+
+![show all products](.img/product-show-all.png)
 
 
 
@@ -307,6 +369,10 @@ public function showProductById(
 
 Open the route path in your browser to view the result.
 
+It can look like this.
+
+![product by id](.img/product-by-id.png)
+
 
 
 Add a route `product/delete/{id}`
@@ -314,10 +380,8 @@ Add a route `product/delete/{id}`
 
 To your controller, add a new method like this, to delete a product by its id.
 
-```
-/**
- * @Route("/product/delete/{id}", name="product_delete_by_id")
- */
+```php
+#[Route('/product/delete/{id}', name: 'product_delete_by_id')]
 public function deleteProductById(
     ManagerRegistry $doctrine,
     int $id
@@ -340,6 +404,10 @@ public function deleteProductById(
 
 Open the route path in your browser to view the result.
 
+It can look like this when a product is removed.
+
+![delete by id](.img/product-delete.png)
+
 Remember that methods that update the state and the database should really be POST and not GET. This method was just simpler to implement to show how to work with Doctrine to update the database.
 
 
@@ -349,10 +417,8 @@ Add a route `product/update/{id}/{value}`
 
 To your controller, add a new method like this, to update a product by its id and provide a new value to it.
 
-```
-/**
- * @Route("/product/update/{id}/{value}", name="product_update")
- */
+```php
+#[Route('/product/update/{id}/{value}', name: 'product_update')]
 public function updateProduct(
     ManagerRegistry $doctrine,
     int $id,
@@ -374,9 +440,19 @@ public function updateProduct(
 }
 ```
 
-Open the route path in your browser to view the result.
+First, ensure that you have at least one product that you can edit.
 
-Remember that methods that update the state and the database should really be POST and not GET. This method was just simpler to implement to show how to work with Doctrine to update the database.
+![pre edit](.img/edit-pre.png)
+
+Now open the route path in your browser to edit that product, in my case the url is:
+
+* `/product/update/2/1337`
+
+This is the result.
+
+![done edit](.img/edit-done.png)
+
+The route edited the product entry and redirected to the result page showing the products.
 
 
 
@@ -389,10 +465,23 @@ You should be able to see that your local database is uploaded and used at the s
 
 
 
-Build custom queries into Repository object
+Summary
 --------------------------
 
-If you want to add more custom queries into the ProductRepository object you might just add methods to it. There are several ways of writing these methods together with SQL to perform the actual queries.
+This article showed you how to get going with the database SQLite with Symfony and Doctrine.
+
+
+
+Learn more
+--------------------------
+
+This is suggestions on how to learn more on Doctrine and Symfony.
+
+
+
+### Build custom queries into Repository object
+
+If you want to add more custom queries into the ProductRepository object you can just add methods to it. There are several ways of writing these methods together with SQL to perform the actual queries.
 
 * [Doctrine Query Language](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/dql-doctrine-query-language.html) (almost like SQL but for objects)
 * [Query builder](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/query-builder.html) (build queries through methods)
@@ -405,11 +494,10 @@ That article also has sections on working with relationships and associations an
 
 
 
-MariaDB as development environment
---------------------------
+### MariaDB as database
 
 This is an optional part that let you work with the MariaDB as the database.
 
-You can now try to change your database url to use MariaDB instead. There is an article "[MariaDB as development environment](README_mariadb_development.md)" showing you how that can be done.
+The first article is "[MariaDB as development environment](README_mariadb_development.md)" showing how to work with MariaDB as a local database.
 
-There is also an article showing how to use "[MariaDB as production environment on the student server](README_mariadb_production.md)".
+Then there is the article showing how to use "[MariaDB as production environment on the student server](README_mariadb_production.md)".
