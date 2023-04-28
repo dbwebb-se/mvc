@@ -352,10 +352,8 @@ Add a route `product/show/{id}`
 
 To your controller, add a new method like this, to view a product by its id.
 
-```
-/**
- * @Route("/product/show/{id}", name="product_by_id")
- */
+```php
+#[Route('/product/show/{id}', name: 'product_by_id')]
 public function showProductById(
     ProductRepository $productRepository,
     int $id
