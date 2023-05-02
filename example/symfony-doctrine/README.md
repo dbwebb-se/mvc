@@ -468,7 +468,7 @@ The above code used the `ManagerRegistry` as its implementation, you can reduce 
 
 Compare the two implementations and you might see that the secod one slighly reduces the code complexity.
 
-You should go into the implementation of `$productRepository->remove($product, true);` to verify what the second argument does.
+Go into the implementation of `$productRepository->remove($product, true);` to verify what the second argument does.
 
 
 
