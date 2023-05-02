@@ -23,6 +23,10 @@ TODO
     * Add code samples on "Build custom queries into Repository object"
     * How to work with relations.
 
+* How to reinit database?
+
+* How to unit test with database?
+
 -->
 
 
