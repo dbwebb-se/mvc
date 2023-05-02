@@ -30,14 +30,18 @@ TODO
 
 
 
-<!--
 A walkthrough
 -----------------------------------
 
-There is a recording where Mikael walks and talks you through this exercise.
+There are two recordings where Mikael walks and talks you through this exercise.
 
-[![YouTube video image](http://img.youtube.com/vi/1fs8OWvMhdg/0.jpg)](http://www.youtube.com/watch?v=1fs8OWvMhdg "Kmom05 - Symfony och Doctrine ORM CRUD (övning)")
--->
+The first video deals with set up and create the database and the base for the controller.
+
+[![YouTube video image](http://img.youtube.com/vi/fldtYEmD8sc/0.jpg)](http://www.youtube.com/watch?v=fldtYEmD8sc "Del 1")
+
+The second video deals with CRUD methods in the controller and how to work with the entity class, the repository class and the Doctrine entity manager.
+
+[![YouTube video image](http://img.youtube.com/vi/vqqpae3vyPA/0.jpg)](http://www.youtube.com/watch?v=vqqpae3vyPA "Del 2")
 
 
 
