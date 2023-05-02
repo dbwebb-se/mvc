@@ -12,16 +12,15 @@ revision:
 Symfony and Doctrine
 ==========================
 
-This exercise will show you how to get going with the Doctrine ORM within your Symfony project.
-
-This article is partly based on the longer Symfony documentation article "[Databases and the Doctrine ORM](https://symfony.com/doc/current/doctrine.html)". You can head over to that article to review it after you have completed this exercise.
+This exercise will show you how to get going with the Doctrine ORM framework to integrate with a database within your Symfony project. ORM stands for "object relational mapping" and is a way to work in an object oriented manner towards a relational database.
 
 <!--
 TODO
 
 * Perhaps in own article
-    * Add code samples on "Build custom queries into Repository object"
+    * Add code samples on "Build custom queries into Repository object", the repository object contains sample code that is commented out and can be used for an example.
     * How to work with relations.
+    * How to write native SQL, Doctrine QL, Query builder.
 
 * How to reinit database?
 
@@ -49,6 +48,17 @@ You have access to a Symfony app where you can perform this exercise within.
 
 
 
+About
+--------------------------
+
+You can quickly read [about Doctrine](https://www.doctrine-project.org/) on their website. Doctrine is a standalone ORM framework.
+
+The core projects in Doctrine are the [Object Relational Mapper (ORM)](https://www.doctrine-project.org/projects/orm.html) and the [Database Abstraction Layer (DBAL)](https://www.doctrine-project.org/projects/dbal.html) it is built upon.
+
+Symfony has a integration with Doctrine which is described in the article "[Databases and the Doctrine ORM](https://symfony.com/doc/current/doctrine.html)". You can have that article open in its own tab while you work through this exercise. This exercise is a shorter transcript from that article.
+
+
+
 Install Doctrine
 --------------------------
 
@@ -59,6 +69,8 @@ You can install Doctrin via the ORM Symfony pack.
 composer require symfony/orm-pack
 composer require --dev symfony/maker-bundle
 ```
+
+Now you are ready to start using Doctrine.
 
 
 
@@ -207,6 +219,8 @@ Something like this.
 
 ![sqlite schema](.img/sqlite-schema.png)
 
+Do not forget to create and run the migration, if and when you update the entity classes.
+
 
 
 Create a controller using the entity
@@ -235,7 +249,11 @@ php bin/console debug:router product
 php bin/console router:match /product
 ```
 
-Open up the route `/product` in your browser to access the controller handler. It should be a valid route but the page should be empty.
+Open up the route `/product` in your browser to access the controller handler. It should be a valid route. Ensure that you can see its content (troubleshoot the view and its base view if needed).
+
+It can look like this.
+
+![product controller](.img/product-controller.png)
 
 
 
@@ -251,7 +269,7 @@ use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
 ```
 
-The method that creates a new product.
+This method that creates a new product.
 
 ```php
 #[Route('/product/create', name: 'product_create')]
@@ -349,6 +367,16 @@ It can look like this.
 
 ![show all products](.img/product-show-all.png)
 
+You can enhance the JSON output if you update your code with this.
+
+```php
+        $response = $this->json($products);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT
+        );
+        return $response;
+```
+
 
 
 Add a route `product/show/{id}`
@@ -414,6 +442,36 @@ Remember that methods that update the state and the database should really be PO
 
 
 
+### Alternate implementation
+
+The above code used the `ManagerRegistry` as its implementation, you can reduce the code by using the `ProductRepository` instead. Review the following code and update your implementation to use it instead.
+
+```php
+    #[Route('/product/delete/{id}', name: 'product_delete_by_id')]
+    public function deleteProductById(
+        ProductRepository $productRepository,
+        int $id
+    ): Response {
+        $product = $productRepository->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $productRepository->remove($product, true);
+
+        return $this->redirectToRoute('product_show_all');
+    }
+```
+
+Compare the two implementations and you might see that the secod one slighly reduces the code complexity.
+
+You should go into the implementation of `$productRepository->remove($product, true);` to verify what the second argument does.
+
+
+
 Add a route `product/update/{id}/{value}`
 ---------------------------
 
@@ -455,6 +513,36 @@ This is the result.
 ![done edit](.img/edit-done.png)
 
 The route edited the product entry and redirected to the result page showing the products.
+
+
+
+### Alternative implementation
+
+The above code used the `ManagerRegistry` as its implementation, you can reduce the code by using the `ProductRepository` instead. Review the following code and update your implementation to use it instead.
+
+```php
+    #[Route('/product/update/{id}/{value}', name: 'product_update')]
+    public function updateProduct(
+        ProductRepository $productRepository,
+        int $id,
+        int $value
+    ): Response {
+        $product = $productRepository->find($id);
+
+        if (!$product) {
+            throw $this->createNotFoundException(
+                'No product found for id '.$id
+            );
+        }
+
+        $product->setValue($value);
+        $productRepository->save($product, true);
+
+        return $this->redirectToRoute('product_show_all');
+    }
+```
+
+Compare the two implementations and you might see that the secod one slighly reduces the code complexity.
 
 
 
