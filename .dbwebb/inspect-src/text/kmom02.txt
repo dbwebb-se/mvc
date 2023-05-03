@@ -2,7 +2,7 @@ Då har jag kikat igenom ditt kmom02 för att se att din inlämning matchar krav
 
 Jag körde igenom 'dbwebb test kmom02'.
 
-Jag läste igenom din rapport.
+Jag läste igenom din redovisningstext.
 
 Jag kollade så att du har rätt taggar och jag noterar hur många commits du har. Jag kikar även på din remote i GitHub/GitLab. Jag vill se hur bra du har kommit igång att jobba med Git.
 

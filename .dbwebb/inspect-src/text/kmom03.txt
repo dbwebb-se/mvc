@@ -6,6 +6,6 @@ Därefter spelar jag framförallt ditt spel ett par gånger och försöker vinna
 
 Jag tittar igenom din dokumentation, med pseudokod och flödesdiagram och klassbeskrivningar.
 
-Jag läste igenom din rapport för att få en känsla av hur det gick för dig att utveckla spelet.
+Jag läste igenom din redovisningstext för att få en känsla av hur det gick för dig att utveckla spelet.
 
 $TEACHER_SIGNATURE
