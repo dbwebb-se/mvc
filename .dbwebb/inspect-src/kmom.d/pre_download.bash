@@ -25,7 +25,6 @@ openUrl "$studentServerUrl/report/public/report#$KMOM"
 
 case $KMOM in
     kmom01)
-        openUrl "$studentServerUrl/report/public/"
         openUrl "$studentServerUrl/report/public/about"
         openUrl "$studentServerUrl/report/public/lucky"
         openUrl "$studentServerUrl/report/public/api/quote"
@@ -36,7 +35,6 @@ case $KMOM in
         openUrl "$studentServerUrl/report/public/card"
     ;;
     kmom03)
-        openUrl "$studentServerUrl/report/public/"
         openUrl "$studentServerUrl/report/public/game/"
         openUrl "$studentServerUrl/report/public/game/doc/"
         openUrl "$studentServerUrl/report/public/api"
