@@ -12,7 +12,7 @@
 #export INSPECT_SOURCE_DIR="$DIR/.solutions/inspect-src"
 
 # Course specific settings
-export REDOVISA_HTTP_PREFIX="http://www.student.bth.se"
+export REDOVISA_HTTP_PREFIX="https://www.student.bth.se"
 #export REDOVISA_HTTP_POSTFIX="me/redovisa"
 
 # Do or dont do dbwebb inspect

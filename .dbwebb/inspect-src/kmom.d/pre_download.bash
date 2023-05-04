@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Script run BEFORE download happens.
-# Put tests here that can be downe without downloading the files.
+# Put tests here that can be done without downloading the files.
 #
 # Available (and usable) data:
 #   $COURSE
