@@ -4,7 +4,6 @@
 TARGET_DIR="me/report"
 CHECK_DIRS="config public src templates vendor
     docs/api
-    docs/coverage
 "
 # Add linters?
 # Add phpunit?
