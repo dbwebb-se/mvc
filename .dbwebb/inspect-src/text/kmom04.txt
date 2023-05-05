@@ -4,10 +4,10 @@ Jag vill främst se hur du lyckades jobba med enhetstestningen och hur du upplev
 
 Jag läser din redovisningstext för att se hur du upplevde kursmomentet och enhetstestningen. Jag läser också på om och hur du valde att skriva om din kod med anledning av testbar kod.
 
-Därefter kör jag igenom din testsuite och tittar på din kodtäckning. Det finns normalt sett inget direkt bra eller dåligt att notera. Jag vill mer se hur det ser ut.
+Därefter tittar jag igenom din kodtäckning via 'docs/coverage'. Jag vill gärna se fin kodtäckning av applikationsklasserna, kodtäckning av kontroller är bonus.
 
 Avslutningsvis lägger jag ett öga på din dokumentation i 'docs/api' och ser vilka klasser du har och ser om jag kan se något spår av DocBlock kommentarer.
 
-Vi kommer återkomma till mer kodkvalitet och automatisering av tester i kmom06.
+Vi återkommer med mer kodkvalitet och automatisering av tester i kmom06.
 
 $TEACHER_SIGNATURE
