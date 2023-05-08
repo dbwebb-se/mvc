@@ -39,8 +39,7 @@ case $KMOM in
     kmom03)
     ;;
     kmom04)
-        openUrl "file://$( pwd )/me/report/docs/api/index.html"
-        ;;
+    ;;
     kmom05)
     ;;
     kmom06)
