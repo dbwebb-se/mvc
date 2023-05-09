@@ -2,7 +2,7 @@
 ---
 author: mos
 revision:
-    "2023-05-09": "(B, mos) Reviewed."
+    "2023-05-09": "(B, mos) Reviewed and updated."
     "2022-03-27": "(A, mos) First release."
 ---
 
@@ -18,7 +18,9 @@ This exercise will show you how to integrate your git repository with the extern
 <!--
 TODO
 
-* .env.scrutinizer
+* .env.scrutinizer link to the resource to read.
+* Update example repo to 8.2 and docs/coverage.clover
+* Can composer phpunit be used instead?
 -->
 
 
@@ -26,7 +28,7 @@ TODO
 The build service Scrutinizer
 --------------------------
 
-A CI service like [Scrutinizer](https://scrutinizer-ci.com/) will check out your code on your every update of your GitHub/GitLab repo and it will then execute your testsuite and analyse your code. As a result you can get a few badges showing the status of your code.
+A continuous integration (CI) service like [Scrutinizer](https://scrutinizer-ci.com/) will check out your code on every update of your GitHub/GitLab repo and it will then execute your test suite and analyze your code. As a result, you can get a few badges showing the status of your code.
 
 Here are badges from a set of example projects. Can you say something about the code quality by just looking at the badges?
 
@@ -36,12 +38,14 @@ Here are badges from a set of example projects. Can you say something about the 
 
 [![Build Status](https://scrutinizer-ci.com/g/mosbth/cimage/badges/build.png?b=master)](https://scrutinizer-ci.com/g/mosbth/cimage/build-status/master) [![Code Coverage](https://scrutinizer-ci.com/g/mosbth/cimage/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/mosbth/cimage/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mosbth/cimage/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/mosbth/cimage/?branch=master)
 
+You can click on the badges to view the details for the projects.
+
 
 
 Get a Scrutinizer account
 --------------------------
 
-You need to create an account at the Scrutizer service, you can use your GitHub account if you wish.
+You need to create an account at the Scrutizer service, you can use your GitHub account to sign up.
 
 The Scrutinizer service provides free builds for open source projects so it will be free of charge to use it.
 
@@ -50,19 +54,13 @@ The Scrutinizer service provides free builds for open source projects so it will
 Prepare your repo
 --------------------------
 
-Fullfill the following requirements to prepare your repo to be connected to the Scrutinizer build service.
+Fulfill the following requirements to prepare your repo to be connected to the Scrutinizer build service.
 
 You have a public repo at GitHub/GitLab.
 
-In your repo you can do the following tasks through composer (or by running the command directly).
+In your repo, you can do the following tasks through composer (or by running the command directly).
 
 ```
-# Check code style
-composer phpcs
-
-# Copy and paste detector
-composer phpcbf
-
 # Lint and mess detector
 composer phpmd
 composer phpstan
@@ -71,9 +69,18 @@ composer phpstan
 composer phpunit
 ```
 
-You should ensure that phpcs, phpcbf, phpmd and phpstan passes before you connect your repo with Scrutinizer. That will help you get best results from Scrutinizer.
+You should ensure that phpmd and phpstan pass before you connect your repo with Scrutinizer. That will help you get the best results from Scrutinizer.
 
-**Note.** You need to use `vendor/bin/phpunit` and not the `bin/phpunit` as the target when running the unit tests. The executable `bin/phpunit` is not installed by Scrutinizer.
+You should also ensure that the unit tests pass and the coverage file is generated.
+
+```
+# Unit testing generates a docs/coverage.clover
+composer phpunit
+```
+
+Ensure that the file `docs/coverage.clover` is generated.
+
+Now you are prepared.
 
 
 
@@ -92,32 +99,36 @@ cp example/scrutinizer/.scrutinizer.yml me/report
 cp ../../example/scrutinizer/.scrutinizer.yml .
 ```
 
-The example configuration file will run your test suite using the command `composer phpunit`. The other local linters will not run, we will use Scrutinizers own linters to perform the code analysis.
+You should open the configuration file and inspect it in your text editor.
 
-You should open the configuration file and inspect it in your texteditor.
+Some parts of your repo can be ignored.
 
-Scrutinizer will then run their own tools to analyse your code.
+The example configuration file will not run your linters since `tools/` are not part of the repo. Scrutinizer has its own set of linters that will be run to analyze the code.
+
+The example configuration file will run your test suite using the command `XDEBUG_MODE=coverage vendor/bin/phpunit` which means that phpunit is installed as a composer package by Scrutinizer.
 
 You can read more on the [Scrutinizer configuration file for PHP](https://scrutinizer-ci.com/docs/guides/php/continuous-integration-deployment).
 
 The format of the configuration file is [YAML](https://en.wikipedia.org/wiki/YAML).
+
+You can provide a `.env.scrutinizer` if you want a specific setup for the Scrutinizer tests.
 
 
 
 Connect the repo to Scrutinizer
 --------------------------
 
-Ensure that you have committed the configuration file `.scrutinizer.yml` to your repo and that you have pushed if to GitHub/GitLab.
+Ensure that you have committed the configuration file `.scrutinizer.yml` to your repo and that you have pushed it to GitHub/GitLab.
 
 Here is an example repo having the configuration file [`.scrutinizer.yml`](https://github.com/mosbth/mvc-report/blob/main/.scrutinizer.yml).
 
-On the Scrutinizer web service you can add a connection to your repo. There is usually a + button on the top right of the page to "add a repository".
+You can now add a connection to your repo. There is usually a + button on the top right of the page to "add a repository" at the Scrutinizer web.
 
-If my repo is `https://github.com/mosbth/mvc-report` then if can look like this when you add that repo.
+If my repo is `https://github.com/mosbth/mvc-report` then it can look like this when you add that repo.
 
 ![Scrutinizer add repo](img/add-repo.png)
 
-If it all works out, then Scrutinizer will start its first build. You can follow the status of the build as is proceeds.
+If it all works out, then Scrutinizer will start its first build. You can follow the status of the build as it proceeds.
 
 ![Scrutinizer build progress](img/build-progress.png)
 
@@ -126,7 +137,7 @@ If it all works out, then Scrutinizer will start its first build. You can follow
 The first (or latest) build
 --------------------------
 
-If everything is green you will have the report from your first build available to inspect. Scrutinizer prepares a lot of details from analysing your code. Check out the results for your code and check if ou can see some quality metrics that you are custom to.
+If everything is green you will have the report from your first build available to inspect. Scrutinizer prepares a lot of details from analyzing your code. Check out the results for your code and check if you can see some quality metrics.
 
 You can inspect the [latest build of my example project](https://scrutinizer-ci.com/g/mosbth/mvc-report/).
 
@@ -134,7 +145,7 @@ If your build fails, then check out the output from the build and try to find ou
 
 Try to fix the error and do a new commit. You can manually start (Schedule Inspection) a build on the Scrutinizer landing page for your project.
 
-This is how it can look like when it passes the first build.
+This is how it can look when it passes the first build.
 
 ![Scrutinizer first build](img/first-build.png)
 
@@ -150,3 +161,5 @@ You can see [my example project README.md](https://github.com/mosbth/mvc-report/
 These are the current badges from my example project.
 
 [![Build Status](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/build.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/build-status/main) [![Code Coverage](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/?branch=main) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/?branch=main)
+
+You can click on the badges to reach the reports on Scrutinizer.

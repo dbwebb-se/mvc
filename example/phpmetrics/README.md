@@ -19,6 +19,7 @@ This exercise will show you how to get going with quality metrics using the tool
 TODO
 
 * Include phpunit into the results.
+* Identify composer.json for the project.
 
 -->
 
