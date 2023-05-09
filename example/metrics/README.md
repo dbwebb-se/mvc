@@ -1,7 +1,26 @@
+<!--
+---
+author: mos
+revision:
+    "2023-05-09": "(B, mos) Reviewed."
+    "2022-03-27": "(A, mos) First release."
+---
+
+![Doctrine logo](.img/logo.png)
+
+-->
+
 Software Quality Metrics
 ========================
 
-This guide provides you with three sample projects that you can inspect through Scrutinizer and phpmetrics. The guide also provides explanations on some of the more comman metrics used for analysing software quality.
+This guide provides you with three sample projects that you can inspect through Scrutinizer and phpmetrics. The guide also provides explanations on some of the more common metrics used for analysing software quality.
+
+<!--
+TODO
+
+* Add dashboard in phpunit coverage report that it contains the CRAP score.
+
+-->
 
 
 
@@ -75,6 +94,8 @@ Visible in Scrutinizer and phpmetrics.
 Mess detectors with general suggestions on how to improve code sections.
 
 Notifications on bad code and suggestions of best practice.
+
+<!-- Connect to issues -->
 
 
 

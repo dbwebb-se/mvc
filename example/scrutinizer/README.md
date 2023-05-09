@@ -1,7 +1,25 @@
+<!--
+---
+author: mos
+revision:
+    "2023-05-09": "(B, mos) Reviewed."
+    "2022-03-27": "(A, mos) First release."
+---
+
+![Doctrine logo](.img/logo.png)
+
+-->
+
 Integrate your repo with Scrutinizer
 ==========================
 
 This exercise will show you how to integrate your git repository with the external build and code inspection service Scrutinizer.
+
+<!--
+TODO
+
+* .env.scrutinizer
+-->
 
 
 
