@@ -186,7 +186,7 @@ With really bad pieces of code (big, uncommented, unstructured) the value can be
 CRAP
 ------------------------
 
-Visible in Scrutinizer.
+Visible in Scrutinizer and in the dashboard of the coverage report from phpunit.
 
 Change Risk Analyzer and Predictor (CRAP) is an estimate of the amount of work required to address crappy methods.
 
