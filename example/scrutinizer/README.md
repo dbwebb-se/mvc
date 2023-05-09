@@ -21,6 +21,7 @@ TODO
 * .env.scrutinizer link to the resource to read.
 * Update example repo to 8.2 and docs/coverage.clover
 * Can composer phpunit be used instead?
+* Must the tests be overridden? Can we use the default setup in Scrutinizer?
 -->
 
 
@@ -101,7 +102,7 @@ cp ../../example/scrutinizer/.scrutinizer.yml .
 
 You should open the configuration file and inspect it in your text editor.
 
-Some parts of your repo can be ignored.
+Some parts of your repo can be ignored by configuring `excluded_paths`.
 
 The example configuration file will not run your linters since `tools/` are not part of the repo. Scrutinizer has its own set of linters that will be run to analyze the code.
 
@@ -111,7 +112,7 @@ You can read more on the [Scrutinizer configuration file for PHP](https://scruti
 
 The format of the configuration file is [YAML](https://en.wikipedia.org/wiki/YAML).
 
-You can provide a `.env.scrutinizer` if you want a specific setup for the Scrutinizer tests.
+You can provide a `.env.scrutinizer` if you want a specific setup for the Scrutinizer tests. That way you can set up different settings for the database depending on its environment.
 
 
 
