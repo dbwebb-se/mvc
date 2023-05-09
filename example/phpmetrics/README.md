@@ -1,16 +1,31 @@
+<!--
+---
+author: mos
+revision:
+    "2023-05-09": "(B, mos) Reviewed."
+    "2022-03-27": "(A, mos) First release."
+---
+
+-->
+![phpmetrics logo](.img/phpmetrics_logo.png)
+
 Quality metrics of your PHP code
 ==========================
 
 This exercise will show you how to get going with quality metrics using the tool phpmetrics.
 
 
+<!--
+TODO
+
+* Include phpunit into the results.
+
+-->
 
 The tool phpmetrics
 --------------------------
 
-The tool [phpmetrics](https://phpmetrics.org/) will read your source code and create a HTML report containing various quality metrics on your code. This type of information can indicate the level of code quality or code complexity. Using this tool can help you work with your code to improve the various quality aspects.
-
-There is a [new and more updated website for phpmetrics](https://phpmetrics.github.io/website/) with improved documentation on the metrics.
+The tool [phpmetrics](https://phpmetrics.github.io/website/) will read your source code and create an HTML report containing quality metrics on your code. This type of information can indicate the level of code quality or code complexity. Using this tool can help you work with your code to improve the various quality aspects.
 
 The recommendation is to install the tool in the directory `tools/` so it does not conflict with your application.
 
@@ -51,7 +66,9 @@ Looking at the list we find for example metrics for:
 Metrics report by text
 --------------------------
 
-You can now analyse the metrics on your code in the `src/` directory like this.
+You can now analyze the metrics on your code in the `src/` directory like this.
+
+Execute the tool to generate a report.
 
 ```
 tools/phpmetrics/vendor/bin/phpmetrics src
@@ -59,24 +76,32 @@ tools/phpmetrics/vendor/bin/phpmetrics src
 
 You will get a printed report with the metrics.
 
-Try to analyse your code and find at least values for the following metrics.
+Try to analyze your code and find at least values for the following metrics.
 
 * Cohesion (LCOM)
 * Coupling (Afferent and Efferent)
 * Cyclomatic complexity
+
+Did your code contain any "Violations"? That is bad code and is usually detected by linters.
 
 
 
 Metrics report by HTML
 --------------------------
 
-You can generate a HTML report which contains more details and makes it easier to analyse your code.
+You can generate an HTML report which contains more details and makes it easier to analyze your code.
 
 ```
 tools/phpmetrics/vendor/bin/phpmetrics --report-html=docs/metrics src
 ```
 
 Open your web browser to the report in the directory `docs/metrics`.
+
+It can look like this.
+
+![phpmetrics web](.img/phpmetrics.png)
+
+Now you can click around to view the visualized metrics.
 
 
 
@@ -89,11 +114,11 @@ You can add a configuration file to make it easier to run phpmetrics with variou
 # You are in the root of the course repo
 cp example/phpmetrics/phpmetrics.json me/report
 
-# You are in the me/report directory
+# Or you are in the me/report directory
 cp ../../example/phpmetrics/phpmetrics.json .
 ```
 
-You can then execute the command like this.
+You can then execute the command like this to use the configuration file.
 
 ```
 tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json
@@ -122,7 +147,7 @@ You can verify that your update did not make the `composer.json` corrupt by runn
 composer validate
 ```
 
-If all seems okey you should be able to execute the tool like this.
+If all seems okay you should be able to execute the tool like this.
 
 ```
 composer phpmetrics
