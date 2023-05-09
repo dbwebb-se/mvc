@@ -19,9 +19,7 @@ This exercise will show you how to integrate your git repository with the extern
 TODO
 
 * .env.scrutinizer link to the resource to read.
-* Update example repo to 8.2 and docs/coverage.clover
-* Can composer phpunit be used instead?
-* Must the tests be overridden? Can we use the default setup in Scrutinizer?
+* Update example repo to (8.2) and docs/coverage.clover
 -->
 
 
@@ -106,7 +104,7 @@ Some parts of your repo can be ignored by configuring `excluded_paths`.
 
 The example configuration file will not run your linters since `tools/` are not part of the repo. Scrutinizer has its own set of linters that will be run to analyze the code.
 
-The example configuration file will run your test suite using the command `XDEBUG_MODE=coverage vendor/bin/phpunit` which means that phpunit is installed as a composer package by Scrutinizer.
+The example configuration file will run your test suite using the command `composer phpunit`.
 
 You can read more on the [Scrutinizer configuration file for PHP](https://scrutinizer-ci.com/docs/guides/php/continuous-integration-deployment).
 
