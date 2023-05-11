@@ -620,6 +620,8 @@ You can read more on these different types of techniques and how to extend the P
 
 That article also has sections on working with relationships and associations and how to work with testing when databases are involved.
 
+You can read more on relationships and associations "[How to Work with Doctrine Associations / Relations](https://symfony.com/doc/current/doctrine/associations.html)".
+
 
 
 ### MariaDB as database
