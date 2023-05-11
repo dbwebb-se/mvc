@@ -12,7 +12,7 @@ revision:
 Symfony and Doctrine
 ==========================
 
-This exercise will show you how to get going with the Doctrine ORM framework to integrate with a database within your Symfony project. ORM stands for "object relational mapping" and is a way to work in an object oriented manner towards a relational database.
+This exercise will show you how to get going with the Doctrine ORM framework to integrate with a database within your Symfony project. ORM stands for "object relational mapping" and is a way to work in an object-oriented manner toward a relational database.
 
 <!--
 TODO
@@ -35,7 +35,7 @@ A walkthrough
 
 There are two recordings where Mikael walks and talks you through this exercise.
 
-The first video deals with set up and create the database and the base for the controller.
+The first video deals with setting up and creating the database and the base for the controller.
 
 [![YouTube video image](http://img.youtube.com/vi/fldtYEmD8sc/0.jpg)](http://www.youtube.com/watch?v=fldtYEmD8sc "Del 1")
 
@@ -59,7 +59,7 @@ You can quickly read [about Doctrine](https://www.doctrine-project.org/) on thei
 
 The core projects in Doctrine are the [Object Relational Mapper (ORM)](https://www.doctrine-project.org/projects/orm.html) and the [Database Abstraction Layer (DBAL)](https://www.doctrine-project.org/projects/dbal.html) it is built upon.
 
-Symfony has a integration with Doctrine which is described in the article "[Databases and the Doctrine ORM](https://symfony.com/doc/current/doctrine.html)". You can have that article open in its own tab while you work through this exercise. This exercise is a shorter transcript from that article.
+Symfony has an integration with Doctrine which is described in the article "[Databases and the Doctrine ORM](https://symfony.com/doc/current/doctrine.html)". You can have that article open in its own tab while you work through this exercise. This exercise is a shorter transcript from that article.
 
 
 
@@ -104,7 +104,7 @@ Using `.env` files to configure your application is used by many frameworks and 
 
 The concept first started with the [DotEnv for Ruby](https://github.com/bkeepers/dotenv) and it was then ported to other languages. There is for example a [PHP DotEnv](https://github.com/vlucas/phpdotenv). You can read more on [Configuring Symfony using .env](https://symfony.com/doc/current/configuration.html).
 
-In the README for Ruby DotEnv there is a [table showing the order of the configuration files](https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use) and with recommendations for which files should be checked in to Git and which ones should not be checked in, given that you follow the recommendations and always have your secrets in the files ending with `.local`.
+In the README for Ruby DotEnv there is a [table showing the order of the configuration files](https://github.com/bkeepers/dotenv#what-other-env-files-can-i-use) and with recommendations for which files should be checked into Git and which ones should not be checked in, given that you follow the recommendations and always have your secrets in the files ending with `.local`.
 
 Symfony has configured your `.gitignore` to ensure that the `.env` files ending with `.local` are not added to your git repo. Ensure that the settings are there by checking out your `.gitignore` file.
 
@@ -176,9 +176,9 @@ created: src/Entity/Product.php
 created: src/Repository/ProductRepository.php
 ```
 
-The class in Entity represents a Product object, or one row, i the database table.
+The class in Entity represents a Product object, or one row, in the database table.
 
-The class in Respository has the responsibility to write and read objects of the Product class to the database.
+The class in Repository has the responsibility to write and read objects of the Product class to the database.
 
 
 
@@ -219,7 +219,7 @@ sqlite3 var/data.db
 
 There should be a table that maps to your entity class (and some other utility tables managed by Doctrine).
 
-Something like this.
+It looks something like this.
 
 ![sqlite schema](.img/sqlite-schema.png)
 
@@ -230,7 +230,7 @@ Do not forget to create and run the migration, if and when you update the entity
 Create a controller using the entity
 ---------------------------
 
-Lets create a controller that can use the Product entity.
+Let's create a controller that can use the Product entity.
 
 ```
 php bin/console make:controller ProductController
@@ -325,10 +325,10 @@ It can look something like this.
 
 
 
-Run SQL towards the database
+Run SQL toward the database
 ---------------------------
 
-You can use the console to do pure SQL towards the database.
+You can use the console to do pure SQL toward the database.
 
 ```
 php bin/console dbal:run-sql 'SELECT * FROM product'
@@ -546,16 +546,16 @@ The above code used the `ManagerRegistry` as its implementation, you can reduce 
     }
 ```
 
-Compare the two implementations and you might see that the secod one slighly reduces the code complexity.
+Compare the two implementations and you might see that the second one slightly reduces the code complexity.
 
 
 
 SQLite and the production environment
 --------------------------
 
-You can now try and push the repo to the studentserver to verify that the application also works there.
+You can now try and push the repo to the student server to verify that the application also works there.
 
-You should be able to see that your local database is uploaded and used at the student server.
+You should be able to see that your local database is uploaded and used on the student server.
 
 
 
@@ -569,7 +569,7 @@ This article showed you how to get going with the database SQLite with Symfony a
 Learn more
 --------------------------
 
-This is suggestions on how to learn more on Doctrine and Symfony.
+This is how you can learn more about Doctrine and Symfony and how to use it to work with the database content.
 
 
 
@@ -590,7 +590,7 @@ That article also has sections on working with relationships and associations an
 
 ### MariaDB as database
 
-This is an optional part that let you work with the MariaDB as the database.
+This is an optional part that lets you work with the MariaDB as the database.
 
 The first article is "[MariaDB as development environment](README_mariadb_development.md)" showing how to work with MariaDB as a local database.
 
