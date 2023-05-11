@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2023-05-11": "(C, mos) Add phpunit integration."
     "2023-05-09": "(B, mos) Reviewed."
     "2022-03-27": "(A, mos) First release."
 ---
@@ -18,8 +19,7 @@ This exercise will show you how to get going with quality metrics using the tool
 <!--
 TODO
 
-* Include phpunit into the results.
-* Identify composer.json for the project.
+* 
 
 -->
 
@@ -124,6 +124,23 @@ You can then execute the command like this to use the configuration file.
 ```
 tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json
 ```
+
+
+
+Add phpunit report to the metrics
+--------------------------
+
+The configuration file for phpmetrics contains a setting that loads a junit report, if it exists. That enables you to see metrics from your unit tests.
+
+You need to add the following in the phpunit configuration file so it generates a junit report.
+
+```xml
+    <logging>
+        <junit outputFile="docs/junit.xml" />
+    </logging>
+```
+
+Then run your unit tests again and then generate the metrics report again.
 
 
 

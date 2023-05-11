@@ -26,6 +26,7 @@ RUN apt-get update \
         php8.2-zip \
         sqlite3 \
         unzip \
+        wget \
         zip \
     && rm -rf /var/lib/apt/lists/*
 

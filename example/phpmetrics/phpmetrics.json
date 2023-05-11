@@ -11,6 +11,9 @@
     "plugins": {
         "git": {
             "binary": "git"
+        },
+        "junit": {
+            "file": "docs/junit.xml"
         }
     }
 }
