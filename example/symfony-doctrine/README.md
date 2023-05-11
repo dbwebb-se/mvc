@@ -17,6 +17,8 @@ This exercise will show you how to get going with the Doctrine ORM framework to 
 <!--
 TODO
 
+* Add sample on how to print out products in a view (sample exists below)
+
 * Perhaps in own article
     * Add code samples on "Build custom queries into Repository object", the repository object contains sample code that is commented out and can be used for an example.
     * How to work with relations.
@@ -547,6 +549,38 @@ The above code used the `ManagerRegistry` as its implementation, you can reduce 
 ```
 
 Compare the two implementations and you might see that the second one slightly reduces the code complexity.
+
+
+
+<!--
+Print all products in a view
+--------------------------
+
+This is how you can get and print all products in a Twig view.
+
+```php
+    #[Route('/product/view', name: 'product_view_all')]
+    public function viewAllProduct(
+        ProductRepository $productRepository
+    ): Response {
+        $products = $productRepository->findAll();
+
+        $data = [
+            'products' => $products
+        ];
+
+        return $this->render('product/view.html.twig', $data);
+    }
+```
+
+```twig
+    <ul>
+        {% for product in products %}
+            <li>{{ product.getName|e }} ({{ product.getId|e }}) {{ product.getValue|e }}</li>
+        {% endfor %}
+    </ul>
+```
+-->
 
 
 

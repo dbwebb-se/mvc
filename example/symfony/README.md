@@ -16,6 +16,21 @@ This exercise will help you create a web application/service using a Symfony ins
 
 You will add a controller that serves responses as web pages using the template engine Twig. You will also create a controller that provides a REST API with JSON responses.
 
+<!--
+TODO
+
+* How to send arguments to a route
+    * `/api/lucky/number/1/100`
+    * How to verify its type
+* Session
+* Render form using Symfony
+
+* navbar responsive
+
+* Send object to twig and use methods/properties to print out details of the object.
+
+-->
+
 * [Documentation](#documentation)
 * [Video](#video)
 * [Prerequisites](#prerequisites)
@@ -53,21 +68,6 @@ You will add a controller that serves responses as web pages using the template 
     * [Add a favicon](#add-a-favicon)
     * [Add a header image](#add-a-header-image)
 * [Where to go from here?](#where-to-go-from-here?)
-
-
-
-<!--
-TODO
-
-* How to send arguments to a route
-    * `/api/lucky/number/1/100`
-    * How to verify its type
-* Session
-* Render form using Symfony
-
-* navbar responsive
-
--->
 
 
 
