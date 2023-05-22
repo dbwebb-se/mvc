@@ -50,6 +50,7 @@
 
 - vendor/mos/cimage/webroot
 #- vendor/**/config
+- vendor/**/.git
 - vendor/**/docs
 - vendor/**/test
 - node_modules/
