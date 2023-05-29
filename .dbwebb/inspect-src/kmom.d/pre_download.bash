@@ -46,17 +46,21 @@ case $KMOM in
     ;;
     kmom05)
         openUrl "$studentServerUrl/report/public/library"
+        openUrl "$studentServerUrl/report/public/api"
         openUrl "$studentServerUrl/report/docs/api/"
+        openUrl "$studentServerUrl/report/docs/coverage/"
     ;;
     kmom06)
         openUrl "$studentServerUrl/report/public/metrics"
-        openUrl "$studentServerUrl/proj/docs/metrics/"
+        openUrl "$studentServerUrl/report/docs/api/"
+        openUrl "$studentServerUrl/report/docs/coverage/"
+        openUrl "$studentServerUrl/report/docs/metrics/"
     ;;
     kmom10)
         openUrl "$studentServerUrl/report/public/"
-        openUrl "$studentServerUrl/proj/public"
-        openUrl "$studentServerUrl/proj/docs/api/"
-        openUrl "$studentServerUrl/proj/docs/coverage/"
-        openUrl "$studentServerUrl/proj/docs/metrics/"
+        openUrl "$studentServerUrl/report/public"
+        openUrl "$studentServerUrl/report/docs/api/"
+        openUrl "$studentServerUrl/report/docs/coverage/"
+        openUrl "$studentServerUrl/report/docs/metrics/"
         ;;
 esac
