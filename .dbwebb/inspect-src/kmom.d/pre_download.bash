@@ -57,8 +57,7 @@ case $KMOM in
         openUrl "$studentServerUrl/report/docs/metrics/"
     ;;
     kmom10)
-        openUrl "$studentServerUrl/report/public/"
-        openUrl "$studentServerUrl/report/public"
+        openUrl "$studentServerUrl/report/public/proj"
         openUrl "$studentServerUrl/report/docs/api/"
         openUrl "$studentServerUrl/report/docs/coverage/"
         openUrl "$studentServerUrl/report/docs/metrics/"
