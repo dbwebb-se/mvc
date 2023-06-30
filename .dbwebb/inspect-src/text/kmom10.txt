@@ -13,6 +13,6 @@ TOTALT:   60 (60p)
 
 me/report: OK
 
-SLUTBETYG:  D (A-F, Fx)
+SLUTBETYG: D (A-F, Fx)
 
 $TEACHER_SIGNATURE
