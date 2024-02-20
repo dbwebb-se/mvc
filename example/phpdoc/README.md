@@ -49,7 +49,7 @@ tools/phpdoc/phpdoc --help
 Now you can execute the tool like this to generate the documentation from the code in `src/` and save it into `docs/api`.
 
 ```
-tools/phpdoc/phpdoc -d ./src -t ./docs/api
+tools/phpdoc/phpdoc run -d ./src -t ./docs/api
 ```
 
 You can now open a web browser and point it to `docs/api`.
