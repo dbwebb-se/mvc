@@ -25,17 +25,33 @@ services:
             - .:/home/dbw
             - ./.docker/nginx/sites-available/default:/etc/nginx/sites-available/default
 
+    php83:
+        build:
+            context: .docker/php
+            dockerfile: Dockerfile_83
+        volumes:
+            - .:/home/dbw
+
+    phps83:
+        build:
+            context: .docker/phps
+            dockerfile: Dockerfile_83
+        ports:
+            - "8888:80"
+        volumes:
+            - .:/home/dbw
+
     php:
         build:
             context: .docker/php
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile_82
         volumes:
             - .:/home/dbw
 
     phps:
         build:
             context: .docker/phps
-            dockerfile: Dockerfile
+            dockerfile: Dockerfile_82
         ports:
             - "8888:80"
         volumes:

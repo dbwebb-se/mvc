@@ -77,13 +77,14 @@ Documentation
 The exercise is built on the [documentation of the Symfony project](https://symfony.com/doc/current). Use the documentation to learn more or as a reference if you get into trouble.
 
 
-
+<!--
 Video
 ----------------------------
 
 There is a video where Mikael works through this exercise, step by step (in Swedish).
 
 [![Get going with Symfony](https://img.youtube.com/vi/1QVvLGNqTxw/0.jpg)](https://www.youtube.com/watch?v=1QVvLGNqTxw)
+-->
 
 
 
