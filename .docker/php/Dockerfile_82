@@ -24,6 +24,7 @@ RUN apt-get update \
         php8.2-xdebug \
         php8.2-xml \
         php8.2-zip \
+        rsync \
         sqlite3 \
         unzip \
         wget \
