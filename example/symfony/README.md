@@ -20,26 +20,21 @@ You will add a controller that serves responses as web pages using the template 
 <!--
 TODO
 
-* Add a logger and use it
+* Add a logger and use it to debug
 
 * Try using the Symfony demo application? https://github.com/symfony/demo
 
-* Add image with encore?
+* Add image with encore and use through asset()?
 
-* Use background image in css with encore?
-
-* Exercise create a form (min, max) that posts to a route generating a random number between min and max.
 
 
 # 2023
 
 * How to send arguments to a route
     * `/api/lucky/number/1/100`
+    * And through the querystring
     * How to verify its type
-* Session
-* Render form using Symfony
-
-* navbar responsive
+* Render form using Symfony, post 1 to 100
 
 * Send object to twig and use methods/properties to print out details of the object.
 
@@ -79,9 +74,11 @@ TODO
     * [Add routes to home, about](#add-routes-to-home,-about)
     * [Add a navbar](#add-a-navbar)
 * [Show images](#show-images)
-    * [Ordinary image as an asset](#ordinary-image-as-an-asset)
+    * [Public image as an asset](#public-image-as-an-asset)
     * [Add a favicon](#add-a-favicon)
     * [Add a header image](#add-a-header-image)
+    * [Add a background image through CSS and Encore](#add-a-background-image-through-CSS-and-Encore)
+    * [Reference built asset images from templates](#reference-built-asset-images-from-templates)
 * [Where to go from here?](#where-to-go-from-here?)
 
 
@@ -641,9 +638,9 @@ In the file `assets/app.js` you should comment out this line.
 import './bootstrap.js';
 ```
 
-Otherwise you need to install a package called "[StimulusBundle: Symfony integration with Stimulus](https://symfony.com/bundles/StimulusBundle/current/index.html)" which is an integration with a JavaScript Ux package.
+Otherwise, you need to install a package called "[StimulusBundle: Symfony integration with Stimulus](https://symfony.com/bundles/StimulusBundle/current/index.html)" which is an integration with a JavaScript Ux package and that is not our current focus.
 
-It should then look like this before you continue.
+It should look like this before you continue.
 
 ```js
 // import './bootstrap.js';
@@ -831,7 +828,7 @@ Now we will add those images to the webpage.
 
 
 
-### Ordinary image as an asset
+### Public image as an asset
 
 Add the image to the page `/about` through the template file `templates/about.html.twig` like an ordinary image. Do also add a link so if the user clicks on the image, then the image is displayed in the browser.
 
@@ -884,22 +881,84 @@ Altogether it might look like this. Well, I did some updates to my base template
 Feel free to update your templates to create the structure you want from the website.
 
 
-<!--
-Assets
-----------------------------
 
-Is this needed?
+### Add a background image through CSS and Encore
+
+Another way to add images to the website is to add them through encore and the `asset/` directory.
+
+Start by adding the following CSS code to your stylesheet.
+
+```css
+body {
+    background: url('../images/background.jpg');
+    background-size: cover;
+}
+```
+
+The stylesheet is built as encore assets. Now try to build the assets.
+
+You should get some error saying that the file can not be found. Add the image as an asset, like this.
 
 ```
-Disable json_manifest_path in
-    me/report/config/packages/webpack_encore.yaml
+# You are in the app directory
+mkdir assets/images/
+cp public/img/background.jpg assets/images/
+```
+
+Now rebuild your assets and then reload your web page. The stylesheet references the image and the build process includes both.
+
+This is another way to add images as static assets, through the stylesheet. This way the images are maintained by the encore scripts and put into the `public/build` directory when built.
+
+Review the content of the `public/build` to see if you can find the image there.
+
+
+
+### Reference built asset images from templates
+
+We shall see how to use the built images from the twig templates. This is good if we allow encore to handle more of our images.
+
+The built images have strange names, something like this.
 
 ```
-framework:
-    assets:
-        #json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
+public/build/images/background.796ca3d8.jpg
 ```
--->
+
+But there is a manifest file `public/build/manifest.json` that translates the image names from their original name to their generated names. It contains entries like this.
+
+```json
+{
+  "build/app.css": "build/app.77be5501.css",
+  "build/app.js": "build/app.3f5ef326.js",
+  "build/images/background.jpg": "build/images/background.796ca3d8.jpg"
+}
+```
+
+To verify that it works we can add an image in one of our twig templates, for example in the about page. Make the twig template for the about page look like this.
+
+```twig
+    <h1>About</h1>
+    <p>An image which can be clicked on.</p>
+    <a href="{{ asset('img/glider.svg') }}">
+        <img src="{{ asset('img/glider.svg') }}" alt="">
+    </a>
+    <img src="{{ asset('build/images/background.jpg') }}" alt="">
+```
+
+You can see from the last line how we address an asset in the build directory through its original name using `asset('build/images/background.jpg')`.
+
+Reload the about page to verify that the image is loaded as expected.
+
+If you want to use this tactic for more images (that are not already used in stylesheets of js-files) then you need to add the following to your `webpack.config.js`.
+
+```
+Encore
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[ext]'
+    })
+```
+
+This will copy any image from the assets directory into the build directory. You can read more on how to let [encore copy files](https://symfony.com/doc/current/frontend/encore/copy-files.html).
 
 
 
