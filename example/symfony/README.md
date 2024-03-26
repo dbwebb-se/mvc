@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2023-03-26": "(C, mos) Upgraded to Symfony version 7.0."
     "2023-03-28": "(B, mos) Work through and very updated."
     "2022-03-27": "(A, mos) First release."
 ---
@@ -18,6 +19,19 @@ You will add a controller that serves responses as web pages using the template 
 
 <!--
 TODO
+
+* Add a logger and use it
+
+* Try using the Symfony demo application? https://github.com/symfony/demo
+
+* Add image with encore?
+
+* Use background image in css with encore?
+
+* Exercise create a form (min, max) that posts to a route generating a random number between min and max.
+
+
+# 2023
 
 * How to send arguments to a route
     * `/api/lucky/number/1/100`
@@ -57,6 +71,7 @@ TODO
     * [Extend a base template](#extend-a-base-template)
 * [Include CSS and JavaScript in the base template](#include-CSS-and-JavaScript-in-the-base-template)
     * [Install Encore](#install-Encore)
+    * [Disable bootstrap.js](#disable-bootstrap.js)
     * [Setup the project using Encore](#setup-the-project-using-Encore)
     * [Add style](#add-style)
     * [Add JavaScript](#add-JavaScript)
@@ -124,7 +139,7 @@ Ok, let's start to install a project skeleton using `composer create-project` in
 This creates a traditional Symfony web application.
 
 ```
-composer create-project symfony/website-skeleton app
+composer create-project symfony/skeleton:"7.0.*" app
 cd app
 ```
 
@@ -331,6 +346,8 @@ Verify that you can match both routes using the command `router:match`.
 * `lucky/number`
 * `lucky/hi`
 
+Do also try a matching route that does not exist and view the error message it produces.
+
 
 
 The controller
@@ -342,14 +359,14 @@ The controller is the C in the design pattern Model View Controller (MVC) and it
 
 ![mvc](.img/mvc.png)
 
-The url has a rout path that is interpreted by the (Symfony) router and it leads to a controller action which has the responsibility to send a response back to the caller. It may take help of model classes and views when creating the response. In the example code above, the controller used no model classes and no views, it just returned the response directly as a web page.
+The url has a route path that is interpreted by the (Symfony) router and it leads to a controller action which has the responsibility to send a response back to the caller. It may take help of model classes and views when creating the response. In the example code above, the controller used no model classes and no views, it just returned the response directly as a web page.
 
 
 
 Add a JSON route
 ----------------------------
 
-When building a RESTFul API or a web service, the server usually provides a JSON response, instead of serving a web pages as the reponse.
+When building a RESTFul API or a web service, the server usually provides a JSON response, instead of serving a web page as the reponse.
 
 Here follows a `/api/lucky/number` version providing the number in a JSON structure instead of a web page. Add the method to your controller.
 
@@ -378,7 +395,7 @@ It can look something like this when displaying the results in a browser.
 
 ![lucky number json](.img/lucky-number-json.png)
 
-You can see that the HTTP response header is saying `application/json` indicating that it the response is a JSON response.
+You can see that the HTTP response header is saying `application/json` indicating that the response is a JSON response.
 
 
 
@@ -412,8 +429,8 @@ Add it alphabetically so it looks like this at the top of the controller class.
 ```php
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyController
@@ -466,8 +483,8 @@ Here is an empty class if you want to start with that.
 
 namespace App\Controller;
 
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LuckyControllerJson
@@ -572,7 +589,7 @@ Twig allows you to include other templates by including them, but a more advance
 
 There is a file `templates/base.html.twig` and if you inspect it you see an html template file defining blocks that can be overridden by a template extending the base template.
 
-Now take your `templates/`lucky_number.html.twig` and rewrite it to look like this.
+Now take your `templates/lucky_number.html.twig` and rewrite it to look like this.
 
 ```twig
 {% extends "base.html.twig" %}
@@ -595,7 +612,7 @@ It can look like this in the browser.
 Include CSS and JavaScript in the base template
 ----------------------------
 
-The base template `templates/base.html.twig` already contains blocks to set up CSS and JavaScript files.
+The base template `templates/base.html.twig` already contain blocks to set up CSS and JavaScript files.
 
 These blocks use the Symfony tool Encore to manage static assets like stylesheets and JavaScripts.
 
@@ -613,6 +630,24 @@ npm install
 ```
 
 You now have the directory `assets/` and the configuration file `webpack.config.js`. Review them both in your editor.
+
+
+
+### .js
+
+In the file `assets/app.js` you should comment out this line.
+
+```js
+import './bootstrap.js';
+```
+
+Otherwise you need to install a package called "[StimulusBundle: Symfony integration with Stimulus](https://symfony.com/bundles/StimulusBundle/current/index.html)" which is an integration with a JavaScript Ux package.
+
+It should then look like this before you continue.
+
+```js
+// import './bootstrap.js';
+```
 
 
 
@@ -678,7 +713,7 @@ export default () => {
 Then include and use the code from the `assets/app.js` like this.
 
 ```javascript
-import hello from './js/hello';
+import hello from './js/hello.js';
 
 console.log(hello())
 ```
@@ -810,6 +845,8 @@ Add the image to the page `/about` through the template file `templates/about.ht
 {% endblock %}
 ```
 
+You can look up the twig function `asset()` in the same docs as the `path()` function.
+
 
 
 ### Add a favicon
@@ -838,9 +875,9 @@ First, we add the header section in the base template `templates/base.html.twig`
 
 The background image is added through the style attribute. That is one of many different ways to do it to deal with referencing an image from a stylesheet construct.
 
-Then add some extra styling through the `asset/css/app.css``.
+Then add some extra styling through the `asset/css/app.css` so you see the background image.
 
-Altogether it might look like this. Well, I did some updates to my base template file and the other template files to make the header span the whole width of the page, so my result might look a bit different from yours.
+Altogether it might look like this. Well, I did some updates to my base template file and the other template files to make the header span the whole width of the page, so my result might look a bit different from yours, but it is related to some changes in the stylesheet.
 
 ![header image](.img/background-image.png)
 
