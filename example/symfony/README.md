@@ -71,7 +71,7 @@ TODO
     * [Extend a base template](#extend-a-base-template)
 * [Include CSS and JavaScript in the base template](#include-CSS-and-JavaScript-in-the-base-template)
     * [Install Encore](#install-Encore)
-    * [Disable bootstrap.js](#disable-bootstrap.js)
+    * [Disable bootstrap.js](#disable-bootstrapjs)
     * [Setup the project using Encore](#setup-the-project-using-Encore)
     * [Add style](#add-style)
     * [Add JavaScript](#add-JavaScript)
@@ -633,7 +633,7 @@ You now have the directory `assets/` and the configuration file `webpack.config.
 
 
 
-### .js
+### Disable bootstrap.js
 
 In the file `assets/app.js` you should comment out this line.
 
