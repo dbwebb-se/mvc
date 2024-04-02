@@ -837,7 +837,7 @@ The page can look like this when the game starts.
 Now we can continue to make the first round and roll the dice.
 
 
-<!-->
+<!--
 Make submit buttons go to own route
 --------------------------
 
