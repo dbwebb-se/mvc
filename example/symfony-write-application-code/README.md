@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2024-04-02": "(C, mos) Walkthrough and minor edits."
     "2023-03-28": "(B, mos) Work through and very updated."
     "2022-03-27": "(A, mos) First release."
 ---
@@ -892,7 +893,7 @@ We update the `initCallback()` and create the dice hand with the correct number 
 The code we add is this.
 
 ```php
-        $diceHand = new DiceHand();
+        $hand = new DiceHand();
         for ($i = 1; $i <= $numDice; $i++) {
             $hand->add(new DiceGraphic());
         }
