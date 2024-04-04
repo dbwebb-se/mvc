@@ -31,6 +31,9 @@ TODO
 
 * debug session
 
+* Eget vendornamn och uppdatera autoloader
+    * https://github.com/dbwebb-se/mvc/issues/63
+
 -->
 
 
