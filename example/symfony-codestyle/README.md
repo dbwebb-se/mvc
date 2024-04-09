@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2024-04-09": "(C, mos) Changed location of config file and installed as --dev."
     "2023-04-03": "(B, mos) Work through and updated."
     "2022-03-27": "(A, mos) First release."
 ---
@@ -15,7 +16,12 @@ This exercise will show you how to get going with formatting your code like a Sy
 
 The tools you are going to install are really useful development tools.
 
+<!--
+TODO
 
+* Do not ignore the complete tools dir.
+
+-->
 
 Precondition
 --------------------------
@@ -66,7 +72,7 @@ The recommendation is to install the tool in the directory `tools/` so it does n
 ```
 # Go to the root of your Symfony app directory
 mkdir --parents tools/php-cs-fixer
-composer require --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
+composer require --dev --working-dir=tools/php-cs-fixer friendsofphp/php-cs-fixer
 ```
 
 Now you can execute the tool like this.
@@ -207,13 +213,13 @@ For the time being, all your source code is in `src/`. But later on, you might a
 
 There is a sample configuration file in [.php-cs-fixer.dist.php](.php-cs-fixer.dist.php) that supports checking the code style in multiple directories.
 
-Copy that file and place it in the root of your project.
+Copy that file and place it in the root of the `tools/php-cs-fixer/` directory.
 
 You can then run the command like this and send in the multiple paths at the end of the command line.
 
 ```
 # In the root of the project dir
-tools/php-cs-fixer/vendor/bin/php-cs-fixer --config=.php-cs-fixer.dist.php fix src tests
+tools/php-cs-fixer/vendor/bin/php-cs-fixer --config=tools/php-cs-fixer/.php-cs-fixer.dist.php fix src tests
 ```
 
 Update the scripts part in `composer.json` before you proceed.
