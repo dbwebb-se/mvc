@@ -22,6 +22,8 @@ The tools you are going to install are really useful development tools that will
 PHPMD - PHP Mess Detector
 --------------------------
 
+![phpmd logo](.img/phpmd.png)
+
 The [PHPMD tool](https://phpmd.org/) is a mess detector warning you when you write "messy" code with potential problems.
 
 The tool works according to a ruleset and it checks that your code follows the rules.  

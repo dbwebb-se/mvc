@@ -48,10 +48,13 @@ You can just add the following line to the `.gitignore` file you have in the roo
 
 ```
 /tools/**/vendor/
+/tools/**/composer.lock
 .php-cs-fixer.cache
 ```
 
-THe second file is a cache file that is generated from the tool, you should not check in that either.
+We also ignore the `composer.lock` file for the development tools.
+
+The third file is a cache file that is generated from the tool, you should not check in that either.
 
 You can then use `git status` to verify that the directory is not shown as a missing directory. It should be silently ignored. 
 
