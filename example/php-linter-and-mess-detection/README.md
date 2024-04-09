@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2024-04-09": "(C, mos) Changed where the config of the linters are stored."
     "2023-04-11": "(B, mos) Work through and updated."
     "2022-03-27": "(A, mos) First release."
 ---
@@ -116,7 +117,7 @@ You can add a configuration file [`phpstan.neon`](phpstan.neon) to the root of y
 You can then execute the linter like this to test the code in all your directories.
 
 ```
-tools/phpstan/vendor/bin/phpstan
+tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon
 ```
 
 It is recommended to use a configuration file.
@@ -170,8 +171,8 @@ Ensure that you are using the configuration file for phpmd and phpstan, or updat
 ```
 {
     "scripts": {
-        "phpmd": "tools/phpmd/vendor/bin/phpmd . text phpmd.xml || true",
-        "phpstan": "tools/phpstan/vendor/bin/phpstan || true",
+        "phpmd": "tools/phpmd/vendor/bin/phpmd . text tools/phpmd/phpmd.xml || true",
+        "phpstan": "tools/phpstan/vendor/bin/phpstan analyse -c tools/phpstan/phpstan.neon || true",
         "lint": [
             "@phpmd",
             "@phpstan"
