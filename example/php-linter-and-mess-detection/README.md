@@ -33,7 +33,7 @@ The recommendation is to install the tool in the directory `tools/` so it does n
 ```
 # Go to the root of your Symfony directory
 mkdir --parents tools/phpmd
-composer require --working-dir=tools/phpmd phpmd/phpmd
+composer require --dev --working-dir=tools/phpmd phpmd/phpmd
 ```
 
 Verify that the tool can be executed.
@@ -60,7 +60,7 @@ You can add a configuration file [`phpmd.xml`](phpmd.xml) to the root of your pr
 You can then execute the linter like this to test the code in all your directories.
 
 ```
-tools/phpmd/vendor/bin/phpmd . text phpmd.xml
+tools/phpmd/vendor/bin/phpmd . text tools/phpmd/phpmd.xml
 ```
 
 It is recommended to use a configuration file.
@@ -69,6 +69,8 @@ It is recommended to use a configuration file.
 
 PHPStan - Find bugs before they reach production
 --------------------------
+
+![phpstan logo](.img/phpstan.png)
 
 [PHPStan](https://phpstan.org/) is a linter tool that tries to "find bugs before they reach production".
 
@@ -79,7 +81,7 @@ The recommendation is to install the tool in the directory `tools/` so it does n
 ```
 # Go to the root of your Symfony directory
 mkdir --parents tools/phpstan
-composer require --working-dir=tools/phpstan phpstan/phpstan
+composer require --dev --working-dir=tools/phpstan phpstan/phpstan
 ```
 
 Verify that the tool can be executed.
