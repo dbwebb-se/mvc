@@ -42,13 +42,16 @@ Start by creating the directory `tools/` in the root of your repo.
 mkdir tools
 ```
 
-You should ignore the directory `tools/` in the file `.gitignore` to avoid checking in these development tools.
+You should ignore the directory `tools/**/vendor/` in the file `.gitignore` to avoid checking in dependencies to these development tools.
 
 You can just add the following line to the `.gitignore` file you have in the root of your repo.
 
 ```
-tools/
+/tools/**/vendor/
+.php-cs-fixer.cache
 ```
+
+THe second file is a cache file that is generated from the tool, you should not check in that either.
 
 You can then use `git status` to verify that the directory is not shown as a missing directory. It should be silently ignored. 
 
