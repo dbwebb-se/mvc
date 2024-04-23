@@ -200,7 +200,7 @@ composer phpunit
 The output can look like this.
 
 ```text
-PHPUnit 10.1.2 by Sebastian Bergmann and contributors.
+PHPUnit 11.1.2 by Sebastian Bergmann and contributors.
 
 Runtime:       PHP 8.2.4 with Xdebug 3.2.0
 Configuration: /home/dbw/me/kmom04/phpunit/phpunit.xml
