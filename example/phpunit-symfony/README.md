@@ -2,13 +2,13 @@
 ---
 author: mos
 revision:
+    "2024-04-23": "(C, mos) Reviewed."
     "2023-04-20": "(B, mos) Reviewed."
     "2022-03-27": "(A, mos) First release."
 ---
-
-![Symfony image](.img/symfony.png)
 -->
 
+![Logo](.img/logo.png)
 
 Run unit tests with PHPUnit in Symfony
 ==========================
@@ -25,12 +25,14 @@ TODO
   * class not found
 -->
 
+
+
 Install PHPUnit
 --------------------------
 
 The tool [PHPUnit](https://phpunit.de/) will help you create and execute unit tests for your code.
 
-Symfony integrates with PHPUnit and we can use composer to install it. Symfony will add their own layer of helpers on top of PHPUnit.
+Symfony integrates with PHPUnit and we can use composer to install it. Symfony will add its own layer of helpers on top of PHPUnit.
 
 ```
 # Go to the root of your Symfony directory
@@ -54,12 +56,12 @@ Symfony adds the PHPUnit configuration file as `phpunit.xml.dist` and it will be
 First test case
 --------------------------
 
-Lets setup the first test suite and execute it. Here are the example code you can use for it. Copy the code to your own installation of symfony.
+Lets setup the first test suite and execute it. Here are the example code you can use for it. Copy the code to your installation of Symfony.
 
 * [`src/Dice/Dice.php`](src/Dice/Dice.php)
 * [`tests/Dice/DiceTest.php`](tests/Dice/DiceTest.php)
 
-Try to execute the test suite.
+Execute the test suite.
 
 ```
 bin/phpunit
@@ -68,15 +70,16 @@ bin/phpunit
 It could look like this showing that the test suite was successfully executed and it contains one test case and two assertions.
 
 ```
-PHPUnit 9.5.20
+PHPUnit 9.6.18 by Sebastian Bergmann and contributors.
 
-Testing
+Testing 
 .                                                                   1 / 1 (100%)
 
-Time: 00:00.038, Memory: 6.00 MB
+Time: 00:00.205, Memory: 8.00 MB
 
-OK (1 test, 2 assertions)
 ```
+
+You have now executed your first unit test within Symfony.
 
 
 
@@ -104,20 +107,25 @@ App\Dice\Dice
   Methods:  66.67% ( 2/ 3)   Lines:  50.00% (  2/  4)
 ```
 
+![coverage as text](.img/coverage-as-text.png)
+
 
 
 ### Code coverage as HTML
 
-We can also generate code coverage as HTML. To do so we update the configuration file `phpunit.xml.dist` with a report instruction on the code coverage.
-
-```
-<report>
-  <clover outputFile="docs/coverage.clover"/>
-  <html outputDirectory="docs/coverage" lowUpperBound="35" highLowerBound="70"/>
-</report>
-```
+We can generate code coverage as HTML. To do so we update the configuration file `phpunit.xml.dist` with a report instruction on the code coverage.
 
 You should place that section within the `<coverage>` and `</coverage>`. You can see a complete configuration filen in [`phpunit.xml.dist`](phpunit.xml.dist).
+
+```xml
+<coverage>
+  ...
+  <report>
+    <clover outputFile="docs/coverage.clover"/>
+    <html outputDirectory="docs/coverage" lowUpperBound="35" highLowerBound="70"/>
+  </report>
+</coverage>
+```
 
 When the test suite is executed and the code coverage reports are generated it might look like this in the output.
 
@@ -127,9 +135,9 @@ Generating code coverage report in Clover XML format ... done [00:00.167]
 Generating code coverage report in HTML format ... done [00:00.060]
 ```
 
-The Clover XML format is easy to use for other tools, for example when you want an external tool to visualize the code coverage report. That is why we included as default of your setup.
+The Clover XML format is easy to use for other tools, for example when you want an external tool to visualize the code coverage report. That is why we include it as the default of your setup.
 
-The HTML report is generated in the directory `docs/coverage`, open it up with your web browser. Find the coverage for the Dice class and try to add another test case with assertions to make it fully covering the class.
+The HTML report is generated in the directory `docs/coverage`, open it up with your web browser. Find the coverage for the Dice class and try to add another test case with assertions to make it fully cover the class.
 
 
 
