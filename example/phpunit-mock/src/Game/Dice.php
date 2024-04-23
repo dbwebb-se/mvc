@@ -31,4 +31,14 @@ class Dice
     {
         return $this->value;
     }
+
+    /**
+     * Get the value of the last roll.
+     *
+     * @return int as value rolled.
+     */
+    public function getValue(): int
+    {
+        return $this->value;
+    }
 }

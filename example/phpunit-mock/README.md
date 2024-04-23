@@ -1,14 +1,30 @@
+<!--
+---
+author: mos
+revision:
+    "2024-04-23": "(B, mos) Reviewed and included in kmom04, upgrader to PHP82 and phpunit 11."
+    "2022-03-27": "(A, mos) First release."
+---
+
+-->
+
+![logo](.img/logo.png)
+
 PHPUnit how to mock object
 ===================================
 
-This is an example on how to mock test objects to ease testing. This shows how a DiceHand uses a mocked Dice object that always returns a 6.
+This is an example of how to mock test objects to ease testing. This shows how a DiceHand uses a mocked Dice object that always returns a 6.
 
-This is documented in the manual "[Chapter 9. Test Doubles](https://phpunit.de/manual/6.5/en/test-doubles.html)".
+This is documented in the manual "[Chapter 9. Test Doubles](https://docs.phpunit.de/en/11.1/test-doubles.html)".
 
 
 
 Get going with the example
 -----------------------------------
+
+If you already have an application, feel free to include the code samples in your working application. Perhaps you already have a `Dice` and `DiceHand` that you can adapt the tests to.
+
+This is how to get going with the example if you do not have such an environment.
 
 First install the environment.
 
@@ -35,9 +51,9 @@ composer clean
 A test case for a mocked Dice
 -----------------------------------
 
-In the file `tests/Game/DiceTest.php` the following test case shows how to create a stubbed object enabling a Dice that always returns a 6.
+In the file [`tests/Game/DiceTest.php`](./tests/Game/DiceTest.php) the following test case shows how to create a stubbed object enabling a Dice that always returns a 6.
 
-```
+```php
 /**
  * Create a mocked object that always returns 6.
  */
@@ -50,8 +66,8 @@ public function testStubRollDiceLastRoll()
     $stub->method('roll')
          ->willReturn(6);
 
-    $exp = 6;
     $res = $stub->roll();
+    $exp = 6;
     $this->assertEquals($exp, $res);
 }
 ```
@@ -63,9 +79,9 @@ This test case is executed when testing the Dice class in isolation.
 A test case for a mocked Dice in DiceHand
 -----------------------------------
 
-In the file `tests/Game/DiceHandTest.php` the following test case shows how to create a stubbed Dice (always returning 6) that is injected to the DiceHand.
+In the file [`tests/Game/DiceHandTest.php`](./tests/Game/DiceHandTest.php) the following test case shows how to create a stubbed Dice (always returning 6) that is injected into the DiceHand.
 
-```
+```php
 /**
  * Stub the dices to assure the value can be asserted.
  */
@@ -96,8 +112,8 @@ This test case is executed when testing the DiceHand class that needs Dice to wo
 Mock, subclass or rewrite the code?
 -----------------------------------
 
-One alternative to using stub objects like above, would be to create a inherited Dice class, pure for test purpose, and inject that into the DiceHand.
+One alternative to using stub objects like above, would be to create an inherited Dice class, pure for test purposes, and inject that into the DiceHand.
 
 Another alternative would be to evaluate if the code could be rewritten to be easier to test.
 
-But, in the case above, it seems like a easy solution to add a stub to make it easier to perform tests of the DiceHand.
+But, in the case above, it seems like an easy solution to add a stub to make it easier to perform tests of the DiceHand.
