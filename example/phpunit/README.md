@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2024-04-23": "(D, mos) Reviewed and upgraded to PHP 82 and PHPUnit 11."
     "2023-04-25": "(C, mos) Reworked."
     "2023-04-20": "(B, mos) Reviewed."
     "2022-03-27": "(A, mos) First release."
@@ -24,9 +25,6 @@ TODO
 * Improve, or is it already too large?
     * Perhaps add another exercise that is optional that covers more advanced topics?
 
-* The mock example 
-    * include ReturnsOnConsecutiveCalls
-    * https://github.com/dbwebb-se/mvc/tree/main/example/phpunit-mock
 * Test class doing print (mock or rewrite)
 * Setup and teardown
 * Test with arrays of values
@@ -34,37 +32,23 @@ TODO
 
 -->
 
+
+
 <!--
-* [A walkthrough](#a-walkthrough)
-* [Prerequisite](#prerequisite)
-* [Get going](#get-going)
-* [The game source code](#the-game-source-code)
-* [Directory structure](#directory-structure)
-* [Executing the test cases](#executing-the-test-cases)
-* [Review the code coverage](#review-the-code-coverage)
-* [Get good code coverage](#get-good-code-coverage)
-* [Review a test case](#review-a-test-case)
-* [More on testing](#more-on-testing)
-* [Summary](#summary)
-* [Excercise](#excercise)
-* [Thoughts](#thoughts)
-* [References](#references)
--->
-
-
 Recording
 -----------------------------------
 
 There is a recording from a Zoom session where Mikael walks you through this exercise.
 
 [![YouTube video image](http://img.youtube.com/vi/T0dLCpoBvs4/0.jpg)](http://www.youtube.com/watch?v=T0dLCpoBvs4 "Kurs mvc kmom04 tisdagsgenomgång, övning phpunit")
+-->
 
 
 
 Prerequisite
 -----------------------------------
 
-You have PHP 8.1 or above (supported by PHPUnit 10) and can execute `php` in the terminal.
+You have PHP 8.2 or above (supported by PHPUnit 11) and can execute `php` in the terminal.
 
 You have composer installed.
 
@@ -131,7 +115,7 @@ Before we proceed, check that you can execute the phpunit command, it is install
 
 ```
 $ vendor/bin/phpunit --version
-PHPUnit 10.1.2 by Sebastian Bergmann and contributors.
+PHPUnit 11.1.2 by Sebastian Bergmann and contributors.
 ```
 
 Your version of phpunit might look different than mine, but it is okay.

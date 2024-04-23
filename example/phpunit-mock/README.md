@@ -17,6 +17,12 @@ This is an example of how to mock test objects to ease testing. This shows how a
 
 This is documented in the manual "[Chapter 9. Test Doubles](https://docs.phpunit.de/en/11.1/test-doubles.html)".
 
+<!--
+TODO
+
+* include ReturnsOnConsecutiveCalls
+-->
+
 
 
 Get going with the example
