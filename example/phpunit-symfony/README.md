@@ -139,6 +139,10 @@ The Clover XML format is easy to use for other tools, for example when you want 
 
 The HTML report is generated in the directory `docs/coverage`, open it up with your web browser. Find the coverage for the Dice class and try to add another test case with assertions to make it fully cover the class.
 
+The report can look like this in your browser.
+
+![coverage as html](.img/coverage-as-html.png)
+
 
 
 Composer scripts
