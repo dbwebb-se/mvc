@@ -2,12 +2,13 @@
 ---
 author: mos
 revision:
+    "2024-04-23": "(C, mos) Reviewed and config moved into tools/phpdoc."
     "2023-04-20": "(B, mos) Reviewed."
     "2022-03-27": "(A, mos) First release."
 ---
-
-![Symfony image](.img/symfony.png)
 -->
+
+![Logo image](.img/phpdoc.png)
 
 Document your PHP code
 ==========================
@@ -54,16 +55,22 @@ tools/phpdoc/phpdoc run -d ./src -t ./docs/api
 
 You can now open a web browser and point it to `docs/api`.
 
+It can look like this when inspecting a class.
+
+![phpdoc for Dice](.img/phpdoc_dice.png)
+
 
 
 ### Configuration file
 
-You can add a configuration file [`phpdoc.xml`](phpdoc.xml) to the root of your project. In the configuration file can you configure the settings used when generating the documentation.
+You can add a configuration file [`phpdoc.xml`](phpdoc.xml) to your project. In the configuration file can you configure the settings used when generating the documentation.
+
+Place the configuration file in `tools/phpdoc/phpdoc.xml` and add it to your git repo.
 
 You can then execute the tool like this.
 
 ```
-tools/phpdoc/phpdoc
+tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml
 ```
 
 
@@ -77,6 +84,14 @@ Add the following line to your file `.gitignore`.
 ```
 .phpdoc/
 ```
+
+
+
+### Git include docs/
+
+You might think that it is good to exclude the docs directory and that is fine. The documentation can be regenerated and should perhaps not be included in the repo. On the other hand, it might be useful to include the docs within the repo to make it easier for the user to get access to it.
+
+Let your use case decide what you do. In this example it is fine to include the `docs/api` into the git repo.
 
 
 
@@ -113,7 +128,7 @@ This is how you can add the scripts.
 ```
 {
     "scripts": {
-        "phpdoc": "tools/phpdoc/phpdoc"
+        "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml"
     }
 }
 ```
