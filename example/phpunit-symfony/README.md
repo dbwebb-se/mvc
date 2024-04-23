@@ -115,6 +115,13 @@ App\Dice\Dice
 
 We can generate code coverage as HTML. To do so we update the configuration file `phpunit.xml.dist` with a report instruction on the code coverage.
 
+```xml
+  <report>
+    <clover outputFile="docs/coverage.clover"/>
+    <html outputDirectory="docs/coverage" lowUpperBound="35" highLowerBound="70"/>
+  </report>
+```
+
 You should place that section within the `<coverage>` and `</coverage>`. You can see a complete configuration filen in [`phpunit.xml.dist`](phpunit.xml.dist).
 
 ```xml
@@ -125,6 +132,12 @@ You should place that section within the `<coverage>` and `</coverage>`. You can
     <html outputDirectory="docs/coverage" lowUpperBound="35" highLowerBound="70"/>
   </report>
 </coverage>
+```
+
+You can now execute the test suite and generate the code coverage report.
+
+```
+XDEBUG_MODE=coverage bin/phpunit
 ```
 
 When the test suite is executed and the code coverage reports are generated it might look like this in the output.
