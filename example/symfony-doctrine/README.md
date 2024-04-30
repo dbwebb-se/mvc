@@ -590,7 +590,7 @@ Create the template file and add the following loop construct to render all the 
 
 
 
-Add custom query in repository
+Add custom query in the repository
 --------------------------
 
 The class `ProductRepository` is the glue between the products and the database and the class is a place where you can add adaptions specific to the products, for example on how to find them.
@@ -606,8 +606,8 @@ Here is a method that finds products according to a where statement. Add it to t
 public function findByMinimumValue($value): array
 {
     return $this->createQueryBuilder('p')
-        ->andWhere('p.value >= :val')
-        ->setParameter('val', $value)
+        ->andWhere('p.value >= :value')
+        ->setParameter('value', $value)
         ->orderBy('p.value', 'ASC')
         ->getQuery()
         ->getResult()
