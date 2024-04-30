@@ -587,7 +587,6 @@ Create the template file and add the following loop construct to render all the 
     {% endfor %}
 </ul>
 ```
--->
 
 
 
