@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2024-04-30": "(C, mos) Reviewed and minor updates to Symfony 7 and adding examples on custom queries."
     "2023-04-27": "(B, mos) Reviewed."
     "2022-03-27": "(A, mos) First release."
 ---
@@ -17,12 +18,11 @@ This exercise will show you how to get going with the Doctrine ORM framework to 
 <!--
 TODO
 
-* Add sample on how to print out products in a view (sample exists below)
+* Enhance section on custom queries.
+    * How to write native SQL and Doctrine QL.
 
 * Perhaps in own article
-    * Add code samples on "Build custom queries into Repository object", the repository object contains sample code that is commented out and can be used for an example.
     * How to work with relations.
-    * How to write native SQL, Doctrine QL, Query builder.
 
 * How to reinit database?
 
@@ -31,7 +31,7 @@ TODO
 -->
 
 
-
+<!-- Before Symfony 7
 A walkthrough
 -----------------------------------
 
@@ -44,13 +44,14 @@ The first video deals with setting up and creating the database and the base for
 The second video deals with CRUD methods in the controller and how to work with the entity class, the repository class and the Doctrine entity manager.
 
 [![YouTube video image](http://img.youtube.com/vi/vqqpae3vyPA/0.jpg)](http://www.youtube.com/watch?v=vqqpae3vyPA "Del 2")
+-->
 
 
 
 Preconditions
 --------------------------
 
-You have access to a Symfony app where you can perform this exercise within.
+You have access to a Symfony web app.
 
 
 
@@ -162,7 +163,7 @@ Run the command to create the product entity class.
 php bin/console make:entity
 ```
 
-Create a class called Product with two fields.
+Create a class called Product. Use the proposed defaults. Add two fields to the class with property name and type.
 
 * name:string
 * value:int
@@ -447,6 +448,7 @@ It can look like this when a product is removed.
 Remember that methods that update the state and the database should really be POST and not GET. This method was just simpler to implement to show how to work with Doctrine to update the database.
 
 
+<!-- Does not work with Symfony 7, the code is not generated in the Repository class
 
 ### Alternate implementation
 
@@ -472,9 +474,10 @@ The above code used the `ManagerRegistry` as its implementation, you can reduce 
     }
 ```
 
-Compare the two implementations and you might see that the secod one slighly reduces the code complexity.
+Compare the two implementations and you might see that the second one slighly reduces the code complexity.
 
 Go into the implementation of `$productRepository->remove($product, true);` to verify what the second argument does.
+-->
 
 
 
@@ -521,7 +524,7 @@ This is the result.
 The route edited the product entry and redirected to the result page showing the products.
 
 
-
+<!-- Not in Symfony 7
 ### Alternative implementation
 
 The above code used the `ManagerRegistry` as its implementation, you can reduce the code by using the `ProductRepository` instead. Review the following code and update your implementation to use it instead.
@@ -549,38 +552,137 @@ The above code used the `ManagerRegistry` as its implementation, you can reduce 
 ```
 
 Compare the two implementations and you might see that the second one slightly reduces the code complexity.
+-->
 
 
 
-<!--
-Print all products in a view
+Render all products in a view
 --------------------------
 
 This is how you can get and print all products in a Twig view.
 
+Start with a route that renders the results into a Twig view.
+
 ```php
-    #[Route('/product/view', name: 'product_view_all')]
-    public function viewAllProduct(
-        ProductRepository $productRepository
-    ): Response {
-        $products = $productRepository->findAll();
+#[Route('/product/view', name: 'product_view_all')]
+public function viewAllProduct(
+    ProductRepository $productRepository
+): Response {
+    $products = $productRepository->findAll();
 
-        $data = [
-            'products' => $products
-        ];
+    $data = [
+        'products' => $products
+    ];
 
-        return $this->render('product/view.html.twig', $data);
-    }
+    return $this->render('product/view.html.twig', $data);
+}
 ```
+
+Create the template file and add the following loop construct to render all the products into the view.
 
 ```twig
-    <ul>
-        {% for product in products %}
-            <li>{{ product.getName|e }} ({{ product.getId|e }}) {{ product.getValue|e }}</li>
-        {% endfor %}
-    </ul>
+<ul>
+    {% for product in products %}
+        <li>{{ product.getName|e }} ({{ product.getId|e }}) {{ product.getValue|e }}</li>
+    {% endfor %}
+</ul>
 ```
 -->
+
+
+
+Add custom query in repository
+--------------------------
+
+The class `ProductRepository` is the glue between the products and the database and the class is a place where you can add adaptions specific to the products, for example on how to find them.
+
+Here is a method that finds products according to a where statement. Add it to the `ProductRepository`.
+
+```php
+/**
+ * Find all producs having a value above the specified one.
+ * 
+ * @return Product[] Returns an array of Product objects
+ */
+public function findByMinimumValue($value): array
+{
+    return $this->createQueryBuilder('p')
+        ->andWhere('p.value >= :val')
+        ->setParameter('val', $value)
+        ->orderBy('p.value', 'ASC')
+        ->getQuery()
+        ->getResult()
+    ;
+}
+```
+
+Then add this route callback that uses the method to display all products having the minimum value.
+
+```php
+#[Route('/product/view/{value}', name: 'product_view_minimum_value')]
+public function viewProductWithMinimumValue(
+    ProductRepository $productRepository,
+    int $value
+): Response {
+    $products = $productRepository->findByMinimumValue($value);
+
+    $data = [
+        'products' => $products
+    ];
+
+    return $this->render('product/view.html.twig', $data);
+}
+```
+
+This was an example pn how you can extend your code related to the database by adding it to ProductRepository class. This example used the Query Builder to query the database. Lets review the same example by using pure SQL instead.
+
+
+
+### Use SQL in the query
+
+We can rewrite the query using standard SQL instead of using the Query Builder. When using SQL you will get a raw resultset in the form of an array of arrays.
+
+This is how it can look in the `ProductRepository`.
+
+```php
+/**
+ * Find all producs having a value above the specified one with SQL.
+ * 
+ * @return [][] Returns an array of arrays (i.e. a raw data set)
+ */
+public function findByMinimumValue2($value): array
+{
+    $conn = $this->getEntityManager()->getConnection();
+
+    $sql = '
+        SELECT * FROM product AS p
+        WHERE p.value >= :value
+        ORDER BY p.value ASC
+    ';
+
+    $resultSet = $conn->executeQuery($sql, ['value' => $value]);
+
+    return $resultSet->fetchAllAssociative();
+}
+```
+
+To try it out we use the following controller action.
+
+```php
+#[Route('/product/show/min/{value}', name: 'product_by_min_value')]
+public function showProductByMinimumValue(
+    ProductRepository $productRepository,
+    int $value
+): Response {
+    $products = $productRepository->findByMinimumValue2($value);
+
+    return $this->json($products);
+}
+```
+
+Try out the code in the `ProductRepository` to verify that it works as expected.
+
+You can read more on how to add these queries to the repository class in the documentation "[Querying for Objects: The Repository](https://symfony.com/doc/current/doctrine.html#querying-for-objects-the-repository)".
 
 
 
@@ -614,7 +716,7 @@ If you want to add more custom queries into the ProductRepository object you can
 * [Doctrine Query Language](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/dql-doctrine-query-language.html) (almost like SQL but for objects)
 * [Query builder](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/query-builder.html) (build queries through methods)
 * [Native SQL](https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/native-sql.html) (execute SQL and map results to entities)
-* Standard SQL
+* Standard SQL with raw resultsets
 
 You can read more on these different types of techniques and how to extend the ProductRepository with more methods in the article section "[Querying for Objects: The Repository](https://symfony.com/doc/current/doctrine.html#querying-for-objects-the-repository)".
 
