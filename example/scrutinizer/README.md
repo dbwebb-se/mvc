@@ -20,7 +20,6 @@ This exercise will show you how to integrate your git repository with the extern
 TODO
 
 * .env.scrutinizer link to the resource to read.
-* Update example repo to (8.2) and docs/coverage.clover
 -->
 
 
