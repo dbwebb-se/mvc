@@ -1,12 +1,12 @@
 {
     "includes": [
-        "src"
+        "../../src"
     ],
     "exclude": [
-      "test[s]?"
+      "../../test[s]?"
     ],
     "report": {
-        "html": "docs/metrics"
+        "html": "../../docs/metrics"
     },
     "plugins": {
         "git": {

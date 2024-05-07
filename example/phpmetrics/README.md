@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2024-05-07": "(D, mos) Move config file to tools/phpmetrics."
     "2023-05-11": "(C, mos) Add phpunit integration."
     "2023-05-09": "(B, mos) Reviewed."
     "2022-03-27": "(A, mos) First release."
@@ -30,7 +31,7 @@ The tool [phpmetrics](https://phpmetrics.github.io/website/) will read your sour
 
 The recommendation is to install the tool in the directory `tools/` so it does not conflict with your application.
 
-We will use the tool wget to download a PHAR containing the tool in one PHP executable.
+This is how to install the tool.
 
 ```
 # Go to the root of your Symfony directory
@@ -83,14 +84,14 @@ Try to analyze your code and find at least values for the following metrics.
 * Coupling (Afferent and Efferent)
 * Cyclomatic complexity
 
-Did your code contain any "Violations"? That is bad code and is usually detected by linters.
+Did your code contain any "Violations"? Those are code smells and they are usually detected by statical linters such as phpmd and phpstan.
 
 
 
 Metrics report by HTML
 --------------------------
 
-You can generate an HTML report which contains more details and makes it easier to analyze your code.
+You can generate an HTML report that contains more details and makes it easier to analyze your code.
 
 ```
 tools/phpmetrics/vendor/bin/phpmetrics --report-html=docs/metrics src
@@ -113,17 +114,19 @@ You can add a configuration file to make it easier to run phpmetrics with variou
 
 ```
 # You are in the root of the course repo
-cp example/phpmetrics/phpmetrics.json me/report
+cp example/phpmetrics/phpmetrics.json me/report/tools/phpmetrics
 
 # Or you are in the me/report directory
-cp ../../example/phpmetrics/phpmetrics.json .
+cp ../../example/phpmetrics/phpmetrics.json tools/phpmetrics
 ```
 
 You can then execute the command like this to use the configuration file.
 
 ```
-tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json
+tools/phpmetrics/vendor/bin/phpmetrics --config=tools/phpmetrics/phpmetrics.json
 ```
+
+Continue to the next section if you get an issue with JUnit.
 
 
 
@@ -140,7 +143,9 @@ You need to add the following in the phpunit configuration file so it generates 
     </logging>
 ```
 
-Then run your unit tests again and then generate the metrics report again.
+Run your unit tests and the logfile should be generated. Verify by finding and opening the generated file in your text editor.
+
+You can now generate the metrics report and review the section on "Assertions in tests" and view details of the unit tests.
 
 
 
@@ -154,7 +159,7 @@ This is how you can add the scripts.
 ```
 {
     "scripts": {
-        "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=phpmetrics.json"
+        "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=tools/phpmetrics/phpmetrics.json"
     }
 }
 ```
