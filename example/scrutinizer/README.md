@@ -9,7 +9,7 @@ revision:
 
 -->
 
-![Logo](.img/front.png)
+![Logo](img/front.png)
 
 Integrate your repo with Scrutinizer
 ==========================
