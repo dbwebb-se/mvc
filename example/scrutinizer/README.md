@@ -7,9 +7,9 @@ revision:
     "2022-03-27": "(A, mos) First release."
 ---
 
-![Doctrine logo](.img/logo.png)
-
 -->
+
+![Logo](.img/front.png)
 
 Integrate your repo with Scrutinizer
 ==========================
