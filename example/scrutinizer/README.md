@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2024-05-07": "(C, mos) Configuraiton file updated to PHP 8.3.3."
     "2023-05-09": "(B, mos) Reviewed and updated."
     "2022-03-27": "(A, mos) First release."
 ---
@@ -46,7 +47,7 @@ Get a Scrutinizer account
 
 You need to create an account at the Scrutizer service, you can use your GitHub account to sign up.
 
-The Scrutinizer service provides free builds for open source projects so it will be free of charge to use it.
+The Scrutinizer service provides free builds for public open source projects so it will be free of charge to use it.
 
 
 
@@ -68,7 +69,7 @@ composer phpstan
 composer phpunit
 ```
 
-You should ensure that phpmd and phpstan pass before you connect your repo with Scrutinizer. That will help you get the best results from Scrutinizer.
+You should ensure that phpmd and phpstan can execute before you connect your repo with Scrutinizer. It is fine if they can execute, even if they generate linter warnings.
 
 You should also ensure that the unit tests pass and the coverage file is generated.
 
@@ -86,7 +87,7 @@ Now you are prepared.
 Configuration file `.scrutinizer.yml`
 --------------------------
 
-Now you add a configuration file for Scrutinizer to your repo. This [`.scrutinizer.yml`](.scrutinizer.yml) will decide what Scrutinizer will do with your repo.
+Add a configuration file for Scrutinizer to your repo. The configuration file [`.scrutinizer.yml`](.scrutinizer.yml) will decide what Scrutinizer will do with your repo.
 
 You can copy the sample configuration file like this.
 
@@ -102,7 +103,7 @@ You should open the configuration file and inspect it in your text editor.
 
 Some parts of your repo can be ignored by configuring `excluded_paths`.
 
-The example configuration file will not run your linters since `tools/` are not part of the repo. Scrutinizer has its own set of linters that will be run to analyze the code.
+The example configuration file will not run your linters in the `tools/` directory. Scrutinizer has its own set of linters that will be run to analyze the code.
 
 The example configuration file will run your test suite using the command `composer phpunit`.
 
@@ -110,7 +111,7 @@ You can read more on the [Scrutinizer configuration file for PHP](https://scruti
 
 The format of the configuration file is [YAML](https://en.wikipedia.org/wiki/YAML).
 
-You can provide a `.env.scrutinizer` if you want a specific setup for the Scrutinizer tests. That way you can set up different settings for the database depending on its environment.
+You can provide a file `.env.scrutinizer` if you want a specific setup for the Scrutinizer tests. That way you can set up different settings for the database depending on its environment.
 
 
 
@@ -119,7 +120,11 @@ Connect the repo to Scrutinizer
 
 Ensure that you have committed the configuration file `.scrutinizer.yml` to your repo and that you have pushed it to GitHub/GitLab.
 
+<!-- Pre 2024
 Here is an example repo having the configuration file [`.scrutinizer.yml`](https://github.com/mosbth/mvc-report/blob/main/.scrutinizer.yml).
+-->
+
+Here is an example repo having the configuration file [`.scrutinizer.yml`](https://github.com/mosbth/mvc-2024-scrutinizer/blob/main/.scrutinizer.yml).
 
 You can now add a connection to your repo. There is usually a + button on the top right of the page to "add a repository" at the Scrutinizer web.
 
@@ -162,3 +167,12 @@ These are the current badges from my example project.
 [![Build Status](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/build.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/build-status/main) [![Code Coverage](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/?branch=main) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/?branch=main)
 
 You can click on the badges to reach the reports on Scrutinizer.
+
+
+<!--
+More about Scrutinizer
+--------------------------
+
+https://scrutinizer-ci.com/docs/guides/php/
+
+-->
