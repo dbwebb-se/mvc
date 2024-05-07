@@ -144,7 +144,7 @@ The first (or latest) build
 
 If everything is green you will have the report from your first build available to inspect. Scrutinizer prepares a lot of details from analyzing your code. Check out the results for your code and check if you can see some quality metrics.
 
-You can inspect the [latest build of my example project](https://scrutinizer-ci.com/g/mosbth/mvc-report/).
+You can inspect the [latest build of my example project `mvc-2024-scrutinizer`](https://scrutinizer-ci.com/g/mosbth/mvc-2024-scrutinizer/).
 
 If your build fails, then check out the output from the build and try to find out what happened. You will usually get some verbose error message on what went wrong.
 
@@ -161,11 +161,11 @@ Get the badges
 
 You should now get the badges for build status, code coverage and code quality and add them to the `README.md` of your project. Click the info button next to the badge to get the Markdown code to use in your README to display the badge.
 
-You can see [my example project README.md](https://github.com/mosbth/mvc-report/blob/main/README.md) how it can look like.
+You can see [my example project `mvc-2024-scrutinizer` README.md](https://github.com/mosbth/mvc-2024-scrutinizer/blob/main/README.md) how it can look like.
 
 These are the current badges from my example project.
 
-[![Build Status](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/build.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/build-status/main) [![Code Coverage](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/?branch=main) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mosbth/mvc-report/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-report/?branch=main)
+[![Build Status](https://scrutinizer-ci.com/g/mosbth/mvc-2024-scrutinizer/badges/build.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-2024-scrutinizer/build-status/main) [![Code Coverage](https://scrutinizer-ci.com/g/mosbth/mvc-2024-scrutinizer/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-2024-scrutinizer/?branch=main) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/mosbth/mvc-2024-scrutinizer/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/mosbth/mvc-2024-scrutinizer/?branch=main)
 
 You can click on the badges to reach the reports on Scrutinizer.
 
