@@ -20,6 +20,8 @@ This exercise will show you how to integrate your git repository with the extern
 TODO
 
 * .env.scrutinizer link to the resource to read.
+* Write more about how scrutinizer works and the difference in code stats and devops to production
+
 -->
 
 
