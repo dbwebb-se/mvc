@@ -9,7 +9,7 @@ Projekt
 - K5:         0 (10p)
 - K6:         0 (10p)
 -------------------
-TOTALT:   60 (60p)
+TOTALT:   30 (60p)
 
 me/report: OK
 
