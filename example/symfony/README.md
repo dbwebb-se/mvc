@@ -769,6 +769,60 @@ Reload the page and verify that the navbar works. Perhaps you would like to add 
 
 
 
+Use Symfony development server locally
+----------------------------
+
+We shall now change how we run the local web development server and we will use the one supplied by the Symfony CLI-tool. Start by installing the `symfony-cli`. You can read about the install options in [Symfony Local Web Server](https://symfony.com/download).
+
+<details><summary>Bash Windows WSL/Linux</summary>
+
+```bash
+curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
+sudo apt install symfony-cli
+```
+
+</details>
+
+<details><summary>macOS</summary>
+
+```bash
+brew install symfony-cli/tap/symfony-cli
+```
+
+</details>
+
+Then we can start the Symfony local web server, like this. [Read more on the Symfony server in the docs](https://symfony.com/doc/current/setup/symfony_server.html).
+
+```bash
+symfony server:start
+```
+
+You can reach it through `http://127.0.0.1:8000`.
+
+You can avoid some error messages if you opt to install the certificates to enable https. THis is how you do that.
+
+<details><summary>Bash Windows WSL/Linux</summary>
+
+```bash
+sudo apt install libnss3-tools
+symfony server:ca:install
+```
+
+</details>
+
+<details><summary>macOS</summary>
+
+```bash
+brew install nss
+symfony server:ca:install
+```
+
+</details>
+
+Now try to restart the Symfony server and connect to the website using https instead at `https://127.0.0.1:8000/`.
+
+
+
 Show images
 ----------------------------
 
@@ -844,59 +898,6 @@ Altogether it might look like this. Well, I did some updates to my base template
 ![header image](.img/background-image.png)
 
 Feel free to update your templates to create the structure you want from the website.
-
-
-
-### Use Symfony development server locally
-
-We shall now change how we run the local web development server and we will use the one supplied by the Symfony CLI-tool. Start by installing the `symfony-cli`. You can read about the install options in [Symfony Local Web Server](https://symfony.com/download).
-
-<details><summary>Bash Windows WSL/Linux</summary>
-
-```bash
-curl -1sLf 'https://dl.cloudsmith.io/public/symfony/stable/setup.deb.sh' | sudo -E bash
-sudo apt install symfony-cli
-```
-
-</details>
-
-<details><summary>macOS</summary>
-
-```bash
-brew install symfony-cli/tap/symfony-cli
-```
-
-</details>
-
-Then we can start the Symfony local web server, like this. [Read more on the Symfony server in the docs](https://symfony.com/doc/current/setup/symfony_server.html).
-
-```bash
-symfony server:start
-```
-
-You can reach it through `http://127.0.0.1:8000`.
-
-You can avoid some error messages if you opt to install the certificates to enable https. THis is how you do that.
-
-<details><summary>Bash Windows WSL/Linux</summary>
-
-```bash
-sudo apt install libnss3-tools
-symfony server:ca:install
-```
-
-</details>
-
-<details><summary>macOS</summary>
-
-```bash
-brew install nss
-symfony server:ca:install
-```
-
-</details>
-
-Now try to restart the Symfony server and connect to the website using https instead at `https://127.0.0.1:8000/`.
 
 
 
