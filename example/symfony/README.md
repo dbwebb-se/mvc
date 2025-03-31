@@ -2,7 +2,8 @@
 ---
 author: mos
 revision:
-    "2023-03-26": "(C, mos) Upgraded to Symfony version 7.0."
+    "2025-03-31": "(D, mos) Updated to Symfony version 7.2."
+    "2024-03-26": "(C, mos) Upgraded to Symfony version 7.0."
     "2023-03-28": "(B, mos) Work through and very updated."
     "2022-03-27": "(A, mos) First release."
 ---
@@ -20,13 +21,17 @@ You will add a controller that serves responses as web pages using the template 
 <!--
 TODO
 
+* Run web server through the symfony tool
+
+* Exercise create a form (min, max) that posts to a route generating a random number between min and max.
+
+# 2024
+
 * Add a logger and use it to debug
 
 * Try using the Symfony demo application? https://github.com/symfony/demo
 
 * Add image with encore and use through asset()?
-
-
 
 # 2023
 
@@ -116,7 +121,8 @@ It is assumed that you are working in the course repository.
 
 Start by copying the code for this exercise to your directory.
 
-```
+```bash
+
 # Go to the root of the course repo
 rsync -av example/symfony me/kmom01
 cd me/kmom01/symfony
@@ -135,8 +141,8 @@ Ok, let's start to install a project skeleton using `composer create-project` in
 
 This creates a traditional Symfony web application.
 
-```
-composer create-project symfony/skeleton:"7.0.*" app
+```bash
+composer create-project symfony/skeleton:"7.2.*" app
 cd app
 ```
 
@@ -146,7 +152,7 @@ The directory `vendor/` is the place where all the downloaded files will be inst
 
 You can now use composer to complete the installation of the web application.
 
-```
+```bash
 composer require webapp
 ```
 
@@ -156,7 +162,7 @@ If you get any questions during the installation procedure, just answer with the
 
 You can check what packages are installed and what versions.
 
-```
+```bash
 composer show
 ```
 
@@ -171,7 +177,7 @@ Let's start the application to verify that it works.
 
 You can open the PHP built-in web server to verify the installation.
 
-```
+```bash
 # You are in the app/ directory
 php -S localhost:8888 -t public
 ```
@@ -960,6 +966,8 @@ Encore
 
 This will copy any image from the assets directory into the build directory. You can read more on how to let [encore copy files](https://symfony.com/doc/current/frontend/encore/copy-files.html).
 
+You may get an error saying you should install the npm package `file-loader`, do so if it appears.
+
 
 
 Where to go from here?
@@ -981,6 +989,3 @@ You might also find it useful to read up a bit more on Twig.
 
 * [Twig for Template Designers](https://twig.symfony.com/doc/3.x/templates.html)
 
-<!--
-Exercise create a form (min, max) that posts to a route generating a random number between min and max.
--->
