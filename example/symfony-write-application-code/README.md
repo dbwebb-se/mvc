@@ -71,10 +71,15 @@ All example code is saved in the directory `app/` so you can look at it or copy 
 
 You can also work through this exercise step by step, to set up the basics of the application.
 
+You can work within your existing Symfony installation, you do not install a new Symfony application.
+
+<details>
+<summary>How to install a new Symfony app</summary>
+
 Here is a shortcut to creating a new Symfony app where you can write your code.
 
 ```text
-composer create-project symfony/website-skeleton app
+composer create-project symfony/skeleton:"7.2.*" app
 cd app
 composer require webapp
 ```
@@ -98,6 +103,8 @@ bin/console cache:clear
 * /build to build
 * Change to main in the base template
 -->
+
+</details>
 
 There is a video where Mikael shows how to set up your own copy of the code used in this exercise, step by step (in Swedish).
 
