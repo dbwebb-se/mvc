@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2025-04-08": "(D, mos) Walkthrough and minor edits."
     "2024-04-02": "(C, mos) Walkthrough and minor edits."
     "2023-03-28": "(B, mos) Work through and very updated."
     "2022-03-27": "(A, mos) First release."
@@ -21,15 +22,12 @@ The exercise starts by creating application classes `Dice`, `DiceGraphic` and `D
 <!--
 TODO
 
-* MVC?
-* komposition
+* querystring
+* add a counter to show the number of rounds
+* debug & reset session
 * Win the game
 * Disable buttons depending on state
-* querystring
-* dicehand composition
-* add a counter to show the number of rounds
-
-* debug session
+* MVC?
 
 * Eget vendornamn och uppdatera autoloader
     * https://github.com/dbwebb-se/mvc/issues/63
@@ -74,7 +72,7 @@ You can also work through this exercise step by step, to set up the basics of th
 You can work within your existing Symfony installation, you do not install a new Symfony application.
 
 <details>
-<summary>How to install a new Symfony app</summary>
+<summary>How to install a new Symfony app (as reference)</summary>
 
 Here is a shortcut to creating a new Symfony app where you can write your code.
 
