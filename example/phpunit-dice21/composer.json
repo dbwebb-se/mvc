@@ -1,21 +1,26 @@
 {
-    "name": "mos/phpunit-test",
+    "name": "grm/phpunit-dice21",
     "description": "To start get going with unittesting and phpunit.",
     "license": "MIT",
     "authors": [
             {
-                "name": "Mikael Roos",
-                "email": "mos@dbwebb.se"
+                "name": "Marie Grahn",
+                "email": "grm@bth.se"
             }
     ],
     "autoload": {
         "psr-4": {"Grm\\": "src/"}
     },
     "scripts": {
+        "clean": "rm -rf build .phpunit.result.cache .phpunit.cache",
+        "clean-all": [
+            "@clean",
+            "rm -rf vendor composer.lock"
+        ],
         "phpunit": "XDEBUG_MODE=coverage vendor/bin/phpunit"
     },
     "require-dev": {
-        "php": "^8.0",
-        "phpunit/phpunit": "^9"
+        "php": "^8.2",
+        "phpunit/phpunit": "^11"
     }
 }
