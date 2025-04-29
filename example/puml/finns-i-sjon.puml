@@ -1,0 +1,28 @@
+@startuml
+
+start
+
+:Spelare drar kort från leken;
+
+if (Finns kort kvar i leken?) then (Ja)
+    :Fråga en annan spelare efter ett kort;
+    if (Har spelaren det begärda kortet?) then (Ja)
+        :Spelaren får kortet;
+    else (Nej)
+        :Spelaren drar ett kort från leken;
+    endif
+else (Nej)
+    :Spelet avslutas;
+    stop
+endif
+
+if (Fyra kort av samma valör?) then (Ja)
+    :Lägg undan kvartetten;
+else (Nej)
+    :Nästa spelare får sin tur;
+    back to start 
+
+endif
+
+@enduml
+
