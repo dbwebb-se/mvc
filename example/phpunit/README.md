@@ -2,6 +2,7 @@
 ---
 author: mos
 revision:
+    "2025-04-29": "(E, mos) Reviewed, spell chekced, verify it works for php 8.3."
     "2024-04-23": "(D, mos) Reviewed and upgraded to PHP 82 and PHPUnit 11."
     "2023-04-25": "(C, mos) Reworked."
     "2023-04-20": "(B, mos) Reviewed."
@@ -49,6 +50,8 @@ Prerequisite
 -----------------------------------
 
 You have PHP 8.2 or above (supported by PHPUnit 11) and can execute `php` in the terminal.
+
+For other versions of PHP you might want to check out [the list of supported versions for PHPUnit](https://phpunit.de/supported-versions.html).
 
 You have composer installed.
 
@@ -396,7 +399,7 @@ Use many small test methods, testing specific areas. Name these methods with pro
 Add unit tests Dice
 -----------------------------------
 
-To practice we can add a test class `TestDice.php` for the source class `Dice`.
+To practice we can add a test class `DiceTest.php` for the source class `Dice`.
 
 
 
@@ -467,7 +470,7 @@ A risky test can be a test that has no assertion. We can add an assertion that t
 
 ![dice method](.img/dice-method.png)
 
-Is there something else we can assert with an empty object like this? Well, we can assert what the initial dice value is. looking at the source code we can see that the value is `null` when the dice is not rolled.
+Is there something else we can assert with an empty object like this? Well, we can assert what the initial dice value is. Looking at the source code we can see that the value is `null` when the dice is not rolled.
 
 We update the test method like this.
 
